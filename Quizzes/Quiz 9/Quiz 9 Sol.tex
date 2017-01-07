@@ -1,0 +1,38 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\title{Discrete Mathematics, Sect 002, 2016 Fall - Quiz 9}
+\author{Name:}
+\institute{Courant Institute of Mathematical Sciences, NYU}
+
+\newtheorem*{proposition}{Proposition}
+
+
+
+\begin{document}
+
+\maketitle
+
+This quiz is scheduled for 15 minutes. No outside notes or calculators are permitted. To get full credit  in all of the problems, use rigorous justification and unless otherwise indicated, make sure that your solution reads as a perfect English sentence. You should only assume the notion of integers, operations, order relations and geometrical objects as given. If you use a statement or a definition from the textbook, make sure to indicate it.
+\vspace{0.2cm}
+
+\begin{enumerate}
+\item(10 points) Compute the reciprocal of $5$ in $\mathbb{Z}_7$.
+
+Since $7 = 5 + 2$ and $5= 2\cdot 2 +1$ we can write
+\[
+1=5-2\cdot 2=5-2\cdot(7-5)=3\cdot 5-2\cdot 7
+\]
+and therefore $5^{-1}=3$.
+
+\vspace{5cm}
+\item (10 points)  Solve the equation $5\otimes x=3$ in $\mathbb{Z}_7$.
+\[
+x = 5^{-1}\otimes(5\otimes x)=3\otimes 3 = 2
+\]
+\end{enumerate}
+\end{document}

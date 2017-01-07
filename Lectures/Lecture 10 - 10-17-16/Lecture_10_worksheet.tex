@@ -1,0 +1,67 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 10}
+\date{October 17, 2016}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Please state the contrapositive of each of the following statements:
+\enumb
+\item If $x$ is odd, then $x^2$ is odd.
+\item If $x$ is non-zero, then $x^2$ is positive.
+\enume
+
+\item  Prove by the contrapositive method that if $a$ does not divide $b$, then the equation $ax^2+bx+b-a=0$ has no positive integer solution for $x$.
+
+\item For each of the following statements, write the first sentences of a proof by contradiction (do not attempt to complete the proofs). Please use the phrase ``for the sake of contradiction''.
+\enumb
+ \item If $A\subseteq B$ and $B\subseteq C$, then $A\subseteq C$.
+ \item The sum of two negative integers is a negative integer.
+ \item If the square of a rational number is an integer, then the rational number must also be an integer.
+\enume
+
+\item Prove the following statements by contradiction.
+\enumb
+\item Consecutive integers cannot be both even.
+\item Consecutive integers cannot be both odd.
+\item If the sum of two primes is prime, then one of the primes must be $2$ (you may assume that every integer is either even or odd, but never both.)
+\item Suppose $n$ is an integer that is divisible by $4$. Then $n+2$ is not divisible by $4$.
+\item Let $A$ and $B$ be sets. Then $(A-B)\cap (B-A)=\emptyset$.
+\enume
+
+\item Prove by the method of smallest counterexample that $1+2+3+\dots+n=n(n+1)/2$ for all positive integer $n$.
+\item Prove by the method of smallest counterexmaple that $n<2^n$ for all $n\in \mathbb{N}$.
+\item Prove by the method of smallest counterexmaple that when $a\neq 0,1$, then
+\[
+a^0+a^1+a^2+\dots+a^n=\frac{a^{n+1}-1}{a-1},\qquad\forall n\in\mathbb{N}.
+\]
+ \item For all integers $n\geq 5$, we have $2^n>n^2$.
+\enume
+
+\end{document}

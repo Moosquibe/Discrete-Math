@@ -1,0 +1,109 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+
+
+\newtheorem{proposition}{Proposition}
+
+\title{Discrete Mathematics, 2016 Spring - Worksheet 4}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\begin{enumerate}
+
+\item Solve the equation $n!=720$ for $n$.
+
+\item There are six different French books, eight different Russian books and five different Spanish books.
+
+\begin{enumerate}
+\item In how many different ways can these books be arranged on a bookshelf?
+\item In how many different ways can these books be arranged if all books in the same language are grouped together?
+\end{enumerate}
+
+
+\item Calculate the following products:
+\begin{enumerate}
+\item $\prod_{k=1}^4(2k+1)$
+\item $\prod_{k=1}^n\frac{1}{k}$
+\end{enumerate}
+
+\item Can factorial be extended to negative integers? Think about the formula $n!=n(n-1)!$. What would be the value of $(-1)!$?
+
+\item Write out the following sets by listing their elements between curly braces and find their cardinality.
+\begin{enumerate}
+\item $\{x\in\mathbb{N}: x\leq 10$ and $3|x\}$
+\item $\{x\in\mathbb{Z}: x$ is a prime and $2|x\}$ 
+\item $\{x\in\mathbb{Z}: 10|x$ and $x|100\}$
+\item $\{x\in\mathbb{Z}: 1\leq x^2\leq 2\}$
+\end{enumerate}
+
+\item For each of the following sets, find a way to rewrite the set using set builder notation.
+\begin{enumerate}
+\item $\{1,2,3,4,5,6,7,8,9,10\}$
+\item $\{-8,-6,-4,-2,0,2,4,6,8\}$
+\item $\{1,4,9,16,25,36,49,64,81,100\}$
+\end{enumerate}
+
+\item
+\enumb
+\item Let $A=\{x\in\mathbb{Z}:4|x\}$ and let $B=\{x\in\integers:2|x\}$.  Prove that $A\subseteq B$.
+\item Generalize the previous problem. Let $a,b\in\integers$ and let
+\[
+A=\{x\in\integers:a|x\},\qquad B=\{x\in\integers: b|x\}.
+\]
+Find and prove a necessary and sufficient conditions for $A\subseteq B$. In other words, find and prove a theorem of the form
+\[
+\textrm{"$A\subseteq B$ if and only if \textit{some condition involving $a$ and $b$.}"}
+\]
+\enume
+
+\item Compute each of the following by writing either $\in$ or $\subseteq$ in place of $\bigcirc$.
+
+\itemb
+\item $2\bigcirc\{1,2,3\}$
+\item $\{2\}\bigcirc\{1,2,3\}$
+\item $\{2\}\bigcirc\{\{1\},\{2\},\{3\}\}$
+\item $\emptyset\bigcirc\{1,2,3\}$
+\item $\mathbb{N}\bigcirc\integers$
+\item $\{2\}\bigcirc\integers$
+\iteme
+
+
+\item This problem is about power sets.
+\enumb
+\item Write out the elements and give the cardinality of the set $2^{\emptyset}$. (Hint: Start with the cardinality.)
+\item Find the cardinality of the following sets.
+\enumb
+\item $2^{2^{\{1,2,3\}}}$
+\item $\{x\in 2^{\{1,2,3,4\}}:|x|=1\}$
+\enume 
+\item Complete $\{2\}\bigcirc 2^{\integers}$ by a $\subseteq$ or $\in$.
+\enume
+
+\item (Russel's paradox) Consider the set of all sets $R$ that are not elements of themselves, i.e. $x\in R$ if $x$ is a set but $x\notin x$. Does $R$ contain itself as an element? The answer to this question signifies the breakdown of naive set theory which led to the development of axiomatic set theory. (You need to take a course in mathematical logic to learn more about this.)
+
+\end{enumerate}
+
+\underline{\textbf{Optional programming exercises (no credit)}}
+\begin{enumerate}
+\item[PE20)] Note that $10!=10\cdot 9\cdot 8\cdot...\cdot 2\cdot 1= 3628800$. Find the sum of the digits in the number $100!$.
+\item[PE34)] 145 is a curious number as $1!+4!+5!=1+24+120=145$. Find the sum of all numbers which are equal to the sum of the factorial of their digits.
+\end{enumerate}
+\end{document}

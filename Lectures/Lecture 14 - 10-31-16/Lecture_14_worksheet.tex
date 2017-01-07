@@ -1,0 +1,68 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 14}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{October 31, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Which of the following relations are functions?
+\enumb
+\item $\{(1,2),(3,4)\}$
+\item $\{(x,y): x,y\in\mathbb{Z}, y=2x\}$
+\item $\{(x,y): x,y\in\mathbb{Z}, x+y=0\}$
+\item $\{(x,y): x,y\in\mathbb{Z}, xy=0\}$
+\item $\{(x,y): x,y\in\mathbb{Z}, y=x^2\}$
+\item $\emptyset$
+\item $\{(x,y): x,y\in\mathbb{Q}, x^2+y^2=1\}$
+\item $\{(x,y): x,y\in\mathbb{Z}, x|y\}$
+\item $\{(x,y): x,y\in\mathbb{N}, x|y,\textrm{ and }y|x\}$
+\item $\{(x,y): x,y\in\mathbb{N}, \binom{x}{y}=1\}$
+\enume
+
+\item For those relations that are functions in Problem 1, find their domain and image.
+
+\item For each of the following functions $f$, find the image of the function, $\textrm{im}$.
+
+\enumb
+\item $f:\mathbb{Z}\to\mathbb{Z}$ defined by $f(x)=2x+1$.
+\item $f:\mathbb{R}\to\mathbb{R}$ defined by $f(x)=\frac{1}{1+x^2}$.
+\item $f:[-1,1]\to\mathbb{R}$ defined by $f(x)=\sqrt{1-x^2}$.
+\enume
+
+\item Which of the functions in Problem 1 are one-to-one? What are the inverses of these functions?
+\item For each of the functions, determine whether the function is one-to-one, onto, or both. Prove your assertions.
+\enumb
+\item $f:\mathbb{Z}\to\mathbb{Z}$ defined by $f(x)=2x^2$.
+\item $f:\mathbb{N}\to\mathbb{Z}$ defined by $f(x)=(-1)^x \left(\lfloor x/2\rfloor+1\right)$, where $\lfloor.\rfloor$ is the integer part function.
+\enume
+\item Give an example of a set $A$ and a function $f:A\to A$ where $f$ is onto but not one to one. Also give one where $f$ is one-to-one but not onto. 
+\enume
+\end{document}

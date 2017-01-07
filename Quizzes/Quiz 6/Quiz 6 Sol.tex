@@ -1,0 +1,68 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\title{Discrete Mathematics, Sect 002, 2016 Fall - Quiz 6}
+\author{Name:}
+\institute{Courant Institute of Mathematical Sciences, NYU}
+\date{October 31, 2016}
+
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{solution}{Solution}
+
+
+
+\begin{document}
+
+\maketitle
+
+This quiz is scheduled for 10 minutes. No outside notes or calculators are permitted. To get full credit  in all of the problems, use rigorous justification and unless otherwise indicated, make sure that your solution reads as a perfect English sentence. You should only assume the notion of integers, operations, order relations and geometrical objects as given. If you use a statement or a definition from the textbook, make sure to indicate it.
+\vspace{0.2cm}
+
+\begin{enumerate}
+
+\item (10 points)  Solve the following recurrence equation
+\[
+a_n=10a_{n-1}-1, a_0=3.
+\]
+
+\begin{solution}
+According to the theorem on the slides, we look for the solution in the form
+\[
+a_n=c_1 10^n+c_2
+\]
+and match this with $a_0=3$ and $a_1=10\cdot 3-1=29$. This means
+\[
+3=c_1+c_2,\qquad 29=10c_1+c_2.
+\]
+The solution of this system is $c_1= 26/9$ and $c_2=1/9$ and the solution is
+\[
+a_n=\frac{26}{9}(10)^n+\frac{1}{9}
+\]
+\end{solution}
+
+\item(10 points) Solve the following recurrence relation
+\[
+a_n=-a_{n-1}+2a_{n-2}, a_0=1, a_1=1
+\]
+
+\begin{solution}
+The characteristic equation is
+\[
+r^2=-r+2\qquad\to\qquad r=1,-2
+\]
+and thus we can look for the solution in the form
+\[
+a_n=c_1 1^n+c_2(-2)^n.
+\]
+Matching with the initial values give
+\[
+1=c_1+c_2,\qquad 1=c_1-2c_2
+\]
+which gives $c_1=1$ and $c_2=0$. Therefore, the solution is $a_n=1$ for every $n\in\mathbb{N}$.
+\end{solution}
+\end{enumerate}
+\end{document}

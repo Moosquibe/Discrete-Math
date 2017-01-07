@@ -1,0 +1,92 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{solution}{Solution}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 15}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{November 2, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Let $A=\{1,2,\dots,n\}$ be an $n$-element set and let $k\in\mathbb{N}$. How many functions $f:A\to\mathbb A$ are there for which there are exactly $k$ elements $a$ in $A$ with $f(a)=1$?
+
+\begin{solution}
+The answer is obviously 0 unless $k\leq n$. Since fixing the value of $k$ elements leaves us with $n-k$ free values to choose, each of which we can choose out of the $n-1$ elements $\{2,\dots,n\}$, the answer in this case is $(n-1)^{n-k}$.
+\end{solution}
+
+
+\item Show that the number of onto functions $f:A\to B$ when $|A|>|B|$ is
+\[
+\sum_{j=0}^{|B|}(-1)^j\binom{|B|}{j}(|B|-j)^{|A|}.
+\]
+
+\begin{solution}
+We proceed by counting the not onto functions and then substracting it from the total number of functions $|B|^{|A|}$. We count the not onto functions by the inclusion exclusion principle. For each $b\in B$, let $C_b$ the set of those functions that does not take the value $b$. Then
+\[
+|C_{b_1}\cap \dots \cap C_{b_j}|=(|B|-j)^{|A|}
+\]
+since the intersection is the set of those functions that does not take any of the $j$ values $b_1,\dots, b_j$. Note also that there are $\binom{|B|}{j}$ number of such intersections and therefore the inclusion exclusion formula yields
+\[
+\#\rm{Onto~functions}=|B|^{|A|}-\sum_{j=1}^{|B|}(-1)^j\binom{|B|}{j}(|B|-j)^{|A|}.
+\]
+which is the desired expression once we realized that the first term can be incorporated into the sum as the $j=0$ term.
+
+\end{solution}
+
+\item
+\enumb
+\item Let $N$ be a positive integer. Explain why if $N$ is at least ten billion, then two of its digits must be the same. What is the largest integer that does not have a repeated digit?
+
+\begin{solution}
+If $N$ is at least ten billion then it has more than $10$ digits and since there are only $10$ possible digits, two of them must necessarily be repeated by the pigeonhole principle. The largest integer without repeated digits is
+\[
+9876543210
+\]
+\end{solution}
+
+\item How large a group of people do we need to consider to be certain that two members of the group have the same birthday (month and day)? (Don't forget about Feb 29th!)
+
+\begin{solution}
+Since there are 366 days in a leap year, if we have at least $377$ people, we can be sure by the pigeonhole principle that at least two members of the group will share a birthday-
+\end{solution}
+
+%\item In any typical large city, there are (at least) two people with exactly the same nuber of hairs on their heads. Explain why. (An average person has about 100,000 hairs.)
+%
+%\begin{solution}
+%
+%\end{solution}
+
+\enume
+
+\item Let $E$ denote the set of even integers. Find a bijection between $E$ and $\mathbb{Z}$.
+\begin{solution}
+Consider $f(n)=\frac{n}{2}$. Check that this does the job.
+\end{solution}
+\enume
+\end{document}

@@ -1,0 +1,86 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 1}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{September 7, 2016}
+
+\newtheorem{Solution}{Solution}
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\begin{enumerate}
+\item Please determine which of the following are true and which are false using the definition of divisibility. 
+\begin{enumerate}
+\item $3|99$ YES, because $33$ is an integer such that $99=3\cdot 33$.
+\item $-3|3$ YES, \dots.
+\item $-5|-5$ YES, \dots.
+\item $-2|-7$ NO, the only number k such that $-7=-2*k$ is $3.5$ which is not an integer.
+\item $0|4$ NO, because for every integer $k$, we have $0\cdot k = 0 \neq 4$.
+\item $4|0$ YES, because for any integer $k$, we have $0 = 4\cdot k$.
+\item $0|0$ YES, because for any integer $k$, we have $0 = 0\cdot k$.
+\end{enumerate}
+\item Alternative definition to divisibility: We say that an integer $a$ is divisible by an integer $b$ provided $\frac{a}{b}$ is an integer. Explain why this alternative definition is different than the original one. Here different means different concepts. To answer this question you should find integers $a$ and $b$ such that $a$ is divisible by $b$  according to one definition but $a$ is not divisible by $b$ according to the other definition.
+
+\begin{Solution}
+According to the definition, $0$ divides $0$ (see Problem 1 (g)). However, $\frac{0}{0}$ is not defined and therefore it cannot be an integer.
+\end{Solution}
+
+\item Show using the definition of divisibility (the original one) that if $a,b,c$ are integers and $c|a$ and $c|b$ then $c|a+b$.
+
+\begin{Solution}
+Since $c|a$ and $c|b$, there are integers $k_1$ and $k_2$ such that $a=k_1c$ and $b=k_2c$. Then
+\[
+a+b=k_1c+k_2c=(k_1+k_2)c.
+\]
+As $k_1+k_2$ is an integer, this means that $c|(a+b)$ and the claim is proved.
+\end{Solution}
+\newpage
+\item None of the following numbers is prime. Explain why they fail to satisfy the definition of a prime number. Which one of these is a composite number?
+\begin{enumerate}
+\item 21. Not a prime because for example $7$ is a positive divisor that is not $1$ and not $21$.
+\item 0. Not a prime because $0\not> 1$.
+\item $\pi$. Not a prime because it is not an integer.
+\item $-2$. Not a prime because $-2\not> 1$.
+\item $1/2$. Not a prime because it is not an integer.
+\end{enumerate}
+
+
+\item Formulate a definition of the following concepts:
+\begin{enumerate}
+\item Define what it means for a number to be the \textbf{square root} of another number.
+
+\vspace{0.4cm}
+The number $a$ is the square root of a number $b$ provided $a\cdot a = b$.
+\vspace{0.4cm}
+
+\item Midpoint of a line segment. (Assume the notion of distance and line segment is given.)
+
+\vspace{0.4cm}
+The midpoint of a line segment is the point on the line segment which is at equal distance from the two endpoints.
+\vspace{0.4cm}
+\item Teenager. (Assume the notions of age and human are given.)
+
+\vspace{0.4cm}
+A teenager is a human whose age is between $10$ and $19$.
+\vspace{0.4cm}
+
+\item Grandmother. (Assume the notion of child and woman are given.)
+
+\vspace{0.4cm}
+A grandmother is a woman who has a child and whose child has a child.
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,91 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\newtheorem{proposition}{Proposition}
+
+\title{Discrete Mathematics, 2016 Spring - Worksheet 3}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+\date{September 14, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\begin{enumerate}
+\item Disprove the following statements:
+\begin{enumerate}
+\item If $a$ and $b$ are integers with $a|b$, then $a\leq b$.
+\item If $a$, $b$, and $c$ are positive integers with $a|(bc)$, then $a|b$ or $a|c$.
+\item If $p$ and $q$ are prime, then $p+q$ is composite.
+\item Two right triangles have the same area if and only if the lengths of their hypotenuses are the same.
+\end{enumerate}
+
+\item What does it mean for an if and only if statement to be false? What properties should a counterexample for an if-and-only-if statement have?
+\item Evaluate the following Boolean expressions:
+\begin{enumerate}
+\item $True\wedge True\wedge True\wedge True\wedge False$.
+\item $(\neg True)\vee True$. 
+\item $\neg(True\vee True)$. 
+\item $(True\vee True)\wedge False$.
+\item $True\vee(True\wedge False)$. 
+\end{enumerate}
+\item Prove the following Boolean identities by truth tables:
+\begin{enumerate}
+\item $\neg(x\wedge y)=(\neg x)\vee (\neg y)$ and $\neg(x\vee y)=(\neg x)\wedge(\neg y)$ (DeMorgan's laws).
+\item $x\rightarrow y= (\neg x)\vee y$.
+\item $x\leftrightarrow y = (\neg x)\leftrightarrow (\neg y)$.
+\end{enumerate}
+where $=$ stands for logically equivalent.
+\item Find a logically equivalent Boolean expression to $x\leftrightarrow y$ only in terms of the basic Boolean operations $\wedge,\vee,\neg$.
+\item How many different binary operation can there be? 
+%\item (Hard problem) 
+%\begin{enumerate}
+%\item Show that all binary operations can be expressed in terms of the three basic Boolean operations.
+%\item Show that $x\vee y$ can be expressed in terms of just $\wedge$ and $\neg$.
+%\end{enumerate}
+%This means that all binary Boolean operations can be reduced to just two binary operations. This fact has great implications in digital technology.
+
+\item A person's inititals are the two-element lists consisting of the initial letters of their first and last names. For example, mines are $ZP$. 
+\begin{enumerate}
+\item How many possible initials are there?
+\item How many initials are there where the two letters are different?
+\end{enumerate}
+\item A club has 10 members.
+\begin{enumerate}
+\item A club has 10 members who wish to elect a president and a vice-president. How many ways can these positions be filled (assuming the club is not a cult-of personality dictatorship and one person can only have one title)?
+\item Now suppose the club also wants to elect a secretary and a treasurer. How many outcomes are there for the election then?
+\end{enumerate}
+
+\item In how many ways can a black rook and a white rook be placed on different squares of a chess board such that neither is attacking the other?
+
+\vspace{0.2cm}
+
+\noindent\underline{\textbf{Further problems to practice:}}
+\vspace{0.1cm}
+
+\item License plates in a cetrtain state consist of six characters: The first three characters are uppercase letters (A-Z), and the last three characters are digits (0-9).
+\begin{enumerate}
+\item How many license plates are possible?
+\item How many license plates are possible if no character maybe repeated on the same plate?
+\end{enumerate}
+
+\item A telephone number (in the US and Canada) is a ten digit number whose first digit cannot be a $0$ or a $1$. How many telephone numbers are possible?
+
+\item A US Social Security number is a nine-digit number. The first digit may be zero.
+\begin{enumerate}
+\item How many of these are even?
+\item How many have all of their digits even?
+\item How many read the same backwards? (e.g. 122979221)
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

@@ -1,0 +1,138 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{solution}{Solution}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 16}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{November 7, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item For each of the pair of functions below, determine which of $g\circ f$ and $f\circ g$ is defined. If one or both are defined, find the resulting functions. If both are defined, determine wheteher $g\circ f=f\circ g$.
+
+Clearly, $f\circ g\neq g\circ f$.
+\enumb
+
+\item $f=\{(1,2),(2,3),(3,4)\}$ and $g=\{(1,3),(2,4),(3,1)\}$
+
+Note that $\rm{Im}(f)=\{2,3,4\}\not \subseteq\rm{Dom}(g)=\{1,2,3\}$ and therefore $g\circ f$ is  not defined. Similarly, $\rm{Im}(g)=\{1,3,4\}\not\subseteq\{1,2,3\}=\rm{Dom}(g)$ and therefore $f\circ g$ is not defined either.
+\item $f=\{(1,2),(2,3),(3,4)\}$ and $g=\{(2,1),(3,1),(4,1)\}$
+
+Note that $\rm{Im}(g)=\{1\}\subseteq\{1,2,3\}=\rm{Dom}(f)$ and $f\circ g$ is defined and
+\[
+f\circ g=\{(2,2),(3,2),(4,2)\}.
+\]
+Also note that $\rm{Im}(f)=\{2,3,4\}=\rm{Dom}(g)$ and so $g\circ f$ is defined and
+\[
+g\circ f=\{(1,1),(2,1), (3,1)\}.
+\]
+Clearly $g\circ f\neq f\circ g$.
+\item $f=\{(1,4),(2,4),(3,3),(4,4)\}$ and $g=\{(1,1),(2,1),(3,4),(4,4)\}$.
+
+Note that $\rm{Im}(g)=\{1,4\}\subseteq \{1,2,3,4\}=\rm{Dom}(f)$ and $f\circ g$ is defined with
+\[
+f\circ g=\{(1,4),(2,4),(3,4),(4,4)\}.
+\]
+Note also that $\rm{Im}(f)=\{3,4\}\subseteq\{1,2,3,4\}=\rm{Dom}(g)$ and thus $g\circ f$ is defined with
+\[
+g\circ f=\{(1,4),(2,4),(3,4),(4,4)\}.
+\]
+Clearly, $f\circ g=g\circ f$.
+\item $f(x)=1-x$ and $g(x)=2-x$ for $x\in\mathbb{R}$.
+
+Note that $\rm{Dom}(f)=\rm{Im}(f)=\rm{Dom}(g)=\rm{Im}(g)=\mathbb{R}$ and therefore both $f\circ g$ and $g\circ f$ are defined. Moreover,
+\[
+f\circ g(x)=1-g(x)=1-(2-x)=x-1,\qquad g\circ f(x)=2-f(x)=2-(1-x)=x+1.
+\]
+In particular, $f\circ g\neq g\circ f$.
+
+\enume\newpage
+
+\item Suppose $A$, $B$, and $C$ are sets and $f:A\to B$ and $g:B\to C$. Prove the following:
+\enumb
+\item If $f$ and $g$ are one-to-one, so is $g\circ f$.
+
+\begin{proof}
+We use the direct method, assume $g\circ f(x)=g\circ f(y)$. Then
+\[
+g(f(x))=g(f(y)).
+\]
+Since $g$ is one to one, this implies
+\[
+f(x)=f(y).
+\]
+Since $f$ is one to one, this implies $x=y$ and therefore $g\circ f$ is one to one.
+\end{proof}
+
+\item If $f$ and $g$ are onto, so is $g\circ f$.
+\begin{proof}
+Let $c\in C$. Then since $g$ is onto, there is a $b\in B$ such that $g(b)=c$. Since $f$ is onto, there is an $a\in A$ such that $f(a)=b$. Then
+\[
+g\circ f(a)=g(f(a))=g(b)=c.
+\]
+Since $c$ was arbitrary, we conclude that $g\circ f$ is onto.
+\end{proof}
+\item If $f$ and $g$ are bijections, so is $g\circ f$.
+\begin{proof}
+Since $f$ and $g$ are bijections they are both one to one and onto. By $(a)$ and $(b)$, this implies that $g\circ f$ is also one to one and onto. Thus it is a bijection.
+\end{proof}
+\enume
+
+\item Define the operation $*$ on the integers defined by $x*y=|x-y|$.
+\enumb
+\item Is $*$ closed on the integers?
+\begin{solution}
+If $x,y\in\mathbb{Z}$, then so is $|x-y|$ and therefore $*$ is closed on the integers.
+\end{solution}
+
+\item Is $*$ commutative?
+\begin{solution}
+For any $x,y\in\mathbb{Z}$, $|x-y|=|-(y-x)|=|y-x|$ and thus $*$ is commutative.
+\end{solution}
+\item Is $*$ associative?
+\begin{solution}
+$*$ is not associative, e.g.
+\[
+(6*3)*2=|6-3|*2=3*2=|3-2|=1\neq 5=|6-1|=6*|3-2|=6*(3*2)
+\]
+\end{solution}
+\item Does $*$ have an identity element? If so, does every integer have an inverse?
+\begin{solution}
+$*$ does not have an identity element. To see this, assume FTSC that $e\in\mathbb{Z}$ is an identity element, i.e
+\[
+|x-e|=x*e=x.
+\]
+But clearly $|x-e|\geq 0$ so this indentity cannot hold for any $x<0$ $\Rightarrow\Leftarrow$.
+\end{solution}
+\enume
+
+
+
+\enume
+\end{document}

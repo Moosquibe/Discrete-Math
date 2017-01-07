@@ -1,0 +1,63 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 16}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{November 7, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item For each of the pair of functions below, determine which of $g\circ f$ and $f\circ g$ is defined. If one or both are defined, find the resulting functions. If both are defined, determine wheteher $g\circ f=f\circ g$.
+
+\enumb
+\item $f=\{(1,2),(2,3),(3,4)\}$ and $g=\{(1,3),(2,4),(3,1)\}$
+\item $f=\{(1,2),(2,3),(3,4)\}$ and $g=\{(2,1),(3,1),(4,1)\}$
+\item $f=\{(1,4),(2,4),(3,3),(4,1)\}$ and $g=\{(1,1),(2,1),(3,4),(4,4)\}$.
+\item $f(x)=1-x$ and $g(x)=2-x$ for $x\in\mathbb{Q}$.
+\enume
+
+\item Suppose $A$, $B$, and $C$ are sets and $f:A\to B$ and $g:B\to C$. Prove the following:
+\enumb
+\item If $f$ and $g$ are one-to-one, so is $g\circ f$.
+\item If $f$ and $g$ are onto, so is $g\circ f$.
+\item If $f$ and $g$ are bijections, so is $g\circ f$.
+\enume
+
+\item Define the operation $*$ on the integers defined by $x*y=|x-y|$.
+\enumb
+\item Is $*$ closed on the integers?
+\item Is $*$ commutative?
+\item Is $*$ associative?
+\item Does $*$ have an identity element? If so, does every integer have an inverse?
+\enume
+
+
+
+\enume
+\end{document}

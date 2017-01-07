@@ -1,0 +1,145 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+
+
+\newtheorem{proposition}{Proposition}
+
+\title{Discrete Mathematics, 2016 Spring - Worksheet 4}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\begin{enumerate}
+
+\item Solve the equation $n!=720$ for $n$.
+
+\vspace{0.2cm}
+\textit{Obviously $n=6$ solves this equation. Since $n_1<n_2$ implies $n_1!<n_2!$, this is the only possible solution.}
+\vspace{0.2cm}
+
+\item There are six different French books, eight different Russian books and five different Spanish books.
+
+\begin{enumerate}
+\item In how many different ways can these books be arranged on a bookshelf?
+\vspace{0.2cm}
+\textit{This is just the same as ordering 19 books and so the answer is $19!$.}
+\vspace{0.2cm}
+\item In how many different ways can these books be arranged if all books in the same language are grouped together?
+\vspace{0.2cm}
+\textit{In this case we can first choose the order of the books $3!$ ways and then within each group order the books on the same language (so $6!$, $!8!$ and $5!$ ways respectively. Thus, the total number of ways is $3!6!8!5!$.}
+
+
+\vspace{0.2cm}
+\end{enumerate}
+
+
+\item Calculate the following products:
+\begin{enumerate}
+\item $\prod_{k=1}^4(2k+1)=(2+1)(2\cdot 2+1)(2\cdot 3+1)(2\cdot 4+1)=3\cdot5\cdot9=135$
+\item $\prod_{k=1}^n\frac{1}{k}=1\cdot\frac{1}{2}\cdot...\cdot\frac{1}{n}=\frac{1}{1\cdot...\cdot n}=\frac{1}{n!}$
+\end{enumerate}
+
+\item Can factorial be extended to negative integers? Think about the formula $n!=n(n-1)!$. What would be the value of $(-1)!$?
+
+\vspace{0.2cm}
+\textit{No, note that $1=0!=0(-1)!$ and therefore $(-1)!=1/0$ which is not defined.}
+\vspace{0.2cm}
+
+\item Write out the following sets by listing their elements between curly braces and find their cardinality.
+\begin{enumerate}
+\item $A=\{x\in\mathbb{N}: x\leq 10$ and $3|x\}=\{0,3,6,9\}$ and $|A|=4$.
+\item $B=\{x\in\mathbb{Z}: x$ is a prime and $2|x\}=\{2\}$ and $|B|=1$ 
+\item $C=\{x\in\mathbb{Z}: 10|x$ and $x|100\}=\{-100,-50,-20,-10, 10,20,50,100\}$ and $|C|=8$
+\item $D=\{x\in\mathbb{Z}: 1\leq x^2\leq 2\}=\{-1,1\}$ and $|D|=2$.
+\end{enumerate}
+
+\item For each of the following sets, find a way to rewrite the set using set builder notation.
+\begin{enumerate}
+\item $\{1,2,3,4,5,6,7,8,9,10\}=\{x\in\mathbb{N}: 1\leq x\leq 10\}$
+\item $\{-8,-6,-4,-2,0,2,4,6,8\}=\{x\in \mathbb{Z}: x=2k\in\mathbb{Z}, -4\leq k\leq 4\}$
+\item $\{1,4,9,16,25,36,49,64,81,100\}=\{x\in \mathbb{Z}: x=k^2, k\in\mathbb{Z}, k=1,...,10\}$
+\end{enumerate}
+
+
+
+\item
+\enumb
+\item Let $A=\{x\in\mathbb{Z}:4|x\}$ and let $B=\{x\in\integers:2|x\}$.  Prove that $A\subseteq B$.
+
+\vspace{0.2cm}
+\textit{We are going to prove that if $x\in A$ then $x\in B$. Let $x\in A$, then $4|x$ and therefore there is an integer $k$ such that $x=4k=2(2k)$. Since $2k$ is an integer, this means that $2|x$ and thus $x\in B$ and the claim is proved.}
+\vspace{0.2cm}
+
+\item Generalize the previous problem. Let $a,b\in\integers$ and let
+\[
+A=\{x\in\integers:a|x\},\qquad B=\{x\in\integers: b|x\}.
+\]
+Find and prove a necessary and sufficient conditions for $A\subseteq B$. In other words, find and prove a theorem of the form
+\[
+\textrm{"$A\subseteq B$ if and only if \textit{some condition involving $a$ and $b$.}"}
+\]
+
+\begin{proposition}
+$A\subseteq B$, if and only if $b|a$.
+\end{proposition}
+
+\begin{proof}
+We first show that $A\subseteq B$ implies $b|a$, by showing that $b\not| a$ implies $A\not\subseteq B$, which in turn we will show by exhibiting a counterexample. Note that $a\in A$. However $a\notin B$ in this case which means exactly that $A\not\subseteq B$.
+
+To show the other direction, assume $b|a$. This means that there is an integer $k$ such that $a=kb$. Then if $x\in A$, i.e. there is an integer $k_1$ such that $x=k_1a=k_1(kb)=k_1kb$ and thus $b|x$ and therefore $x\in B$. This proves $A\subseteq B$.
+\end{proof}
+\enume
+\newpage
+\item Compute each of the following by writing either $\in$ or $\subseteq$ in place of $\bigcirc$.
+
+\itemb
+\item $2\in\{1,2,3\}$
+\item $\{2\}\subseteq\{1,2,3\}$
+\item $\{2\}\in\{\{1\},\{2\},\{3\}\}$
+\item $\emptyset\subseteq\{1,2,3\}$
+\item $\mathbb{N}\subseteq\integers$
+\item $\{2\}\subseteq \integers$
+\iteme
+
+
+\item This problem is about power sets.
+\enumb
+\item Write out the elements and give the cardinality of the set $2^{\emptyset}$. (Hint: Start with the cardinality.)
+
+\vspace{0.2cm}
+\textit{$2^{\emptyset}=\{\emptyset\}$ and $|2^{\emptyset}|=1$}
+\vspace{0.2cm}
+
+\item Find the cardinality of the following sets.
+\enumb
+\item $|2^{2^{\{1,2,3\}}}|=2^{|2^{\{1,2,3\}}|}=2^{2^{|\{1,2,3\}|}}=2^{2^3}=2^8$
+\item $|\{x\in 2^{\{1,2,3,4\}}:|x|=1\}|=4$ because there are four one element subsets of $\{1,2,3,4\}$.
+\enume 
+\item $\{2\}\in 2^{\integers}$
+\enume
+
+\item (Russel's paradox) Consider the set of all sets $R$ that are not elements of themselves, i.e. $x\in R$ if $x$ is a set but $x\notin x$. Does $R$ contain itself as an element? The answer to this question signifies the breakdown of naive set theory which led to the development of axiomatic set theory. (You need to take a course in mathematical logic to learn more about this.)
+
+\vspace{0.2cm}
+\textit{On one hand, if $R\in R$ then $R$ is a set that is an element of itself and then $R\notin R$, a contradiction. However if $R\notin R$, then $R$ is not an element of itself and thus $R\in R$ another contradiction. The only way this does not break the universe is if the question itself is non-sensical, i.e. there is no such set $R$ in the first place.}
+\vspace{0.2cm}
+
+\end{enumerate}
+\end{document}

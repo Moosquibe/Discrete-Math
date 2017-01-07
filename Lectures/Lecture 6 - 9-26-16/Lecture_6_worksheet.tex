@@ -1,0 +1,105 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 6}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+\date{September 26, 2016}
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Similar to what we did on the slide for $<$, define the corresponding relation set to two of the integer relations $\leq,=,>,\geq$.
+
+\item Write the following relations on the set $\{1,2,3,4,5\}$ as sets of ordered pairs.
+\enumb
+\item The $\leq$ relation.
+\item The `divides' relation.
+\item The $=$ relation.
+\enume
+
+\item Each of the following is a relation on the set $\{1,2,3,4,5\}$. Express these relations in words and then find their inverses.
+\enumb
+\item $\{(1,2),(2,3),(3,4),(4,5)\}$
+\item $\{(1,1),(2,1),(2,2),(3,1),(3,2),(3,3),(4,1),(4,2),(4,3),(4,4),(5,1),(5,2),(5,3),(5,4),(5,5)\}$.
+\item $\{(1,5),(2,4),(3,3),(4,2),(5,1)\}$.
+\enume
+
+\item What is the inverse of the following relations?
+\enumb
+\item $\leq$.
+\item $\{(x,y):x,y\in\integers,x-y=1\}$.
+\item $\{(x,y):x,y\in\integers, xy>0\}$.
+\enume
+
+\item For each of the following relations on $\{1,2,3,4,5\}$ determine whether the relation is reflexive, irreflexive, symmetric, antisymmetric, and/or transitive:
+\itemb
+\item $R=\{(1,1),(2,2),(3,3),(4,4),(5,5)$.
+\item $R=\{(1,2),(2,3),(3,4),(4,5)\}$.
+\item $R=\{(1,1),(1,2),(1,3),(1,4),(1,5)\}$.
+\item $R=\{(1,1),(1,2),(2,1),(3,4),(4,3)\}$.
+\item $R=\{1,2,3,4,5\}\times\{1,2,3,4,5\}$.
+\iteme
+
+\item For the following relations on the set of humans beings, please determine whether the relation if reflexive, irreflexive, symmetric, antisymmetric, and/or transitive.
+\enumb
+\item has the last name as
+\item is the child of
+\item is married to
+\item has a common parent as
+\enume
+
+\item Consider the relation $|$ (divisible) on
+\enumb
+\item On the naturals.
+\item On the integers.
+\enume
+Decide what properties do they have.
+
+\item Show that the following relation is an equivalence relation:
+\[
+A=\{B\in 2^{\integers}: |B|<\infty\}, \qquad R=\{(B,C): B,C \in A, |B|=|C|\}
+\]
+
+\item Which of the following are equivalence relations?
+\enumb
+\item $R=\{(1,1),(1,2),(2,1),(2,2),(3,3)\}$ on the set $\{1,2,3\}$.
+\item $|$ on $\integers$.
+\item $\leq$ on $\integers$.
+\item Is-an-anagram-of on the set of English words.
+\enume
+\item For each of the following congruences, find all integers $N$, with $N>1$, that make the congruence true
+\enumb
+\item $23\equiv 13$ (mod $N$)
+\item $10\equiv 5$ (mod $N$)
+\item $6\equiv 60$ (mod $N$)
+\enume
+
+%\item There is only one possible equivalence relation on a one-element set: If $A=\{1\}$, then $R=\{(1,1)\}$ is the only possible equivalence relation. On a two element set $A=\{1,2\}$, there are exactly two equivalence relations:
+%\[
+%R_1=\{(1,1),(2,2)\},\qquad R_2=\{(1,1),(1,2),(2,1),(2,2)\}.
+%\]
+%How many different equivalence relations are there on a three and on a four element set?
+
+\enume
+
+\end{document}

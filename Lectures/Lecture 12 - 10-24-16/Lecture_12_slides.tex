@@ -1,0 +1,570 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \usecolortheme{orchid}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{footline}[frame number]
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{cancel}
+
+
+\usetikzlibrary{shapes,backgrounds}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+\def\blue{\color{blue}~}
+\def\black{\color{black}~}
+\def\bl[#1]#2{\begin{block}{#1}#2\end{block}}
+\def\integers{\mathbb{Z}}
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+
+
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+\title{Discrete Mathematics, Section 001, Fall 2016}
+\subtitle{Lecture 12: Linear recurrence relations}
+\date{October 24, 2016}
+
+\author[Zsolt]{Zsolt Pajor-Gyulai \\ \texttt{zsolt@cims.nyu.edu}}
+
+\pgfdeclareimage[height=1cm]{NYUlogo}{NYUlogo.jpg}
+
+\institute[NYU] 
+{
+\normalsize Courant Institute of Mathematical Sciences
+}
+\titlegraphic{\pgfuseimage{NYUlogo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}}
+
+
+\section{Recurence relations}
+
+\begin{frame}{How do we come up with complicated formulas?}
+\bl[Proposition]{
+\[
+0^2+1^2+\dots+n^2=\frac{(2n+1)(n+1)(n)}{6}
+\]
+}
+or
+\bl[Proposition]{The $n$th Fibonacci number is
+\[
+F_n=\frac{\left(\frac{1+\sqrt{5}}{2}\right)^{n+1}-\left(\frac{1-\sqrt{5}}{2}\right)^{n+1}}{\sqrt{5}}
+\]
+}
+\end{frame}
+
+\begin{frame}{Recurrence relations}
+\bl[Definition]{A recurrence relation is a formula that specifies how each term of a sequence is produced from earlier terms.
+}
+For example 
+\[
+a_n=3a_{n-1}+4a_{n-2},\qquad a_0=3,\quad a_1=2.
+\]
+Then
+\begin{align*}
+a_2&=3a_1+4a_0=3\times 2+4\times 3=18,\\
+a_3&=3a_2+4a_1=3\times 18+4\times 2=62,\\
+a_4&=3a_3+4a_2=3\times 62+4\times 18=258.
+\end{align*}
+We are going to learn how to derive
+\[
+a_n=4^n+2(-1)^n
+\]
+\end{frame}
+
+\begin{frame}
+The order of a recurrence relation is the number of previous elements we need to compute the current one.
+\begin{align*}
+\textrm{First order:}&\qquad a_n=3a_{n-1}+5\\
+\textrm{Second order:}&\qquad a_n=3a_{n-1}+2a_{n-2}+6\\
+\vdots&\qquad\vdots\\
+\textrm{$k$th order:}& \qquad a_n=2a_{n-1}+4a_{n-2}-8a_{n-3}+\dots+2a_{n-k}+9 
+\end{align*}
+\itemb
+\item For a $k$th order recurrence relation, we need to know the first $k$ elements.
+\item When a recurrence relation has the above structure, it is linear, otherwise it is called non-linear.
+\iteme
+\center Warm up by doing Problems 1-2 on the worksheet.
+\end{frame}
+
+\section{First order recurrence relations}
+\begin{frame}{Simple cases}
+\itemb
+\item Simplest example:
+\[
+a_n=a_{n-1},\qquad\to\qquad a_n=a_0.
+\]
+\item Slightly more difficult:
+\[
+a_n=2a_{n-1},\qquad a_0=5.
+\]
+Then the sequence is $5,10,20,40,80,\dots$ and so 
+\[
+a_n=5\cdot 2^n.
+\]
+
+More generally if $a_n=sa_{n-1}$,
+\[
+a_n=a_0\cdot s^n.
+\]
+\iteme
+\end{frame}
+
+\begin{frame}
+Consider
+\[
+a_{n}=2a_{n-1}+3
+\]\vspace{-0.7cm}
+
+and note\vspace{-0.3cm}
+\begin{align*}
+a_1&=2a_0+3\\
+a_2&=2a_1+3=2^2a_0+2\cdot 3+3\\
+a_3&=2a_2+3=2^3a_0+2^2\cdot 3+2\cdot 3+3\\
+a_4&=2a_3+3=2^4a_0+(2^3+2^2+2+1)\cdot 3\\
+\vdots&\qquad\vdots\\
+a_n&=2a_{n-1}+3=2^na_0+(2^{n-1}+2^{n-2}+\dots+2+1)\cdot 3
+\end{align*}
+Using $1+2+\dots+2^{n-1}=2^n-1$, we can conjecture\vspace{-0.1cm}
+\bl[]{\vspace{-0.1cm}
+\[
+a_n=2^n(a_0+3)-3.
+\]}\vspace{-0.3cm}
+
+\center\color{red}This still needs to be proved (e.g. by induction)!\color{black}
+\end{frame}
+
+
+\begin{frame}{In general}
+Consider
+\[
+a_{n}=s\cdot a_{n-1}+t
+\]\vspace{-0.7cm}
+
+and note\vspace{-0.3cm}
+\begin{align*}
+a_1&=sa_0+t\\
+a_2&=sa_1+t=s^2a_0+s\cdot t+t\\
+a_3&=sa_2+t=s^3a_0+s^2\cdot t+s\cdot t+t\\
+\vdots&\qquad\vdots\\
+a_n&=sa_{n-1}+t=s^na_0+(s^{n-1}+s^{n-2}+\dots+s+1)\cdot t
+\end{align*}
+Recall
+\[
+1+2+\dots+s^{n-1}=\left\{\begin{array}{cc}
+\frac{s^n-1}{s-1},&s\neq 1,\\
+n,&s=1.
+\end{array}\right.
+\]
+\end{frame}
+
+\begin{frame}{In general}
+Consider\vspace{-0.3cm}
+\[
+a_{n}=s\cdot a_{n-1}+t
+\]\vspace{-0.6cm}
+
+and note
+\[
+a_n=sa_{n-1}+t=s^na_0+(s^{n-1}+s^{n-2}+\dots+s+1)\cdot t
+\]
+Recall
+\[
+1+2+\dots+s^{n-1}=\left\{\begin{array}{cc}
+\frac{s^n-1}{s-1},&s\neq 1,\\
+n,&s=1.
+\end{array}\right.
+\]\vspace{-0.3cm}
+\bl[Proposition]{
+When $s\neq 1$,\vspace{-0.1cm}
+\[
+a_n=s^n\left(a_0+\frac{t}{s-1}\right)-\frac{t}{s-1}
+\]
+and $a_n=a_0+nt$ when $s=1$.}\vspace{-0.3cm}
+\end{frame}
+
+\begin{frame}{In general}
+\bl[Proposition]{
+When $s\neq 1$,\vspace{-0.1cm}
+\[
+a_n=s^n\left(a_0+\frac{t}{s-1}\right)-\frac{t}{s-1}
+\]
+and $a_n=a_0+nt$ when $s=1$.}\vspace{-0.3cm}
+\begin{proof}Straightforward by induction, left to the reader.\end{proof}
+\end{frame}
+
+\begin{frame}
+A more convenient form to remember when $s\neq 1$:
+\bl[Proposition]{
+When $s\neq 1$, there are constants $c_1,c_2$ such that\vspace{-0.1cm}
+\[
+a_n=c_1s^n+c_2.
+\]}
+For example, let us solve $a_n=5a_{n-1}+3$ where $a_0=1$.
+\itemb
+\item By the proposition, $a_n=c_15^n+c_2$.
+\item Note that
+\begin{align*}
+a_0&=1=c_1+c_2\\
+a_1&=8=5c_1+c_2.
+\end{align*}
+\item Solving these, we find $c_1=\frac{7}{4}$ and $c_2=-\frac{3}{4}$ and thus
+\bl[]{
+\[
+a_n=\frac{7}{4}\cdot 5^n-\frac{3}{4}
+\]}
+\iteme
+Practice this by doing Problem 3 on the WS.
+\end{frame}
+
+\section{Second order recurrence relations}
+
+\begin{frame}{An example}
+Consider
+\[
+a_n=5a_{n-1}-6a_{n-2}
+\]\vspace{-0.7cm}
+
+\itemb
+\item Based on the previous case, our first guess is that the solution should be some kind of power. 
+\item Should it be $5^n$ or $6^n$?
+\item Let's stay safe and try $r^n$ with $r$ left to be figured out later:
+\[
+r^n=5r^{n-1}-6r^{n-2}.
+\]
+\item Dividing both sides by $r^{n-2}$ gives
+\[
+r^2=5r-6.
+\]
+\item This has roots $r=2,3$, and we get two solutions:
+\iteme
+\bl[]{
+\[
+a_n=2^n,\qquad a_n=3^n
+\]
+}
+\end{frame}
+
+\begin{frame}{In general}
+\bl[Proposition]{If $r$ is a root of the equation $x^2=s_1x+s_2$, then $a_n=r^n$ solves
+\[
+a_n=s_1a_{n-1}+s_2a_{n-2}
+\]
+}
+\begin{proof}
+We directly verify
+\[
+s_1r^{n-1}+s_2r^{n-2}=r^{n-2}(s_1r+s_2)=r^{n-2}r^2=r^n
+\]
+which proves the claim.
+\end{proof}
+\center But note that $r^0=1$, so this only gives solutions with $a_0=1$!
+
+\end{frame}
+
+\begin{frame}{Ways to build other solutions}
+\bl[Proposition]{If $a^{(1)}_n$ and $a^{(2)}_n$ are both solutions of the recurrence relation\vspace{-0.3cm}
+\[
+a_n=s_1a_{n-1}+s_2a_{n-2}
+\]\vspace{-0.8cm}\\
+then for any real numbers $c_1, c_2$, the linear combination\vspace{-0.2cm}
+\[
+c_1a^{(1)}_n+c_2a^{(2)}_n
+\]\vspace{-0.8cm}\\
+is also a solution.}
+\begin{proof}
+We directly verify
+\begin{align*}
+&s_1(c_1a^{(1)}_{n-1}+c_2a^{(2)}_{n-1})+s_2(c_1a^{(1)}_{n-2}+c_2a^{(2)}_{n-2})=\\
+&=c_1(s_1a^{(1)}_{n-1}+s_2a^{(1)}_{n-2})+c_2(s_1a^{(2)}_{n-1}+s_2a^{(2)}_{n-2})=c_1a^{(1)}_{n}+c_2a^{(2)}_n
+\end{align*}
+which proves the Proposition.
+\end{proof}
+\end{frame}
+
+\begin{frame}{When $r_1\neq r_2$}
+When the equation $x^2=s_1x+s_2$ has two distinct roots, then $r_1^n$ and $r_2^n$ are both solutions and thus
+\[
+a_n=c_1r_1^n+c_2r_2^n
+\]
+is also a solution for any numbers $c_1$ and $c_2$. This we can adjust to any initial conditions:\vspace{-0.2cm}
+\begin{align*}
+a_0=c_1+c_2, \qquad a_1=c_1r_1+c_2r_2.
+\end{align*}
+We can always solve these equations to be
+\[
+c_1=\frac{a_1-a_0r_2}{r_1-r_2},\qquad c_2=\frac{-a_1+a_0r_1}{r_1-r_2}
+\]\vspace{-0.4cm}\\
+\bl[Theorem]{If the equation $x^2=s_1x+s_2$ has two distinct roots $r_1\neq r_2$, then all the solutions of the recurrence relation $a_n=s_1a_{n-1}+s_2a_{n-2}$ is of the form
+\[
+c_1r_1^n+c_2r_2^n.
+\]
+}
+\end{frame}
+
+\begin{frame}{Example}
+Consider
+\[
+a_n=5a_{n-1}-6a_{n-2}
+\]
+We have found that $r=2,3$ and therefore
+\[
+a_n=c_12^n+c_23^n.
+\]
+Let's assume $a_0=-1$ and $a_1=1$, which means
+\[
+-1=c_1+c_2,\qquad 1=2c_1+3c_2.
+\]
+This has solution
+\[
+c_1=-4,\qquad c_2=3
+\]
+and therefore
+\[
+a_n=-4\cdot 2^n+3\cdot 3^n.
+\]
+\center Do this yourself on Problem 4(a).
+\end{frame}
+
+\begin{frame}{Complex roots}
+Consider
+\[
+a_n=2a_{n-1}-2a_{n-2},\qquad a_0=1,a_1=3.
+\]
+The associated quadratic equation is $x^2=2x-2$ or
+\[
+0=x^2-2x+2
+\]
+The quadratic formula yields that this has two complex roots $1\pm i$ and
+\[
+a_n=c_1(1+i)^n+c_2(1-i)^n.
+\]
+The equations to solve are
+\[
+1=c_1+c_2,\qquad 3=c_1(1+i)+c_2(1-i).
+\]
+which has solutions $c_1=\frac{1}{2}-i$ and $c_2=\frac{1}{2}+i$. Therefore
+\bl[]{
+\[
+a_n=\left(\frac{1}{2}-i\right)(1+i)^n+\left(\frac{1}{2}+i\right)(1-i)^n.
+\]}
+\end{frame}
+
+\begin{frame}{Repeated roots}
+What happens when $r_1=r_2$, e.g.
+\[
+a_n=4a_{n-1}-4a_{n-2},\qquad a_0=1,a_1=3.
+\]
+The equation $x^2=4x-4$ can be written
+\[
+0=x^2-4x+4=(x-2)(x-2)
+\]
+ has only one repeated root $r=2$, which only gives
+\[
+a_n=c2^n.
+\]
+But this is not enough to handle the initial condition:
+\[
+1=c,\qquad 3=c2
+\]
+which cannot be satisfied by a single $c$.
+\end{frame}
+
+
+
+\begin{frame}{Repeated roots}
+\[
+a_n=4a_{n-1}-4a_{n-2},\qquad a_0=1,a_1=3.
+\]
+The first five values are $1,3,8,20,48$. Let's see what $c$ would need to be used in each step if $a_n=c 2^n$.
+\begin{align*}
+n=0&\qquad 1=c&\to&\qquad c=1\\
+n=1&\qquad 3=c2&\to& \qquad c=\frac{3}{2}\\
+n=2&\qquad 8=c2^2&\to&\qquad c=2\\
+n=3&\qquad 20=c2^3&\to&\qquad c=\frac{5}{2}\\
+n=4&\qquad 48=c2^4&\to&\qquad c=3.
+\end{align*}
+We can read of the pattern $c(n)=(1+\frac{n}{2})$ and so
+\[
+a_n=\left(1+\frac{n}{2}\right) 2^n=2^n+\frac{1}{2}n2^n
+\]
+\end{frame}
+
+\begin{frame}{Repeated roots}
+\bl[Theorem]{Let the quadratic equation $x^2-s_1x-s_2=0$ have exactly one solution $r\neq 0$. Then every solution of the recurrence relation\vspace{-0.2cm}
+\[
+a_n=s_1a_{n-1}+s_2a_{n-2}
+\]\vspace{-0.6cm}\\
+is of the form\vspace{-0.2cm}
+\[
+c_1r^n+c_2nr^n.
+\]}
+\bl[Proof]{
+Since the quadratic equation has only one root, factorization gives\vspace{-0.2cm}
+\[
+x^2-s_1x-s_2=(x-r)^2,
+\]\vspace{-0.4cm}\\
+and therefore $s_1=2r$ and $s_2=-r^2$ and the recurrence relation becomes\vspace{-0.2cm}
+\[
+a_n=2ra_{n-1}-r^2a_{n-2}
+\]\vspace{-0.8cm}\\
+~[...]}
+
+
+\end{frame}
+
+\begin{frame}
+\bl[Theorem]{Then every solution of the recurrence relation\vspace{-0.2cm}
+\[
+a_n=s_1a_{n-1}+s_2a_{n-2}
+\]\vspace{-0.6cm}\\
+is of the form\vspace{-0.2cm}
+\[
+c_1r^n+c_2nr^n.
+\]}
+\bl[Proof]{
+[...]
+\[
+a_n=2ra_{n-1}-r^2a_{n-2}
+\]
+Then the given form satisfies the recurrence relation.
+\begin{align*}
+&2r(c_1r^{n-1}+c_2(n-1)r^{n-1})-r^2(c_1r^{n-2}+c_2(n-2)r^{n-2})=\\
+&=(2c_1r^n-c_1r^n)+(2c_2(n-1)r^n-c_2(n-2)r^n)=\\
+&=c_1r^n+c_2nr^n.
+\end{align*}
+[...]}
+
+
+\end{frame}
+
+\begin{frame}
+\bl[Theorem]{Then every solution of the recurrence relation\vspace{-0.2cm}
+\[
+a_n=s_1a_{n-1}+s_2a_{n-2}
+\]\vspace{-0.6cm}\\
+is of the form\vspace{-0.2cm}
+\[
+c_1r^n+c_2nr^n.
+\]}
+\bl[Proof]{
+[...]
+To show that every solution can be written in this form, note that matching the initial conditions gives
+\[
+a_0=c_1,\qquad a_1=r(c_1+c_2).
+\]
+Since by assumption $r\neq 0$, \vspace{-0.3cm}
+\[
+c_1=a_0\qquad c_2=\frac{a_0r-a_1}{r}.
+\]\vspace{-0.6cm}\\
+which means that for every initial condition the solution can be given in the desired form and the theorem is proved.\qed}
+
+\end{frame}
+
+\begin{frame}{Example}
+Consider
+\[
+a_{n}=8a_{n-1}-16a_{n-2}, a_0=2,a_1=5
+\]
+The corresponding quadratic equation is
+\[
+0=x^2-8x+16=(x-4)^2
+\]
+and therefore by the Theorem,
+\[
+a_n=c_14^n+c_2n4^n.
+\]
+To match the initial conditions, write
+\[
+2=a_0=c_1,\qquad 5=a_1=4(c_1+c_2),
+\]
+which implies $c_1=2$ and $c_2=-\frac{3}{4}$ and therefore the solution is
+\bl[]{
+\[
+a_n=2\cdot 4^n-\frac{3}{4}n4^n.
+\]}
+\center Do Problem 4 (b) on the worksheet!
+\end{frame}
+
+\begin{frame}{Non-homogeneous equation}
+Consider 
+\[
+a_n=5a_{n-1}-6a_{n-2}+2, a_0=1, a_1=2.
+\]
+\itemb
+\item We already know how to solve the homogeneous equation
+\[
+a_n^h=5a_{n-1}^h-6a_{n-2}^h
+\]
+to get
+\[
+a_n^h=c_12^n+c_23^n
+\]
+\item We also know that the sum of solutions is a solution.
+\item Therefore we can try to find the inhomogeneous solution as
+\[
+a_n=c_12^n+c_23^n+a_n^i
+\]
+where $a_n^i$ is any solution of the inhomogeneous equation.
+\item This is already adjustable to the inital conditions by finding the right $c_1$ and $c_2$.
+\iteme
+\end{frame}
+
+\begin{frame}{Non-homogeneous equation}
+Consider \vspace{-0.3cm}
+\[
+a_n=5a_{n-1}-6a_{n-2}+2, a_0=1, a_1=2.
+\]\vspace{-0.5cm}
+\itemb
+\item Try to find the inhomogeneous solution as
+\[
+a_n=c_12^n+c_23^n+a_n^i
+\]
+\item This is already adjustable to the inital conditions by finding the right $c_1$ and $c_2$.
+\item Easiest thing to try is $a_n^{i}=c_3$. Then
+\[
+c_3=5c_3-6c_3+2
+\]
+which works if $c_3=1$. Therefore 
+\[
+a_n=c_12^n+c_23^n+1,
+\]
+and after matching the initial conditions gives $c_1=-1, c_2=1$ and thus
+\[
+a_n=-2^n+3^n+1.
+\]
+\iteme
+\end{frame}
+
+\begin{frame}
+\center{Do Problem 5 on the worksheet!}
+\end{frame}
+\end{document}

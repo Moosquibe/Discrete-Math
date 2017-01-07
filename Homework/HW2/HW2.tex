@@ -1,0 +1,99 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\integers{\mathbb{Z}}
+
+\title{Discrete Mathematics, 2016 Fall - HW 2}
+\author{Instructor: Zsolt Pajor-Gyulai}
+\institute{Courant Institute of Mathematical Sciences, NYU}
+\date{Due: September 21, 2016}
+
+
+\begin{document}
+
+\maketitle
+
+To get full credit  in all of the problems, use rigorous justification and unless otherwise indicated, make sure that your solution reads as a perfect English sentence. You should only assume integers, operations and order relations as given. If you use a statement or a definition from the textbook, make sure to indicate it.
+\vspace{0.2cm}
+
+\textbf{Section 4}
+\begin{enumerate}
+\item[2)] Below you will find pairs of statements $A$ and $B$. For each pair, please indicate which of the following three sentences are true and which are false:
+\begin{itemize}
+\item If $A$, then $B$.
+\item If $B$, then $A$.
+\item $A$ if and only if $B$.
+\end{itemize}
+You may just list the true statements.
+\begin{enumerate}
+%\item $A$: Polygon $PQRS$ is a rectangle.  $B$: Polygon $PQRS$ is a square.
+\item $A$: Polygon $PQRS$ is a rectangle.  $B$: Polygon $PQRS$ is a parallelogram.
+\item $A$: Ellen resides in Los Angeles.  $B$: Ellen resides in California.
+\item $A$: This year is divisible by $4$.  $B$ This year is a leap year.
+\item $A$: Lines $l_1$ and $l_2$ are parallel. $B$: Lines $l_1$ and $l_2$ are perpendicular.
+\end{enumerate}
+%\item[4)] Consider two statements:
+%\begin{enumerate}
+%\item If $A$, then $B$.
+%\item $(\textrm{not} A)$ or $B$.
+%\end{enumerate}
+%Under what circumstances are those statements true? When are they false? Explain why these statements are, in escence, identical.
+\end{enumerate}
+
+\textbf{Section 5}
+\begin{enumerate}
+
+\item[15)] Let $x$ be an integer. Prove that $0|x$ if and only if $x=0$.
+\item[18)] Prove that the difference between consecutive perfect squares is odd.
+\end{enumerate}
+
+\textbf{Section 6}
+\begin{enumerate}
+\item[8)]An integer is a palindrome if it reads the same forwards and backwards when expressed in base-10. For example, $1331$ is a palindrome. Disprove that all palindromes with two or more digits are divisible by $11$.
+\end{enumerate}
+
+\newpage
+\textbf{Section 7}
+\begin{enumerate}
+\item[11-12)] A \textbf{tautology} is a Boolean expression that evaluates to $True$ for all possible values of its variables (e.g. $x\vee\neg x$). Use either a truth table or the properties listed in Theorem 7.2 in the textbook together with the fact that $x\to y$ is logically equivalent to $(\neg x)\vee y$ to prove that the following statements are tautologies. Use each way at least once.
+\begin{enumerate}
+\item $(x\vee y)\vee (x\vee\neg y)$.
+\item $(x\wedge(x\to y))\to y$.
+\item $(\neg(\neg x))\leftrightarrow x$.
+\end{enumerate}
+
+\item[13)] A \textbf{contradiction} is a Boolean expression that evaluates to $False$ for all possible values of its variables (e.g.  $x\wedge\neg x$). Prove that the following are contradictions. You can use your favorite method whether it's truth tables or properties.
+\begin{enumerate}
+\item $(x\vee y)\wedge (x\wedge\neg y)\wedge\neg x$.
+\item $x\wedge(x\to y)\wedge(\neg y)$.
+\item $(x\to y)\wedge ((\neg x)\to y)\wedge \neg y$.
+\end{enumerate}
+\end{enumerate}
+
+\textbf{Section 8}
+
+\begin{enumerate}
+
+\item[12)] A U.S. social security number is a nine-digit number. The first digit may be $0$ just like all the others.
+\begin{enumerate}
+\item How many SSN-s are available?
+\item How many have none of their digits equal to $8$?
+\item How many have at least one digit equal to $8$?
+\item How many have exactly one $8$?
+\item How many are there that do not have two consecutive digits the same?
+\end{enumerate}
+
+\item[13)] Let $n$ be a positive integer. Prove that $n^2=(n)_2+n$ in two different ways:
+\begin{enumerate}
+\item First, show that this equation is true algebraically.
+\item Second, interpret the terms $n^2$, $(n)_2$ and $n$ in the context of list counting and use that to argue why the equation must be true.
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

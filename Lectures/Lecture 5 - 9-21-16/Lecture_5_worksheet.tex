@@ -1,0 +1,124 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Spring - Worksheet 5}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{September 21, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Rewrite the following sentences using the quantifier notation.
+\enumb
+\item Every integer is a prime.
+\item There is an integer whose square is $2$.
+\item All integers are divisible by $5$.
+\item Some integer is divisible by $7$.
+\item For every integer $x$, there is an integer $y$ such that $xy=1$.
+\item There are an integer $x$ and an integer $y$ such that $x/y=10$.
+\item There is an integer that, when multiplied by any integer, always gives the result $0$.
+\item No matter what integer you choose, there is always another integer that is larger.
+\enume
+
+\item Write the negation of each of the sentences in the previous problem, first with quantifiers and then in plain English. In the first way, move the $\neg$ symbol as far to the right as possible.
+
+\item Label each of the following sentences about integers as either true or false. (No need to prove them)
+\enumb
+\item $\forall x,\forall y, xy=0$
+\item $\forall x, \exists y, xy=0$
+\item $\exists x,\forall y, xy=0$
+\item $\exists x,\exists y, xy=0$.
+\enume
+
+
+
+\item Let $A=\{1,2,3,4,5\}$ and let $B=\{4,5,6,7\}$. Compute
+\enumb
+\item $A\cup B$
+\item $A\cap B$
+\item $A-B$
+\item $B-A$
+\item $A\Delta B$
+\item $A\times B$
+\item $B\times A$
+\enume
+
+\item Prove the following theorem and illustrate it with a Venn-diagram (you can look at p57 for what this means).
+%\begin{enumerate}
+%\item
+%\begin{theorem}(Distributive properties)
+%Let $A$, $B$, and $C$ denote sets. Then we have
+%\[
+%A\cup(B\cap C)=(A\cup B)\cap (A\cup C),\qquad A\cap(B\cup C)=(A\cap B)\cup (A\cap C).
+%\]
+%\end{theorem}
+(First DeMorgan's Law)
+\begin{theorem}
+Let $A$, $B$, and $C$ sets. Then
+\[
+A-(B\cup C)=(A-B)\cap(A-C)
+\]
+\end{theorem}
+
+
+%\item Prove or disprove the following statements.
+%\enumb
+%\item $A\cup B=A\cap B$ if and only if $A=B$.
+%\item $A-\emptyset=A$ and $\emptyset-A=\emptyset$.
+%\item $A\Delta A=\emptyset$ and $A\Delta \emptyset= A$.
+%\item $A\subseteq B$ if and only if $A-B=\emptyset$.
+%\item $A-(B-C)=(A-B)-C$.
+%\item $(A\cup B)-C=(A-C)\cap(B-C)$.
+%\item If $B=A\cup C$ then $A=B-C$.
+%\item $|A-B|=|A|-|B|$.
+%\enume
+
+
+
+\item Let $A$ and $B$ be sets with $|A|=10$ and $|B|=7$.
+\enumb
+\item Calculate $|A\cap B|+|A\cup B|$.
+\item Find an upper bound $y$ and a lower bound $x$ for $|A\cup B|$, that are sharp. That is 
+\[
+x\leq|A\cup B|\leq y.
+\]
+To show that your answer is sharp, find sets such that $|A\cup B|=x$ and $|A\cup B|=y$ exactly.
+\enume
+\item Prove the following proposition:
+\begin{proposition}
+Let $n$ be an integer. Then
+\[
+2^0+2^1+...+2^{n-1}=2^n-1
+\]
+\end{proposition}
+Hints: 
+\itemb 
+\item How many subsets does the set $N=\{1,2,\dots, n\}$ have?
+\item How many subsets are there whose largest element is $j$? (Write this out for $j=1,2,3,4$ to see the pattern.)
+\item How do the two answers to the previous questions relate?
+\iteme 
+%If you get stuck, you can look into the proof of Proposition 13.1 on p66.
+
+\enume 
+\end{document}

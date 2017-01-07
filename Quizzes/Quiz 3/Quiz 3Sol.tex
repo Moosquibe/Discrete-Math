@@ -1,0 +1,53 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\title{Discrete Mathematics, Sect 002, 2016 Fall - Quiz 3}
+\author{Name:}
+\institute{Courant Institute of Mathematical Sciences, NYU}
+\date{September 26, 2016}
+
+\newtheorem*{proposition}{Proposition}
+
+
+
+\begin{document}
+
+\maketitle
+
+This quiz is scheduled for 10 minutes. No outside notes or calculators are permitted. To get full credit  in all of the problems, use rigorous justification and unless otherwise indicated, make sure that your solution reads as a perfect English sentence. You should only assume the notion of integers, operations, order relations and geometrical objects as given. If you use a statement or a definition from the textbook, make sure to indicate it.
+\vspace{0.2cm}
+
+\begin{enumerate}
+\item (10 points) Given two sets with $|A|=6$, $|A\cup B|=9$ and $|A\cap B|=3$, determine $|B|$.
+
+\vspace{1cm}
+
+By the exclusion-inclusion principle,
+\[
+|B|=|A\cup B|+|A\cap B|-|A|=9+3-6=6.
+\]
+\vspace{1cm}
+
+\item (10 points) Use the addition principle to show that
+\[
+|A\Delta B|=|A-B|+|B-A|.
+\]
+\vspace{0.5cm}
+
+By the definition of the symmetric difference,
+\[
+A\Delta B = (A-B)\cup (B-A).
+\]
+Also note that $(A-B)\cap(B-A)=\emptyset$. Indeed, if $x\in A-B$, then $x\in A$ but $x\notin B$ and in particular $x\notin B-A$. Similarly if $x\in B-A$ then $x\notin A-B$.
+
+Thus, the addition principle implies
+\[
+|A\Delta B|=|A-B|+|B-A|
+\]
+
+\end{enumerate}
+\end{document}

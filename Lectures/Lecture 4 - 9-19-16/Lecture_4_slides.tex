@@ -1,0 +1,435 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \usecolortheme{orchid}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{footline}[frame number]
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{listings}
+
+\def\blue{\color{blue}~}
+\def\black{\color{black}~}
+\def\bl[#1]#2{\begin{block}{#1}#2\end{block}}
+\def\integers{\mathbb{Z}}
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+
+
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+\title{Discrete Mathematics, Section 002, Spring 2016}
+\subtitle{Lecture 4: Factorials, Sets}
+
+\author[Zsolt]{Zsolt Pajor-Gyulai \\ \texttt{zsolt@cims.nyu.edu}}
+\date{September 19, 2016}
+
+\pgfdeclareimage[height=1cm]{NYUlogo}{NYUlogo.jpg}
+
+\institute[NYU] 
+{
+\normalsize Courant Institute of Mathematical Sciences
+}
+\titlegraphic{\pgfuseimage{NYUlogo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}}
+
+
+\section{Factorials and products}
+
+\begin{frame}{Factorials}
+A special case of what we did last time:
+\begin{block}{}
+How many lists of length $n$ can we make using $n$ elements without repetition?
+\end{block}
+or alternatively
+\begin{block}{}
+How many ways can we order $n$ elements?\pause
+\end{block}
+\[
+(n)_n=n(n-1)(n-2)\cdots 3\cdot 2\cdot 1
+\]\pause
+This occurs a lot, we call it \textbf{$n$-factorial} and denote it by $n!$.
+\pause
+\end{frame}
+\begin{frame}
+\itemb
+\item Note that
+\bl[]{
+\[
+n!=n\cdot (n-1)!
+\]}
+\item Also
+\iteme
+\bl[]{\vspace{-0.3cm}
+\begin{align*}
+(n)_k&=n(n-1)\dots (n-k+1)=\\
+&=\frac{n(n-1)\dots 2\cdot 1}{(n-k)(n-k-1)\dots 2\cdot 1}=\frac{n!}{(n-k)!}
+\end{align*}}
+
+\end{frame}
+
+\begin{frame}{Factorials}
+Two special cases:
+\begin{enumerate}
+\item $1!=1$: Hardly suprising.\pause
+\item $0!=1$:\pause
+\begin{itemize}
+\item How many list of length zero can we form out of zero elements?
+\[
+\textrm{One, the empty list.}
+\]\pause
+\item When $n=1$, $n!=n(n-1)!$ becomes $1=1\cdot 0!$\pause
+\item At the end of the day we make the definition like this, because it's convenient.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Product notation}
+Another way to write factorials:
+\[
+n!=\prod_{k=1}^nk
+\]
+\begin{itemize}
+\item $\prod$ stands for product.
+\item $k$ is a dummy variable, a place holder that ranges from the lower value to the upper value.
+\end{itemize}\pause
+Another example,
+\[
+\prod_{k=1}^5(2k+3)=(2\cdot 1+3)(2\cdot 2+3)(2\cdot 3 +3)(2\cdot 4 +3)(2\cdot 5+3)
+\]
+\end{frame}
+
+\begin{frame}[fragile]{Product notation}
+Interpretation as a for loop to compute
+\[
+\prod_{k=1}^{n}f_k
+\]
+
+\begin{lstlisting}[language=Python]
+def evaluate():
+    prod = 1
+    for k in range(1,n+1):
+        prod *= f_k
+    
+    return prod
+\end{lstlisting}
+	
+
+\end{frame}
+
+\begin{frame}{Product notation}
+Further examples:
+\begin{itemize}
+\item Constant to the right of the product sign:
+\[
+\prod_{k=1}^n 2=2^n
+\]\pause
+\item Empty product:
+\[
+0!=\prod_{k=1}^0 k=1
+\]
+\end{itemize}
+\end{frame}
+
+\section{Introduction to sets, Subsets}
+
+\begin{frame}
+Last time we talked about lists.
+\begin{block}{What was a list?}
+A \textbf{list} is an ordered sequence of objects.
+\end{block}\pause
+\begin{block}{What is a set?}
+A \textbf{set} is a repetition-free, unordered collection of objects.
+\end{block}\pause
+\begin{itemize}
+\item An object is either a member of a set or not.\pause
+\item There is no order to the members.\pause
+\item Simplest way to specify: list elements.
+\[
+\left\{2,3,\frac{1}{2}\right\}\qquad\left\{3,\frac{1}{2},2\right\}\qquad\left\{2,2,3,\frac{1}{2}\right\}
+\]\pause
+\center{\alert{These are all the same set!}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+For example, sets of numbers:
+\begin{itemize}
+\item Naturals: $\mathbb{N}$\pause
+\item Integers: $\mathbb{Z}$\pause
+\item Rationals: $\mathbb{Q}$
+\end{itemize}\pause
+
+\begin{block}{Membership in a set}
+An object $x$ that belongs to a set $A$ is called an \textbf{element} of it.
+\[
+\textrm{Notation:}\qquad x\in A
+\]
+\end{block}
+For example, $x\in\mathbb{Z}$ reads:
+\begin{itemize}
+\item "$x$ is a member/element of $\mathbb{Z}$"\pause
+\item "$x$ is in $\mathbb{Z}$"\pause
+\item "$x$ is an integer"
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Cardinality of a set}
+The \textbf{cardinality} of $A$, denoted by $|A|$, is the number of objects in the set.
+\end{block}\pause
+For example,
+\[
+\left|\left\{2,3,\frac{1}{2}\right\}\right|=3,\qquad |\mathbb{Z}|=\infty
+\]\pause
+A set $A$ with $|A|\in\mathbb{N}$ is \textbf{finite}, otherwise it's \textbf{infinite}.
+\begin{block}{Empty set}
+The \textbf{empty set} $\emptyset$ is a set with no elements.
+\end{block}\pause
+\begin{itemize}
+\item The statement $x\in\emptyset$ is false.\pause
+\item $|\emptyset|=0$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Specifying sets}
+\begin{itemize}
+\item List the elements between curly braces.
+\[
+\{3,4,9\}, \{table, chair, lamp\}
+\]\pause
+Clumsy for large sets, and impossible for infinite sets.\pause
+\item Set-builder notation:
+\[
+\{\textrm{dummy variable}: \textrm{conditions}\}
+\]\pause
+For example,
+\[
+\mathbb{N}=\{x: x\in\mathbb{Z}, x\geq 0\}
+\]
+This is a set of objects satisfying
+\begin{itemize}
+\item $x\in\mathbb{Z}$
+\item $x\geq 0$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Specifying sets}
+\begin{itemize}
+\item Alternative set-builder notation:
+\[
+\{\textrm{dummy variable}\in \textrm{set}: \textrm{conditions}\}
+\]\pause
+For example,
+\[
+\{x\in\mathbb{Z}: 2|x\}
+\]
+This is the set of those integers that are divisible by $2$.
+\end{itemize}\pause
+
+\center{Now practice these on the worksheet!}
+\end{frame}
+
+\begin{frame}{Equality of sets}
+\begin{Definition}
+Two sets are equal if they have exactly the same elements.
+\end{Definition}\pause
+
+ To show $A=B$, we have the following template:
+\begin{block}{}
+Let $A$ and $B$ be the sets.
+\begin{itemize}
+\item Suppose $x\in A$.\dots Therefore $x\in B$.
+\item Suppose $x\in B$.\dots Therefore $x\in A$.
+\end{itemize}
+Therefore $A=B$.
+\end{block}
+\end{frame}
+
+\begin{frame}[t]
+\begin{block}{Proposition}
+The following two sets are equal:
+\[
+E=\{x\in\mathbb{Z}: x\textrm{ is even}\},
+\]
+\[
+F=\{x\in\mathbb{Z}: x=a+b\textrm{ where $a$ and $b$ are both odd}\}.
+\]
+\end{block}
+
+\begin{proof}
+\uncover<2->{Let $E$ and $F$ as in the statement of the proposition. We seek to prove that $E=F$.}
+
+\uncover<2->{~~~~Suppose $x\in E.$}\only<3>{\color{blue}}\uncover<3->{ Therefore $x$ is even, hence $2|x$ and so $x=2y$ for some $y\in\mathbb{Z}$.}\only<3>{\black} \only<4>{\color{blue}}\uncover<4->{ Note that $2y+1$ and $-1$ are both odd and that $x=2y=(2y+1)+(-1)$.}\only<4>{\color{black}}\uncover<2->{ Therefore}\only<3>{\color{blue}}\uncover<3->{ $x$ is the sum of two odd numbers and so}\only<3>{\color{black}}\uncover<2->{ $x\in F$.}
+
+\uncover<2->{~~~~Suppose $x\in F.$}\only<5>{\color{blue}}\uncover<5->{ Therefore $x$ is the sum of two odd integers. It was shown in Exercise 5.1 that $x$ is then even.}\only<5>{\color{black}}\uncover<2->{ Therefore $x\in E$.}
+\end{proof}
+\end{frame}
+
+\begin{frame}{Subsets}
+\begin{definition}
+Suppose $A$ and $B$ are sets. We say that $A$ is a \textbf{subset} of $B$ provided every element of $A$ is also an element of $B$. We denote this by $A\subseteq B$.
+\end{definition}\pause
+For example,
+\begin{itemize}
+\item $\{1,2,3\}\subseteq \{1,2,3,4\}$\pause
+\item $A\subseteq A$ for every set $A$\pause
+\item $\emptyset\subseteq A$.
+\item If $B\subseteq A$ and $B\neq A,\emptyset$, we call it a \textbf{proper subset}.
+\end{itemize}\pause
+
+\begin{block}{}
+To show that $A\subseteq B$:
+
+~~~~Let $x\in A,\dots$ Therefore $x\in B$.
+\end{block}
+\end{frame}
+
+\begin{frame}{Subsets}
+\begin{definition}
+A list of three integers $(a,b,c)$ is called a \textbf{Pythagorean triple} provided $a^2+b^2=c^2$.
+\end{definition}\pause
+
+\bl[Proposition]{
+Let $P$ be the set of Pythagorean triples.
+\[
+P=\{(a,b,c): a,b,c\in\mathbb{Z}\textrm{ and } a^2+b^2=c^2\}
+\]
+and
+\begin{align*}
+T=\{(p,q,r): &p=x^2-y^2, q=2xy,\\
+&\textrm{ and } r=x^2+y^2\textrm{ where } x,y\in\mathbb{Z}\}
+\end{align*}
+Then $T\subseteq P$.
+}
+\end{frame}
+
+\begin{frame}
+\bl[]{
+\vspace{-0.3cm}
+\begin{align*}
+T=\{(p,q,r): &p=x^2-y^2, q=2xy,\\
+&\textrm{ and } r=x^2+y^2\textrm{ where } x,y\in\mathbb{Z}\}
+\end{align*}}
+
+For example $x=3$, $y=2$,
+\[
+p=x^2-y^2=9-4=5,\qquad q=2xy=12,\qquad r=x^2+y^2=13
+\]
+and $(p,q,r)\in P$.
+\end{frame}
+
+\begin{frame}
+\bl[]{
+\vspace{-0.3cm}
+\begin{align*}
+T=\{(p,q,r): &p=x^2-y^2, q=2xy,\\
+&\textrm{ and } r=x^2+y^2\textrm{ where } x,y\in\mathbb{Z}\}
+\end{align*}}
+\begin{proof}
+Let $P$ and $T$ as in the statement of the proposition.
+
+~~~~Let $(p,q,r)\in T$.\only<2>{\color{blue}}\uncover<2->{ Therefore there are integers $x$ and $y$ such that $p=x^2-y^2$, $q=2xy$, and $r=x^2+y^2$.}\only<3>{\color{blue}}\uncover<3->{ Note that $p,q, r$ are integers because $x$ and $y$ are integers.}\only<4>{\color{blue}}\uncover<4->{We calculate
+\begin{align*}
+p^2+q^2&=(x^2-y^2)^2+(2xy)^2=(x^4-2x^2y^2+y^4)+4x^2y^2=\\
+&=x^4+2x^2y^2+y^4=(x^2+y^2)^2=r^2
+\end{align*}}
+ \color{black}Therefore $(p,q,r)\in P$.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Caveats}
+We have to be careful to make the distinction between
+\bl[]{
+\[
+x \qquad\textrm{vs.}\qquad \{x\}
+\]}\pause
+and
+\bl[]{
+\[
+\in\qquad\textrm{vs.}\qquad \subseteq
+\]}\pause
+For example,
+\itemb
+\item  $x\in\{x\}$
+\item But $x\subseteq\{x\}$ or $x=\{x\}$ are incorrect.
+\iteme
+\end{frame}
+
+\begin{frame}
+\bl[Question]{
+How many subsets does a set have?}\pause
+
+For example, what about $A=\{1,2,3\}$?
+\[
+\begin{tabular}{|c|c|c|}
+\hline
+Number of elements&Subsets&Number\\
+\hline
+0&$\emptyset$&1\\
+1&\{1\},\{2\},\{3\}&3\\
+2&\{1,2\},\{1,3\},\{2,3\}&3\\
+3&\{1,2,3\}&1\\
+\hline
+\end{tabular}
+\]
+Total: $8$.\pause
+\bl[Alternatively]{
+For every element, we have two choices independently of each other: include/not include.
+}
+Therefore $|A|=2^3=8$.
+\end{frame}
+
+\begin{frame}
+\begin{theorem}
+Let $A$ be a finite set. The number of subsets of $A$ is $2^{|A|}$.
+\end{theorem}\pause
+
+\begin{proof}
+Let $A$ be a finite set and let $n=|A|$. Let the $n$ elements of $A$ be named $a_1,a_2,\dots,a_n$. To each subset $B$ of $A$, we can associate a list of length $n$; each element of the list is one of the words "yes" or "no". The $k$th element of the list is "yes" precisely when $a_k\in B$. This establishes a one to one correspondence with $yes/no$ lists of length $n$. The number of such lists is $2^n$, so the number of subsets of $A$ is $2^n$ where $n=|A|$.
+\end{proof}\pause
+\center{This is a so-called \textbf{bijective} proof.}
+\end{frame}
+
+\begin{frame}{Power set}
+\begin{definition}
+Let $A$ be a set. The \textbf{power set} of $A$ is the set of all subsets of $A$. We denote it by $2^A$.
+\end{definition}\pause
+For example, 
+\[
+2^{\{1,2,3\}}=\left\{\emptyset,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\right\}
+\]\pause
+The notation is created so that
+\[
+|2^A|=2^{|A|}
+\]
+\end{frame}
+
+\end{document}

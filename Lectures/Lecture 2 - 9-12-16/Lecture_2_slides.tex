@@ -1,0 +1,590 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \usecolortheme{orchid}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{footline}[frame number]
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{listings}
+
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+\title{Discrete Mathematics, Section 002, Spring 2016}
+\subtitle{Lecture 2: Theorems, Proofs}
+\date{September 12, 2016}
+
+\author[Zsolt]{Zsolt Pajor-Gyulai \\ \texttt{zsolt@cims.nyu.edu}}
+
+\pgfdeclareimage[height=1cm]{NYUlogo}{NYUlogo.jpg}
+
+\institute[NYU] 
+{
+\normalsize Courant Institute of Mathematical Sciences
+}
+\titlegraphic{\pgfuseimage{NYUlogo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}}
+
+\section{Theorems}
+
+\begin{frame}[t]{What is a theorem?}
+\begin{block}{}
+A theorem is a declarative statement about mathematics for which there is a proof.
+\end{block}
+In other word it is a sentence that expresses an idea about how something is, that we can assign a value of true or false.
+\only<2>{\begin{block}{}\center{If a supply of a commodity decreases then its price increases.}\end{block}}
+\only<3>{\begin{block}{}\center{The free acceleration on the surface of the earth is $9.8 m/s^2$.}\end{block}}
+
+\vspace{0.3cm}
+\uncover<4->{In mathematics there are four type of statements.}
+\begin{itemize}
+\item<4-> \textbf{Theorems:} Statements that are known to be true.
+\only<5>{\begin{theorem}
+If $a$ and $b$ are the length of the legs of a right triangle and $c$ is the length of the hypothenuse, then $a^2+b^2=c^2$.
+\end{theorem}}
+\only<6->{\item \textbf{Conjecture:} Statements that we suspect to be true but cannot prove it yet.}
+\only<7>{\begin{block}{Twin prime conjecture}
+There are infinitely many primes $p$ such that $p+2$ is also a prime. (E.g. 47)
+\end{block}
+}
+\item<8->\textbf{Mistake:} A statement that is false.
+\only<9>{\begin{block}{}Every even number is divisible by three\end{block}}
+\item<10->\textbf{Nonsensical:} A statement that does not make sense.
+\only<11>{\begin{block}{} The root of a triangle is a circle.\end{block}}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]{The notion of truth}
+Different disciples have different notion of truth. In most disciples a statement is true if it has some appropriate level of predictive value.
+\begin{itemize}
+\item<2-3> \textbf{Physics:} A statement is true if it has predictive value.
+\begin{block}{}
+The free acceleration near the surface of the earth is $9.8 m/s^2$.
+\end{block}
+\begin{itemize}
+\item<2-3> The value $9.8$ is an approximation.
+\item<2-3> 'Near' is vague.
+\item<2-3> The actual value has slight variations near the surface.
+\end{itemize}
+\item<3> \textbf{Meteorology:}
+\begin{block}{} The weather in Baltimore in July is hot and humid.\end{block}
+\begin{itemize}
+\item<3> Definitely not every day every July.
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{The notion of truth}
+Different disciples have different notion of truth. In most disciples a statement is true if it has some appropriate level of predictive value or descriptive power.
+\begin{itemize}
+\item \textbf{Mathematics:}
+\begin{itemize}
+\item Much stricter than any other disciples.
+\item The only truth is absolute, unconditional and without exception.
+\begin{theorem}
+If $a$ and $b$ are the length of the legs of a right triangle and $c$ is the length of the hypothenuse, then $a^2+b^2=c^2$.
+\end{theorem}\pause
+\item It is true because we can prove it, not because we measure triangles with a ruler.
+\end{itemize}
+\end{itemize}\pause
+Absolute statements can only be made about abstract objects and therefore mathematics works with these. Then usually our results tell us something about the real world as well.
+\end{frame}
+
+\begin{frame}{If $A$ then $B$. ($A\Rightarrow B$).}
+\begin{block}{}
+\center{If $x$ and $y$ are even integers, then so is $x+y$.}
+\end{block}
+This is not the same as everyday English usage:
+\begin{block}{}
+\center{If you mow the lawn, then I will pay you $20$}.
+\end{block}
+What happens if you don't mow the lawn?\pause
+\begin{itemize}
+\item Everyday English: You don't get anything.\pause
+\item Mathematics: No information.
+\end{itemize}
+\begin{figure}
+\centering
+\begin{tabular}{| >{\centering\arraybackslash}b{1in} | >{\centering\arraybackslash}b{1in} || >{\centering\arraybackslash}b{1in}|}
+\hline
+A& B & \\
+\hline
+True & True & Possible\\
+True & False& Impossible\\
+False & True & Possible\\
+False & False & Possible\\
+\hline
+\end{tabular}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{If $A$ then $B$. ($A\Rightarrow B$)}
+\textbf{Alternative terminology:}
+\begin{itemize}
+\item $A$ implies $B$.\pause
+\item Whenever $A$ we have $B$.\pause
+\item $A$ is sufficient for $B$.\pause
+\item $B$ is necessary for $A$.\pause
+\item $A$ only if $B$.\pause
+\item $B\Leftarrow A$. 
+\end{itemize}\pause
+
+\end{frame}
+
+\begin{frame}[fragile]
+\textbf{Vacuous truth:}
+\begin{block}{}
+If an integer is both a perfect square and prime, then it is negative.
+\end{block}
+$A\Rightarrow B$ is only false if it is possible for $A$ to be true but $B$ to be false at the same time.$\rightarrow$ This is true!
+\vspace{0.5cm}
+
+\underline{An algorithmic explanation:}
+\begin{lstlisting}[language=Python]
+def evaluate():
+    for a in Integers:
+        if (a in PerfSq) and (a in Primes) ...
+                         and (a > 0):
+            return False		
+	
+    return True
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{$A$ if and only if $B$. ($A\Leftrightarrow B$)}
+\begin{block}{}
+\center{If an integer $x$ is even, then $x+1$ is odd, and if $x+1$ is odd, then $x$ is even.}
+\end{block}
+This is inconveniently long. Rather:
+\begin{block}{}
+\center{An integer $x$ is even if and only if $x+1$ is odd.}
+\end{block}
+
+\begin{figure}
+\centering
+\begin{tabular}{| >{\centering\arraybackslash}b{1in} | >{\centering\arraybackslash}b{1in} || >{\centering\arraybackslash}b{1in}|}
+\hline
+A& B & \\
+\hline
+True & True & Possible\\
+True & False& Impossible\\
+False & True & Impossible\\
+False & False & Possible\\
+\hline
+\end{tabular}
+\end{figure}
+Alternative terminology:
+\begin{itemize}
+\item $A$ iff $B$.\pause
+\item $A$ is necessary and sufficient for $B$.\pause
+\item $A$ is equivalent to $B$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{And, Or and Not}
+
+\begin{figure}
+\centering
+\begin{tabular}{| >{\centering\arraybackslash}b{1in} | >{\centering\arraybackslash}b{1in} || >{\centering\arraybackslash}b{1in}|}
+\hline
+A& B & A and B \\
+\hline
+True & True & True\\
+True & False& False\\
+False & True & False\\
+False & False & False\\
+\hline
+\end{tabular}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{tabular}{| >{\centering\arraybackslash}b{1in} | >{\centering\arraybackslash}b{1in} || >{\centering\arraybackslash}b{1in}|}
+\hline
+A& B & A or B \\
+\hline
+\alert{True} & \alert{True} & \alert{True}\\
+True & False& True\\
+False & True & True\\
+False & False & False\\
+\hline
+\end{tabular}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{tabular}{| >{\centering\arraybackslash}b{1in}  || >{\centering\arraybackslash}b{1in}|}
+\hline
+A& Not A \\
+\hline
+True & False\\
+False & True\\
+\hline
+\end{tabular}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{What theorems are called}
+\begin{itemize}
+\item \textbf{Result} A modest word for a theorem.\pause
+\item \textbf{Fact} A very minor theorem. \pause
+\item \textbf{Proposition} A minor theorem.\pause
+\item \textbf{Lemma} A theorem whose main purpose is to be used in the proof of a more important theorem.\pause
+\item \textbf{Corollary} A result with a short proof whose main step is to use a previously proved bigger theorem.\pause
+\item \textbf{Claim} Similar to a lemma but it usually appears inside the proof of a theorem to help structure it.
+\end{itemize}
+\end{frame}
+
+\section{Proof}
+
+\begin{frame}{What is a proof?}
+We create mathematical concepts via definitions and then posit assertions about them as theorems. Finally, we have to prove that our assertions are correct.\pause
+\begin{block}{}
+\center{All prime numbers are odd}
+\end{block}
+\pause
+We cannot prove this by experimentation:
+\[
+3,5,7,\cdots \qquad\textrm{all odd.}
+\]\pause
+Nevertheless, $2$ is not odd and therefore the statement is false.
+\end{frame}
+
+\begin{frame}{What is a proof?}
+Another example:
+\begin{block}{Goldbach's Conjecture}
+Every even integer greater than two is the sum of two primes.
+\end{block}\pause
+\begin{align*}
+4&=2+2 &6&=3+3 &8&=3+5&10&=3+7\\
+12&=5+7  &14&=7+7&16&=11+5&18&=11+7
+\end{align*}
+A computer can tell you that the first few billion even numbers are good too.\pause
+\center{\alert{We still do not know if we can or cannot find a larger one that would break the conjecture!}}
+\end{frame}
+
+\begin{frame}{What is a proof?}
+\begin{block}{}
+A proof is an essay that incontrovertibly shows that a statement is true.
+\end{block}\pause
+\begin{itemize}
+\item Mathematical proofs are highly structured \pause
+\item They are written in a stylized manner using logical constructions.\pause
+\item Ultimately, writing proofs is an art and you can only learn doing it well by doing it a lot.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{An example}
+
+\begin{theorem}
+The sum of two even integers is even.
+\end{theorem}\pause
+\vspace{0.4cm}
+We will use:
+
+\begin{block}{Definition 1}
+An integer is called \textbf{even} if it is divisible by two.
+\end{block}
+
+\begin{block}{Definition 2}
+Let $a$ and $b$ be integers. We say that $a$ is \textbf{divisible} by $b$ provided there is an integer $c$ such that $bc=a$.
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+
+
+\begin{theorem}
+The sum of two even integers is even.
+\end{theorem}
+In a math paper the proof would look like this:
+\begin{proof}
+~~~~We show that if $x$ and $y$ are even integers, then $x+y$ is an even integer.
+
+~~~~ Let $x$ and $y$ be even integers. Since $x$ is even, we know by Definition 1 that $2|x$. By Definition 2, this implies that there is an integer $a$ such that $x=2a$. Likewise, since $y$ is even, we have $2|y$ and therefore there is another integer $b$ such that $y=2b$. Observe that
+\[
+x+y=2a+2b=2(a+b).
+\]
+This means that there is an integer $c(=a+b)$ such that $x+y=2c$, which in turn implies $2|x+y$ which in turn implies that $x+y$ is even.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Let's break it down}
+\begin{block}{}
+1. 'We show that if $x$ and $y$ are even integers, then $x+y$ is an even integer.'
+\end{block}\pause
+\begin{itemize}
+\item Spells out the proposition in an $if-then$ form.\pause
+\item Announces the structure of the proof.\pause
+\item Can be considered a preamble.\pause
+\item Unless it serves a purpose, you can omit it. However, it is in good style to include it whenever it makes matters clearer.
+\end{itemize}\pause
+
+\begin{block}{}
+2. 'Let $x$ and $y$ be even integers.'
+\end{block}\pause
+
+\begin{itemize}
+\item We introduce names $x$, $y$ for the two integers.\pause
+\item By this we do the proof for all integers at once!
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Let's break it down}
+\begin{block}{}
+3. 'Since $x$ is even, we know by Definition 1 that $2|x$.'
+\end{block}\pause
+\begin{itemize}
+\item We unravel the definition of even.
+\end{itemize}\pause
+
+\begin{block}{}
+4. 'By Definition 2, this implies that there is an integer $a$ such that $x=2a$.'
+\end{block}\pause
+\begin{itemize}
+\item We unravel the definition of divisible.\pause
+\item A new integer comes into play, we do not know what it is as it depends on $x$. But we know that there is one! We denote it by $a$ whatever it is.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Let's break it down}
+\begin{block}{}
+5. 'Likewise, since $y$ is even, we have $2|y$ and therefore there is another integer $b$ such that $y=2b$.'
+\end{block}\pause
+\begin{itemize}
+\item We do the same thing as in $3-4$ but this time for $y$. No reason to repeat the argument, we just indicate that it is the same by 'Likewise'.
+\end{itemize}\pause
+\begin{block}{}
+6. 'This means that there is an integer $c(=a+b)$ such that $x+y=2c$, which in turn implies $2|x+y$'
+\end{block}\pause
+\begin{itemize}
+\item Unravel the definitions the exact same way as before but at the end of the proof!
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\uncover<1>{At this point:}
+\begin{proof}
+\uncover<1->{~~~~We show that if $x$ and $y$ are even integers, then $x+y$ is an even integer.
+
+~~~~ \alert{Let $x$ and $y$ be even integers.} Since $x$ is even, we know by Definition 1 that $2|x$. \alert{By Definition 2, this implies that there is an integer $a$ such that $x=2a$.} Likewise, since $y$ is even, we have $2|y$ and therefore there is another integer $b$ such that $y=2b$.} \uncover<4->{\color{blue}Observe that
+\[
+x+y=2a+2b=2(a+b).
+\]
+This means that\color{black}~ }\uncover<1->{there is an integer $c(=a+b)$ such that $x+y=2c$, which in turn implies $2|x+y$ \alert{which in turn implies that $x+y$ is even.}}
+\end{proof}
+
+\begin{itemize}
+\item<2-> We make the connection between the beginning and the end.
+\item<3-> This is where we have to think.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Proof template}
+\begin{block}{{Proof template for a direct proof of an if-then theorem}}
+\begin{enumerate}
+\item Write the first sentence(s) of the proof by restating the hypothesis as an if-then statement. Invent suitable notation, assign letters as names to variables, etc.\pause
+\item Write the last sentence of the proof by restating the conclusion of the result.\pause
+\item Unravel the definitions, working forward from the beginning of the proof and backward from the end.\pause
+\item Figure out what you know and what you need. Try to forge an argument.
+\end{enumerate}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Another example}
+\begin{theorem}
+Let $a$, $b$, $c$ be integers. If $a|b$ and $b|c$ then $a|c$.
+\end{theorem}\pause
+This on your worksheet, give it a try now!
+\end{frame}
+
+\begin{frame}{A more involved example}
+Pick a positive integer, cube it and then add it to one:
+\begin{align*}
+3^3+1&=27+1=28=2\cdot 14\\
+4^3+1&=64+1=65=5\cdot 13\\
+5^3+1&=125+1=126=2\cdot 63\\
+6^3+1&=216+1=217=7\cdot 31\\
+\vdots\\
+x^3+1&= composite?
+\end{align*}\pause
+Try to formulate a theorem:
+\begin{block}{Theorem (Draft 1)}
+If $x$ is an integer, then $x^3+1$ is composite.
+\end{block}\pause
+\center{Is this okay?}
+\end{frame}
+
+\begin{frame}
+
+\begin{block}{Theorem (Draft 1)}
+If $x$ is an integer, then $x^3+1$ is composite.
+\end{block}
+Recall:
+\begin{definition}
+A \alert{positive} integer $a$ is called \textbf{composite} provided there is an integer $b$ such that $1<b<a$ and $b|a$.
+\end{definition}\pause
+\center{This is a problem because $x^3+1$ can be negative or zero!}\pause
+\begin{block}{Theorem (Draft 2)}
+If $x$ is a positive integer, then $x^3+1$ is composite.
+\end{block}\pause
+But if $x=1$ then $x^3+1=2$ which is not composite.
+\end{frame}
+
+\begin{frame}[t]
+\begin{block}{Theorem}
+Let $x$ be an integer. If $x>1$, then $x^3+1$ is composite.
+\end{block}
+\begin{proof}
+\uncover<2->{~~~~Let $x$ be an integer and suppose $x>1$.} \uncover<4->{\phantom{Note that $x^3+1=(x+1)(x^2-x+1)$. Because $x$ is an integer, both $x+1$ and $x^2-x+1$ are integers. Therefore $(x+1)|(x^3+1)$.}
+
+~~~~\phantom{Since $x>1$, we have $x+1>1+1=2>1$.}
+
+~~~~\phantom{Also $x>1$ implies $x^2>x$, and since $x>1$, we have $x^2>1$. Multiplying both sides by $x$ again yields $x^3>x$. Adding $1$ to both sides gives $x^3+1>x+1$.}
+
+~~~~\phantom{Thus $x+1$ is an integer with $1<x+1<x^3+1$.}}
+
+~~~~\uncover<3->{\color{blue}Since\color{black}} \uncover<4->{\phantom{$x+1$}}\uncover<3->{\color{blue}~is a divisor of $x^3+1$ and $1<$\phantom{$x+1$}$<x^3+1$, }\uncover<2->{\color{black}we have that $x^3+1$ is composite}.
+\end{proof}
+
+
+\only<2>{\center{The statement is already if-then, no need to repeat it.}}
+\only<3->{\center{Unraveling the definition in the end.}}
+
+\only<4>{\center{What should be the right divisor?}}
+\end{frame}
+
+\begin{frame}
+\begin{block}{}
+Since \phantom{$x+1$} is a divisor of $x^3+1$ and $1<$\phantom{$x+1$}$<x^3+1$, we have that $x^3+1$ is composite.
+\end{block}\pause
+Recall:
+\begin{definition}
+Let $a$ and $b$ integers. If $a|b$ and $1<a<b$ then $a$ is called a \textbf{factor} of $b$.
+\end{definition}\pause
+We need to find a factor!\pause
+\[
+x^3+1=(x+1)(x^2-x+1)
+\]
+and so $x+1$ and $x^2-x+1$ are both factors of $x^3+1$ as they are both integers (since $x$ is an integer).
+
+
+\end{frame}
+
+\begin{frame}[t]
+\begin{block}{Theorem}
+Let $x$ be an integer. If $x>1$, then $x^3+1$ is composite.
+\end{block}
+\begin{proof}
+~~~~Let $x$ be an integer and suppose $x>1$. \color{blue}~Note that $x^3+1=(x+1)(x^2-x+1)$. Because $x$ is an integer, both $x+1$ and $x^2-x+1$ are integers. Therefore $(x+1)|(x^3+1)$.\color{black}
+
+~~~~\phantom{Since $x>1$, we have $x+1>1+1=2>1$.}
+
+~~~~\phantom{Also $x>1$ implies $x^2>x$, and since $x>1$, we have $x^2>1$. Multiplying both sides by $x$ again yields $x^3>x$. Adding $1$ to both sides gives $x^3+1>x+1$.}
+
+~~~~\phantom{Thus $x+1$ is an integer with $1<x+1<x^3+1$.}
+
+~~~~Since \color{blue}~$x+1$\color{black}~is a divisor of $x^3+1$ and $1<$\phantom{$x+1$}$<x^3+1$, we have that $x^3+1$ is composite.
+\end{proof}
+
+
+\only<2>{\center{We are not done yet, as we still need to show that $x+1$\\ 'fits into the gap'.}}
+\end{frame}
+
+\begin{frame}
+We need
+\begin{block}{}
+\[
+1<x+1<x^3+1
+\]
+\end{block}\pause
+First inequality: 
+\[
+x>1\qquad\rightarrow\qquad x+1>1+1=2>1
+\]\pause
+The second inequality:
+\begin{align*}
+x>1\qquad&\rightarrow\qquad x^2>x>1 &(\textrm{multiplying by $x$})\\
+&\rightarrow\qquad x^3>x &(\textrm{multiplying by $x$})\\
+&\rightarrow\qquad x^3+1>x+1 &(\textrm{adding $1$})
+\end{align*}
+\end{frame}
+
+\begin{frame}[t]
+\begin{block}{Theorem}
+Let $x$ be an integer. If $x>1$, then $x^3+1$ is composite.
+\end{block}
+\begin{proof}
+~~~~Let $x$ be an integer and suppose $x>1$. Note that $x^3+1=(x+1)(x^2-x+1)$. Because $x$ is an integer, both $x+1$ and $x^2-x+1$ are integers. Therefore $(x+1)|(x^3+1)$.
+
+~~~~ \color{blue}Since $x>1$, we have $x+1>1+1=2>1$.
+
+~~~~Also $x>1$ implies $x^2>x$, and since $x>1$, we have $x^2>1$. Multiplying both sides by $x$ again yields $x^3>x$. Adding $1$ to both sides gives $x^3+1>x+1$.
+
+~~~~Thus $x+1$ is an integer with $1<x+1<x^3+1$.\color{black}
+
+~~~~Since $x+1$ is a divisor of $x^3+1$ and $1<x+1<x^3+1$, we have that $x^3+1$ is composite.
+\end{proof}
+
+\end{frame}
+
+\begin{frame}{If-and-only-if Theorems}
+\begin{block}{Direct proof of an if-and-only-if theorem}
+To prove a statement of the form '$A$ iff $B$',
+\begin{itemize}
+\item ($\Rightarrow$) Prove 'If $A$, then $B$'.
+\item ($\Leftarrow$) Prove 'If $B$, then $A$'.
+\end{itemize}
+\end{block}\pause
+\begin{theorem}
+Let $x$ be an integer. Then $x$ is even if and only if $x+1$ is odd.
+\end{theorem}\pause
+\begin{proof}
+Let $x$ be an integer.
+
+~~~~($\Rightarrow$) Suppose $x$ is even, ~~$\dots$ Therefore $x+1$ is odd.
+
+~~~~($\Leftarrow$) Suppose $x+1$ is odd,~~$\dots$ Therefore $x$ is even.
+\end{proof}
+
+Now prove the if-then substatements as before. (Worksheet)
+
+\end{frame}
+
+
+\end{document}

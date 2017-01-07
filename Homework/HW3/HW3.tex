@@ -1,0 +1,117 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\newtheorem{proposition}{Proposition}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\integers{\mathbb{Z}}
+
+\title{Discrete Mathematics, 2016 Spring - HW 3}
+\author{Instructor: Zsolt Pajor-Gyulai}
+\institute{Courant Institute of Mathematical Sciences, NYU}
+\date{Due: September 28, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+To get full credit  in all of the problems, use rigorous justification and unless otherwise indicated, make sure that your solution reads as a perfect English sentence. You should only assume integers, operations and order relations as given. If you use a statement or a definition from the textbook, make sure to indicate it.
+\vspace{0.2cm}
+
+\textbf{Section 9}
+
+\begin{enumerate}
+\item[7)] Computing $n!$ for large values of $n$ can computationally costly. Stirling's formula gives the following approximation:
+\[
+n!\approx \sqrt{2\pi n} \left(\frac{n}{e}\right)^n
+\]
+Compute this with $n=10$. Compute the actual value and compare the two.
+
+\item[8)] Calculate the following products:
+\begin{enumerate}
+\item $\prod_{k=-3}^1k$.
+\item $\prod_{k=1}^n\frac{k+1}{k}$.
+\end{enumerate}
+
+\item[15)] The double factorial is defined for odd integers. It is the product of all the odd numbers from $1$ to $n$ inclusive. E.g.
+\[
+7!!=1\times 3\times 5\times 7=105
+\]
+\begin{enumerate}
+\item Evaluate $9!!$.
+\item Write an expression for $n!!$ using the product notation.
+\item For an odd number, are $n!!$ and $(n!)!$ the same?
+\end{enumerate}
+
+\end{enumerate}
+
+\textbf{Section 10}
+
+\enumb
+
+
+\item[12-13)]
+\enumb
+\item Let $C=\{x\in\integers: x|12\}$ and let $D=\{x\in\integers: x|36\}$. Prove that $C\subseteq D$.
+\item Generalize the previous problem. Let $c,d\in\integers$ and let
+\[
+C=\{x\in\integers: x|c\},\qquad D=\{x\in\integers: x|d\}
+\]
+Find and prove a necessary and sufficient condition for $C\subseteq D$.
+\enume
+%\item[15)] With $T$ and $P$ as in Proposition 10.5, show that $T\neq P$.
+\enume 
+
+\textbf{Section 11}
+\enumb
+
+\item[7)] The notation $\exists !$ is sometimes used to indicate that there is exactly one object that satisfies the condition. The notation can be pronounced "there is a unique". Which of the following statements are true?
+\enumb
+\item $\exists ! x\in\mathbb{N}, x^2=4$
+\item $\exists ! x\in\integers, x^2=4$
+\item $\exists ! x\in\integers,\forall y\in\integers, xy=x$
+\enume
+\item[8)] A subset of the plane is a \textbf{convex region} provided that, given any two points of the region, every point on the line segment connecting the two is also in that region.
+\enumb
+\item Rewrite the definition of convex region using quantifiers. Use $R$ to stand for the region and $L(a,b)$ to stand for the line segment with endpoints $a$ and $b$.
+\item Using quantifiers, write what it means for a region not to be convex.
+\item Write your answer to the previous part in English without quantifiers.
+\enume
+\enume
+
+\textbf{Section 12}
+\enumb
+\item[19)] Prove the following proposition.
+
+\begin{proposition}
+Let $A$ and $B$ be finite sets. Then $|A\times B|=|B\times A|=|A|\cdot|B|$.
+\end{proposition}
+
+\item[22)] Let $X$ be a set and let $A\subseteq X$ be a subset. The \textbf{complement} of $A$ relative to $X$ is the set $X-A$. When it is well understood what the big set ("Universe") $X$ is, e.g. when you are writing hundreds of pages about a theory where $X$ is always the same thing (like $X=\integers$ in number theory or the probability space in  probability theory), then the shorthand $\bar{A}$ is used.  Prove the following about set complements (with $A,B\subseteq X$).
+\enumb
+\item $A=B$ if and only if $\bar{A}=\bar{B}$.
+\item $\bar{\bar{A}}=A$.
+\item $\overline{A\cup B\cup C}=\bar{A}\cap\bar{B}\cap\bar{C}$.
+\enume
+
+\textbf{Section 13}
+\item[3)]Expanding the parentheses gives
+\[
+(x-1)(1+x+x^2+\dots x^{n-1}) = x^n-1
+\]
+for any $x$. On Problem 7 of Worksheet 5, we gave a combinatorial proof of the case $x=2$. Substituting $x=3$, we get
+\[
+2\cdot 3^0+ 2\cdot 3^1+\dots + 2\cdot 3^{n-1}=3^n-1
+\]
+Give a combinatorial proof for this formula. For a hint on what the right question to ask is, you may consult the back of the textbook.
+\enume
+
+
+\end{document}

@@ -1,0 +1,294 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \usecolortheme{orchid}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{footline}[frame number]
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{cancel}
+
+
+\usetikzlibrary{shapes,backgrounds}
+
+\def\blue{\color{blue}~}
+\def\black{\color{black}~}
+\def\bl[#1]#2{\begin{block}{#1}#2\end{block}}
+\def\integers{\mathbb{Z}}
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+
+
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+\title{Discrete Mathematics, Section 002, Fall 2016}
+\subtitle{Lecture 6: Relations, Equivalence relations}
+\date{September 26, 2016}
+
+\author[Zsolt]{Zsolt Pajor-Gyulai \\ \texttt{zsolt@cims.nyu.edu}}
+
+\pgfdeclareimage[height=1cm]{NYUlogo}{NYUlogo.jpg}
+
+\institute[NYU] 
+{
+\normalsize Courant Institute of Mathematical Sciences
+}
+\titlegraphic{\pgfuseimage{NYUlogo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}}
+
+\section{Relations}
+
+\begin{frame}{A different take on ordinary relations}
+\bl[]{Ordinary relations you are probably familiar with: $<,\leq,=,>,\geq$.}
+
+Let us look at them a little differently. For example, let
+\[
+R_<=\{(a,b): a\in\integers, b\in\integers, a<b\}.
+\]
+Then 
+\[
+(a,b)\in R_<\qquad\Leftrightarrow\qquad a<b.
+\]
+You can also think about this as:
+\[
+\textrm{'The pair $(a,b)$ passes the test of $<$  if and only if $(a,b)\in R_<$}'.
+\]
+Note that $R_<\subseteq\integers\times\integers$.
+
+\begin{center}
+Do Problem 1 on the Worksheet!
+\end{center}
+\end{frame}
+
+\begin{frame}{Abstract notion of a relation}
+\itemb
+\item We want to have a notion of a general relation on a set $A$. 
+\item We want to have a set $R$ of all those ordered pairs 
+\[
+(a_1,a_2)\in A\times A
+\]
+that 'pass the test' of the relation.
+\item In this case, we say $a_1$ is in relation $R$ with $a_2$ or shorthand
+\[
+a_1 R a_2\qquad (\Leftrightarrow (a_1,a_2)\in R)
+\]
+\item Similarly, if $(a_1,a_2)\notin R$, we say $a_1$ is not in relation $R$ with $a_2$ or shorthand
+\[
+a_1\cancel{R}a_2.
+\]
+\item This way, we can call the set $R$ itself a relation.
+\bl[]{\vspace{-0.4cm}
+\[
+\begin{array}{clr}
+(a_1,a_2)\in R &\qquad \textrm{$a_1$  is in relation $R$ with $a_2$}& a_1 R a_2\\
+(a_1,a_2)\notin R &\qquad\textrm{$a_1$ is not in relation $R$ with $a_2$}& a_1\cancel{R} a_2
+\end{array}
+\]}
+\iteme
+\end{frame}
+
+\begin{frame}{Abstract notion of a relation}
+\bl[]{\vspace{-0.4cm}
+\[
+\begin{array}{clr}
+(a_1,a_2)\in R &\qquad \textrm{$a_1$  is in relation $R$ with $a_2$}& a_1 R a_2\\
+(a_1,a_2)\notin R &\qquad\textrm{$a_1$ is not in relation $R$ with $a_2$}& a_1\cancel{R} a_2
+\end{array}
+\]}
+For example:
+\[
+A=\{1,2,3,4\}\qquad R=\{(1,2), (1,3), (2,2), (3,2)\}
+\]
+\vspace{-0.5cm}
+\itemb
+\item $1 R 2$
+\item $2 \cancel{R} 1$
+\item $4$ is not in relation $R$ with anything, not even with itself.
+\item Nothing is in relation $R$ with 4, not even itself.
+\item $2 R 2$.
+\iteme
+\end{frame}
+
+\begin{frame}{Abstract notion of a relation}
+\bl[Relation]{
+A \textbf{relation} is a set of ordered pairs.
+}
+\bl[Relation on a set]{
+We say $R$ is a \textbf{relation on a set $A$}, provided $R\subseteq A\times A$.
+}
+
+\bl[Relation between sets]{
+We say $R$ is a \textbf{relation from set $A$ to set $B$} provided $R\subseteq A\times B$.}
+\end{frame}
+
+\begin{frame}{Further example}
+Let $A=\{1,2,3,4\}$ and $B=\{4,5,6,7\}$.
+\begin{align*}
+R&=\{(1,1), (2,2), (3,3), (4,4)\}\\
+S&=\{(1,2),(3,2)\}\\
+T&=\{(1,4),(1,5),(4,7)\}\\
+U&=\{(4,4),(5,2),(6,2),(7,3)\}\\
+V&=\{(1,7),(7,1)\}
+\end{align*}
+All of these are relations.
+\itemb
+\item $R$ is the equality relation on $A$.
+\item $S$ is a relation on $A$
+\item $T$ is a relation from $A$ to $B$.
+\item $U$ is a relation from $B$ to $A$.
+\item $V$ is a relation but it is not from $A$ to $B$ nor from $B$ to $A$.
+\iteme
+\end{frame}
+
+\begin{frame}
+\begin{center}
+Do Problem 2 on the worksheet!
+\end{center}
+\end{frame}
+
+\begin{frame}{Inverse relation}
+\bl[Inverse relation]{
+Let $R$ be a relation. The \textbf{inverse of $R$}, denoted $R^{-1}$, is the relation formed by reversing the order of all the ordered pairs in $R$. In symbols, $R^{-1}=\{(x,y): (y,x)\in R\}$}\vspace{-0.5cm}
+\[
+R=\{(1,5),(2,6),(3,7),(3,8)\}\to R^{-1}=\{(5,1), (6,2), (7,3), (8,3)\}
+\]\vspace{-0.5cm}
+\bl[Proposition]{Let $R$ be a relation. Then $(R^{-1})^{-1}=R$.}
+\begin{proof}
+~~~~Suppose $(x,y)\in R$. Then $(y,x)\in R^{-1}$ and thus $(x,y)\in (R^{-1})^{-1}$.
+
+~~~~Now suppose $(x,y)\in (R^{-1})^{-1}$. Then $(y,x)\in R^{-1}$ and so $(x,y)\in R$.\qedhere
+\end{proof}
+
+\end{frame}
+
+\begin{frame}
+\begin{center}
+Do Problems 3-4 on the Worksheet!
+\end{center}
+\end{frame}
+
+\begin{frame}{Properties of relations}
+\begin{definition}
+Let $R$ be a relation on a set $A$.
+\itemb
+\item If for all $x\in A$ we have $x R x$, we call $R$ \textbf{reflexive}.
+\item If for all $x\in A$ we have $x\cancel{R} x$, we call $R$ \textbf{irreflexive}.
+\item If for all $x,y\in A$ we have $xRy\Rightarrow y R x$, we call $R$ \textbf{symmetric}.
+\item If for all $x,y\in A$, we have\vspace{-0.2cm}
+\[
+(x R y\wedge y R x)\Rightarrow x=y,
+\]
+
+\vspace{-0.2cm}we call $R$ \textbf{antisymmetric}.
+\item If for all $x,y,z\in A$ we have\vspace{-0.2cm}
+\[
+(x R y\wedge y R z)\Rightarrow x R z,
+\]
+
+\vspace{-0.2cm}we call $R$ \textbf{transitive}.
+\iteme
+\end{definition}
+\end{frame}
+
+\begin{frame}
+\bl[]{
+\textbf{reflexive}: $\forall x\in A, x R x$.\\
+\textbf{symmetric}: $\forall x,y\in A, xRy\Rightarrow y R x$\\
+\textbf{transitive}: $\forall x,y,z\in A$, $(xRy\wedge yRz)\Rightarrow xRz$\\
+\textbf{antisymmetric}: $\forall x,y\in A, (xRy\wedge yRx)\Rightarrow x=y$.\\
+\textbf{irreflexive}: $\forall x\in A$, $x\cancel{R} x$.}
+The relation $=$ (equality) on the integers:
+\itemb
+\item Reflexive: Any integer is equal to itself.
+\item Symmetric: If $x=y$ then $y=x$.
+\item Transitive: If $x=y$ and $y=z$ then $x=z$.
+\item Trivially antisymmetric.
+\item Not irreflexive.
+\iteme
+
+\begin{center}
+Practice this by Problems 6-7 on the worksheet!
+\end{center}
+\end{frame}
+
+\section{Equivalence relations}
+
+\begin{frame}
+Some relations we come across in math, have strong resemblence to equality.
+\begin{Definition}
+Le $R$ be a relation on a set $A$. We say $R$ is an \textbf{equivalence relation} provided it is reflexive, symmetric and transitive.
+\end{Definition}
+For example:
+\[
+A=\{B\in 2^{\integers}: |B|<\infty\}, \qquad R=\{(B,C): B,C \in A, |B|=|C|\}
+\]
+
+\begin{center}
+Prove this on Problem 8 on the Worksheet!
+\end{center}
+\end{frame}
+
+\begin{frame}
+Another example:
+\bl[Congruence modulo $n$]{
+Let $n$ be a positive integer. We say that $x$ and $y$ are congruent modulo $n$, and write 
+\[
+x\equiv y \textrm{ (mod n)}
+\]
+provided $n|(x-y)$.
+}
+For example:
+\itemb
+\item $3\equiv 13$ (mod 5) because $5|-10=3-13$.
+\item $4\equiv 4$ (mod 5) because $5|0=4-4$.
+\item $16\not\equiv 3$ (mod 5) because $5\nmid 13=16-3$.
+\iteme
+
+\begin{center}
+Get familiar by doing Problem 10 on the worksheet!
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{Theorem}
+Let $n$ be a positive integer. The 'is congruent to mod $n$' relation is an equivalence relation on the set of integers.
+\end{Theorem}
+\begin{proof}
+Let $n$ be a positive integer and let $\equiv$ denote congruence mod $n$. We need to show that $\equiv$ is reflexive, symmetric, and transitive.
+\itemb
+\item Claim: $\equiv$ is reflexive. \only<2>{\color{blue}}\uncover<2->{Let $x$ be an arbitrary integer.} \only<3>{\color{blue}}\uncover<3->{Since $0\cdot n=0$, we have $n|0$, which we can rewrite as $n|(x-x)$.} \only<3>{\color{black}}\uncover<2->{Therefore $x\equiv x$. Thus $\equiv$ is reflexive.}\only<2>{\color{black}}
+\item Claim: $\equiv$ is symmetric.\only<4>{\color{blue}}\uncover<4->{ Let $x$ and $y$ be integers and suppose $x\equiv y$.}\only<5>{\color{blue}}\uncover<5->{ This means that $n|(x-y)$.}\only<6>{\color{blue}}\uncover<6->{ So there is an integer $k$ such that $(x-y)=kn$. But then $(y-x)=(-k)n$}\uncover<5->{ and so $n|(y-x)$.}\uncover<4->{ Therefore $y\equiv x$. Thus $\equiv$ is symmetric.}
+\item \color{black}Claim: $\equiv$ is transitive.$\cdots$ \uncover<6->{(HW)}$\cdots$ Thus $\equiv$ is transitive.
+\iteme
+Therefore $\equiv$ is an equivalence relation.
+\end{proof}
+\end{frame}
+
+
+\end{document}

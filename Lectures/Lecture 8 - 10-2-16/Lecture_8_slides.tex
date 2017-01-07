@@ -1,0 +1,376 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \usecolortheme{orchid}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{footline}[frame number]
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{cancel}
+
+
+\usetikzlibrary{shapes,backgrounds}
+
+\def\blue{\color{blue}~}
+\def\black{\color{black}~}
+\def\bl[#1]#2{\begin{block}{#1}#2\end{block}}
+\def\integers{\mathbb{Z}}
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+\title{Discrete Mathematics, Section 002, Fall 2016}
+\subtitle{Lecture 8: Binomial and Multinomial coefficients}
+
+\author[Zsolt]{Zsolt Pajor-Gyulai \\ \texttt{zsolt@cims.nyu.edu}}
+\date{October 2, 2016}
+\pgfdeclareimage[height=1cm]{NYUlogo}{NYUlogo.jpg}
+
+\institute[NYU] 
+{
+\normalsize Courant Institute of Mathematical Sciences
+}
+\titlegraphic{\pgfuseimage{NYUlogo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}}
+
+\section{Binomial coefficients}
+
+\begin{frame}
+Let $A=2^{\{1,2\}}$ and $R$ be the has-the-same-size relation.
+\[
+\begin{tabular}{| >{\centering\arraybackslash}b{1in}|| >{\centering\arraybackslash}b{1in}|}
+\hline
+\textrm{Equivalence class}& \textrm{Size of class}\\
+\hline
+$[\emptyset]$ & 1\\
+$[\{1\}]$& 2\\
+$[\{1,2\}]$& 1\\
+\hline
+\end{tabular}
+\]
+Also 
+\bl[]{
+\[
+(x+y)^2=1\cdot x^2+2\cdot xy+1\cdot y^2
+\]}
+\end{frame}
+
+\begin{frame}
+Let $A=2^{\{1,2,3\}}$ and $R$ be the has-the-same-size relation.
+\[
+\begin{tabular}{| >{\centering\arraybackslash}b{1in}|| >{\centering\arraybackslash}b{1in}|}
+\hline
+\textrm{Equivalence class}& \textrm{Size of class}\\
+\hline
+$[\emptyset]$ & 1\\
+$[\{1\}]$& 3\\
+$[\{1,2\}]$& 3\\
+$[\{1,2,3\}$& 1\\
+\hline
+\end{tabular}
+\]
+Also 
+\bl[]{
+\[
+(x+y)^3=1\cdot x^2+3\cdot x^2y+3\cdot xy^2+1\cdot y^3
+\]}
+
+\end{frame}
+
+\begin{frame}
+Let $A=2^{\{1,2,3,4\}}$ and $R$ be the has-the-same-size relation.
+\[
+\begin{tabular}{| >{\centering\arraybackslash}b{1in}|| >{\centering\arraybackslash}b{1in}|}
+\hline
+\textrm{Equivalence class}& \textrm{Size of class}\\
+\hline
+$[\emptyset]$ & 1\\
+$[\{1\}]$& 4\\
+$[\{1,2\}]$& 6\\
+$[\{1,2,3\}$& 4\\
+$[\{1,2,3,4\}]$& 1\\
+\hline
+\end{tabular}
+\]
+
+Also 
+\bl[]{
+\[
+(x+y)^4=1\cdot x^4+4\cdot x^3y+6\cdot x^2y^2+4\cdot xy^3+1\cdot y^4
+\]}
+\end{frame}
+
+\begin{frame}{The connection}
+Note that
+\bl[]{
+\[
+(x+y)^2=(x+y)(x+y)=xx+xy+yx+yy
+\]}
+also
+\bl[]{\vspace{-0.3cm}
+\[
+(x+y)^3=xxx+xxy+xyx+xyy+yxx+yxy+yyx+yyy
+\]}
+In general
+\[
+(x+y)^n=\underbrace{(x+y)}_{1}\underbrace{(x+y)}_{2}\dots\underbrace{(x+y)}_{n}
+\]
+\itemb
+\item To form a term, we make a lists of length $n$ of $x$-s and $y$-s. 
+\item Then we need to identify the ones that only differ in the order of the $x$,$y$-s. 
+\iteme
+This defintes an equivalence relation $R$ on the set of such lists.
+\end{frame}
+
+\begin{frame}{The connection}
+In general
+\[
+(x+y)^n=\underbrace{(x+y)}_{1}\underbrace{(x+y)}_{2}\dots\underbrace{(x+y)}_{n}
+\]
+\itemb
+\item To form a term, we make a lists of length $n$ of $x$-s and $y$-s. 
+\item Then we need to identify the ones that only differ in the order of the $x$,$y$-s. 
+\iteme
+This defintes an equivalence relation $R$ on the set of such lists.
+\[
+|[\underbrace{x\dots x}_{n-k}\underbrace{y\dots y}_{k}]|=?
+\]
+\end{frame}
+
+\begin{frame}{The connection}
+For example
+\[
+|[xxxyyy]|=?
+\]
+We only have to keep track of where the $y$-s are.
+\[
+\begin{tabular}{| >{\centering\arraybackslash}b{1in}|| >{\centering\arraybackslash}b{1in}|}
+\hline
+\textrm{List in class}& \textrm{Pos. of $y$-s}\\
+\hline
+$xxxyyy$ & $\{4,5,6\}$\\
+$\hdots$&$\hdots$\\
+$xyxyxy$& $\{2,4,6\}$\\
+$yxyxyx$& $\{1,3,5\}$\\
+$\hdots$& $\hdots$\\
+$yyyxxx$& $\{1,2,3\}$\\
+\hline
+\end{tabular}
+\]
+On the right hand side we list all three element subsets of $\{1,2,3,4,5,6\}$.
+\end{frame}
+
+\begin{frame}
+Similarly,
+\[
+|[\underbrace{x\dots x}_{n-k}\underbrace{y\dots y}_{k}]|
+\]
+is given by the number of all $k$ element subsets of $\{1,2,\dots,n\}$.
+\bl[Definition]{
+Let $n,k\in\mathbb{N}$. The symbol $\binom{n}{k}$ denotes the number of $k$-element subsets of an $n$-element set. It is called the \textbf{binomial coefficient} and we say it as $n$ choose $k$.
+}
+\bl[Binomial theorem]{
+\[
+(x+y)^n=\sum_{k=0}^{n}\binom{n}{k}x^{n-k}y^k
+\]
+}
+
+Do Problems 1-3 on the Worksheet!
+\end{frame}
+
+\begin{frame}{Examples}
+\itemb
+\item Evaluate $\binom{n}{0}$.\\
+
+The only zero element subset is $\emptyset$,
+\[
+\binom{n}{0}=1
+\]
+\item Evaluate $\binom{n}{1}$.\\
+
+There are exactly $n$ ways to choose $1$ element out of $n$ to form a $1$ element subset.
+\[
+\binom{n}{1}=n
+\]
+\iteme
+\end{frame}
+
+
+\begin{frame}{Examples}
+\itemb
+\item Relate $\binom{n}{n-k}$ and $\binom{n}{k}$.\\
+
+Choosing a $k$ element subset specifies exactly an $n-k$ element subset which is the complement. This works both ways and therefore
+\bl[Proposition]{
+Let $n,k\in\mathbb{N}$ with $0\leq k\leq n$. Then
+\[
+\binom{n}{k}=\binom{n}{n-k}
+\]
+}
+\item This allows us to compute e.g.
+
+\iteme
+\begin{align*}
+\binom{5}{0}&=1,\quad\binom{5}{1}=5\quad\binom{5}{2}=\binom{5}{3}=?,\\
+\binom{5}{4}&=\binom{5}{1}=5,\quad\binom{5}{5}=\binom{5}{0}=1.
+\end{align*}
+\end{frame}
+
+\begin{frame}{A combinatorial proof}
+\bl[Pascal's identity]{
+Let $n$ and $k$ be integers with $0<k<n$. Then
+\vspace{-0.2cm}
+\[
+\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}
+\]}
+\begin{proof}
+Question: How many $k$ element subsets does the set $\{1,2,\dots,n\}$ have?
+\itemb 
+\item $\binom{n}{k}$, by definition.
+\item When forming a $k$-element subset of $\{1,2,\dots, n\}$ we either put the element $n$ into it or not.
+\itemb
+\item If it does then there are $\binom{n-1}{k-1}$ choices complete the subset.
+\item If it does not then there are $\binom{n-1}{k}$ choices for the subset.
+\iteme
+\iteme
+Therefore $\binom{n-1}{k-1}+\binom{n-1}{k}$ also gives an answer.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Pascal's triangle}
+\bl[Pascal's identity]{
+Let $n$ and $k$ be integers with $0<k<n$. Then
+\vspace{-0.2cm}
+\[
+\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}
+\]}
+\begin{figure}
+\centering
+\begin{tabular}{rccccccccc}
+$n=0$:&    &    &    &    &  1\\\noalign{\smallskip\smallskip}
+$n=1$:&    &    &    &  1 &    &  1\\\noalign{\smallskip\smallskip}
+$n=2$:&    &    &  1 &    &  2 &    &  1\\\noalign{\smallskip\smallskip}
+$n=3$:&    &  1 &    &  3 &    &  3 &    &  1\\\noalign{\smallskip\smallskip}
+$n=4$:&  1 &    &  4 &    &  6 &    &  4 &    &  1\\\noalign{\smallskip\smallskip}
+\end{tabular}
+\end{figure}
+\center{The $k$th element (starting from 0) in the $n$-th row gives $\binom{n}{k}$.}
+\vspace{0.4cm}
+Do Problems 4-5 on the Worksheet!
+\end{frame}
+
+\begin{frame}{Formula for $\binom{n}{k}$}
+\bl[Theorem]{
+Let $n$ and $k$ be integers with $0\leq k\leq n$. Then\vspace{-0.2cm}
+\[
+\binom{n}{k}=\frac{n!}{k!(n-k)!}
+\]}
+\bl[Proof]{
+Consider $A$ to be all the rearrangements of the numbers $\{1,2,\dots,n\}$ and for each rearrangement consider the subset given by the first $k$ elements. We define an equivalence relation under which two rearrangements are equivalent if they give the same subset. Indeed, define the equivalence relation $R$ such that two rearrangements are equivalent provided the first $k$ elements (and therefore the last $n-k$ automatically) are the same but possibly rearranged amongst each other.
+[...]}
+\end{frame}
+
+\begin{frame}{Formula for $\binom{n}{k}$}\vspace{-0.2cm}
+\bl[Theorem]{
+Let $n$ and $k$ be integers with $0\leq k\leq n$. Then\vspace{-0.2cm}
+\[
+\binom{n}{k}=\frac{n!}{k!(n-k)!}
+\]}
+\begin{proof}
+
+[...]
+The cardinality of each equivalence class is the number of arrangements of the first $k$ elements times the number of arrangements of the last $n-k$ elements which is clearly $k!\cdot (n-k)!$. There is a one to one correspondence between subsets of $k$ elements and the equivalence classes and therefore
+\[
+\binom{n}{k}=\frac{|A|}{|[.]|}=\frac{n!}{k!(n-k)!},
+\]
+and the theorem is proved.
+\end{proof}
+\end{frame}
+\begin{frame}
+Now use this to do Problem 6-8 on the Worksheet!
+\end{frame}
+\section{Multinomial coefficients}
+\begin{frame}{Multinomial coefficients}
+\bl[Alternative way to think of $\binom{n}{k}$]{
+Let $A$ be an $n$-element set and we want to hand out $k$ labels saying `good' and $n-k$ labels saying `bad'. How many ways can we do this? $\qquad\to\qquad\binom{n}{k}$.
+}
+This can be generalized:
+\bl[Multinomial coefficient]{
+Let $\binom{n}{a~b~c}$ be the number of ways to label the elements of an $n$-element set with three types of labels, where we hand out $a$ label of Type I, $b$ label of Type II and $c$ label of Type III.
+}
+Compute this for a few simple cases by doing Problem 9 from the worksheet!
+\end{frame}
+
+\begin{frame}{Formula for the multinomial coefficient}
+\bl[Propositon]{
+\[
+\binom{n}{a~b~c}=\left\{\begin{array}{cc}
+\frac{n!}{a!b!c!}&\textrm{if }a+b+c=n\\
+0&\textrm{otherwise}
+\end{array}\right.
+\]
+}
+\begin{proof}
+\only<1>{~~~~If $a+b+c\neq n$, then there is no way to hand out exactly one label to all elements. Therefore in this case $\binom{n}{a~b~c}=0$.
+
+[...]
+}
+
+\only<2>{[...]
+~~Assume $a+b+c=n$. On the set  $D$ of all rearrangements of the set of $n$ elements $N$, define the equivalence relation $R$ where two arrangements are equivalent if their first $a$ elements form the same subset of $N$ and similarly the following $b$ elements and the remaining $c$ elements after.\vspace{-0.4cm}
+\[
+\underbrace{********}_a|\underbrace{*****}_b|\underbrace{********}_c
+\]
+[...]\qedhere}
+
+\only<3->{[...]
+\[
+\underbrace{********}_a|\underbrace{*****}_b|\underbrace{********}_c
+\]\vspace{-0.4cm}
+
+In any equivalence class, there are those rearrangements where these subsets are rearranged individually. A labelling can be identified with an equivalence class. This can be done $a!b!c!$ ways. Therefore\vspace{-0.2cm}
+\[
+\binom{n}{a~b~c}=\frac{|D|}{|[d]|}=\frac{n!}{a!b!c!},\qquad d\in D.\qedhere
+\]}
+\end{proof}
+\end{frame}
+
+\begin{frame}{Multinomial theorem}
+\bl[Theorem]{
+\[
+(x+y+z)^n=\sum_{a+b+c=n}\binom{n}{a~b~c}x^ay^bz^c
+\]
+where the sum is over all natural numbers $a$, $b$, $c$, with $a+b+c=n$.
+}
+\end{frame}
+\end{document}

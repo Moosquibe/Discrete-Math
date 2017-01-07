@@ -1,0 +1,140 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{solution}{Solution}
+
+\title{Discrete Mathematics, 2016 Spring - Worksheet 14}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{October 31, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Which of the following relations are functions?
+\enumb
+\item $\{(1,2),(3,4)\}$ This one.
+\item $\{(x,y): x,y\in\mathbb{Z}, y=2x\}$ This one.
+\item $\{(x,y): x,y\in\mathbb{Z}, x+y=0\}$ This one.
+\item $\{(x,y): x,y\in\mathbb{Z}, xy=0\}$ Not this one, $(0,y)$ is in it for every $y\in\mathbb{Z}$.
+\item $\{(x,y): x,y\in\mathbb{Z}, y=x^2\}$ This one.
+\item $\emptyset$ This one vacuously.
+\item $\{(x,y): x,y\in\mathbb{Q}, x^2+y^2=1\}$ Not this one, e.g. $(0,1)$ and $(0,-1)$ are both in it.
+\item $\{(x,y): x,y\in\mathbb{Z}, x|y\}$ Not this one, e.g. $(2,4)$ and $(2,8)$ are both in it.
+\item $\{(x,y): x,y\in\mathbb{N}, x|y,\textrm{ and }y|x\}$ Not this one, eg. $(1,1)$ and $(1,-1)$ are both in it.
+\item $\{(x,y): x,y\in\mathbb{N}, \binom{x}{y}=1\}$ Not this one, e.g $(2,0)$ and $(2,2)$ are both in it.
+\enume
+
+\item For those relations that are functions in Problem 1, find their domain and image.
+
+\begin{itemize}
+\item For the function in $(a)$, the domain is $(1,3)$, while the image is $(2,4)$.
+\item For the function in $(b)$, the domain is $\mathbb{Z}$ while the image is the even numbers.
+\item For the function in $(c)$, both the domain and the image are $\mathbb{Z}$.
+\item For the function in $(e)$, the domain is $\mathbb{Z}$ while the image are those integers that are themselves squares of an integer.
+\item For the function in $(f)$, both the domain and the image are empty.
+\end{itemize}
+
+\item For each of the following functions $f$, find the image of the function, $\textrm{im}$.
+
+\enumb
+\item $f:\mathbb{Z}\to\mathbb{Z}$ defined by $f(x)=2x+1$.
+\begin{solution}
+The image of the function is all odd integers.
+\end{solution}
+
+\item $f:\mathbb{R}\to\mathbb{R}$ defined by $f(x)=\frac{1}{1+x^2}$.
+\begin{solution}
+To find the image of the function, look at the equation $b=\frac{1}{1+x^2}$. Rearranging this gives
+\[
+x^2=\frac{1}{b}-1.
+\]
+Clearly, this equation only has solution(s) when $b\in (0,1]$, otherwise the right hand side is negative. Therefore $\textrm{Im}(f)=(0,1]$.
+\end{solution}
+\item $f:[-1,1]\to\mathbb{R}$ defined by $f(x)=\sqrt{1-x^2}$.
+\begin{solution}
+By the definition of the square root, $\sqrt{1-x^2}$ is always non-negative and therefore we only have to check, when is there a solution to $b=\sqrt{1-x^2}$ with $b\geq 0$. Squaring this gives $b^2=1-x^2$ and thus $x^2=1-b^2$. This equation has a solution if and only if $|b|\leq 1$ and in this case the solution is in $\textrm{Dom}(f)=[-1,1]$. Combining this with $b\geq 0$, we get $\textrm{Im}(f)=[0,1]$.
+\end{solution}
+\enume
+
+\item Which of the functions in Problem 1 are one-to-one? What are the inverses of these functions?
+
+\begin{itemize}
+\item The function in $(a)$ is one-to-one and its inverse is given by $\{(2,1),(4,3)\}$.
+\item The function $(b)$ is one-to-one and its inverse is given by $f^{-1}:\{\rm{even~numbers}\}\to \mathbb{Z}$, given by
+\[
+\{(x,y):x,y\in\mathbb{Z}, x~\rm{ is~even}, y=x/2\}
+\]
+\item The function in $(c)$ is one-to-one and it is its own inverse.
+\item The function in $(f)$ is one-to-one vacuously and is its own inverse.
+\end{itemize}
+
+
+\item For each of the functions, determine whether the function is one-to-one, onto, or both. Prove your assertions.
+\enumb
+\item $f:\mathbb{Z}\to\mathbb{Z}$ defined by $f(x)=2x^2$.
+\begin{solution}
+$f$ is not one to one as e.g. $2(-2)^2=8=2\cdot 2^2$. Neither is it onto as $f(x)\geq 0$ for every $x\in\mathbb{Z}$ and therefore e.g. $-2$ is not attained.
+\end{solution}
+\item $f:\mathbb{N}\to\mathbb{Z}$ defined by $f(x)=(-1)^x \left(\lfloor x/2\rfloor+1\right)$, where $\lfloor.\rfloor$ is the integer part function.
+
+\begin{solution}
+\begin{itemize}
+\item To see that this function is one to one, let us assume that there are $x,y\in\mathbb{N}$ such that $f(x)=f(y)$. Note that $f(x)$ is positive if and only if $x$ is even and therefore $x$ and $y$ are both simultaneously even or odd. 
+
+If they are both even, $\lfloor x/2\rfloor=x/2$ and $\lfloor y/2\rfloor=y/2$ and therefore
+\[
+x/2+1=f(x)=f(y)=y/2+1
+\]
+which yields $x=y$. 
+
+If they are both odd, $\lfloor x/2\rfloor=(x-1)/2$ and $\lfloor y/2\rfloor=(y-1)/2$ and therefore
+\[
+\frac{x-1}{2}+1=f(x)=f(y)=\frac{y-1}{2}+1
+\]
+from which $x=y$.
+
+\item To show that $f$ is not onto, note that $|f(x)|=\lfloor x/2\rfloor +1>1$ which implies that $0$ is not in the image.
+\end{itemize}
+\end{solution}
+\enume
+\item Give an example of a set $A$ and a function $f:A\to A$ where $f$ is onto but not one to one. Also give one where $f$ is one-to-one but not onto. 
+\begin{solution}
+This example was mentioned in class. $f:\mathbb{R}\to\mathbb{R}$ defined by 
+\[
+f(x)=\left\{\begin{array}{cc}
+x+3& x\leq 0\\
+x-3& x>0
+\end{array}\right.
+\]
+ is not one-to-one as e.g. $f(-3)=f(3)=1$. I leave the verification that it is onto to you.
+ 
+ The function $f:\mathbb{R}\to\mathbb{R}$ defined by $f(x)=\frac{x}{1+|x|}$ does the job as you can verify.
+ 
+ Note that in both examples, the set $A$ was infinite. Indeed, as we will discuss it next time, this cannot happen for finite sets.
+\end{solution}
+\enume
+\end{document}

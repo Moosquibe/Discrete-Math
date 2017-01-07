@@ -1,0 +1,298 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, graphicx, hyperref}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{multirow, multicol}
+\usepackage{pdfpages}
+%\usepackage{stfloats}
+\usepackage{tikz}
+\pagestyle{fancy}
+
+\fancypagestyle{firststyle}
+{
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[LO]{\includegraphics{nyu_short_black}}
+  \fancyhead[RO]{}
+	\fancyfoot{}
+}
+
+\fancyhead[LO]{\scalebox{0.25}{\includegraphics{nyu_short_black}}}
+\fancyhead[RO]{\tiny MATH-UA.120.001}
+
+
+%\fancyfoot[RO]{\begin{tikzpicture}
+%[scale=1, line/.style={black}]
+%\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+%%\node at (-0.5, 1) [anchor=east]{\large Score};
+%\end{tikzpicture}}
+
+\newcommand*\mycirc[1]{%
+  \begin{tikzpicture}[baseline=(C.base)]
+    \node[draw,circle,inner sep=1pt](C) {#1};
+  \end{tikzpicture}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\proj}{\textbf{proj}}
+\newcommand{\curl}{\textrm{curl }}
+\newcommand{\divergence}{\textrm{div }}
+% For boldface vectors:
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\renewcommand\arraystretch{2}
+
+\newtheorem*{proposition}{Proposition}
+
+
+\begin{document}
+\thispagestyle{firststyle}
+~
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{\Large MATH-UA.120.001 - Discrete Mathematics \\ \vspace{0.5cm} Final Exam 2016 Fall}\\~\\
+Thursday, Dec 17, 2016
+\end{center}
+
+\vspace{1cm}
+
+%\noindent
+%\textbf{Name:} \underline{\hspace{15cm}}
+
+\vspace{1cm}
+
+\noindent
+This exam is scheduled for 110 minutes, to be done individually, without calculators, notes, textbooks, and other outside materials.
+\vspace{0.5cm}
+
+\noindent
+\textbf{Show all work to receive full credit, except where specified.}
+
+\vspace{1cm}
+
+\begin{multicols}{2}
+\noindent
+
+\noindent
+\fbox{\parbox{10cm}{
+\vspace{1cm}
+\noindent
+\textbf{Name: }
+
+\vspace{1cm}
+
+\noindent
+\textbf{NYU NetID (email): }
+
+
+\vspace{2cm}
+
+\noindent
+\emph{I pledge that I have observed the NYU honor code, and that I have neither given nor received unauthorized assistance during this examination.}
+\noindent
+
+
+
+\noindent
+
+\vspace{1cm}
+
+\noindent
+\textbf{Signature:}
+
+\vspace{2cm}
+}}
+%
+%\vspace{0.5cm}
+%
+
+\begin{flushright}
+\begin{tabular}{| c | c |}
+\hline
+Problem & Points \\
+\hline
+% & \\
+TF & ~~~~~~~~~/20\\[0.5cm]
+%& \\
+\hline
+% & \\
+1 & ~~~~~~~~~/20\\[0.5cm]
+%& \\
+\hline
+% & \\
+2 & ~~~~~~~~~/15\\[0.5cm]
+%& \\
+\hline
+% & \\
+3 & ~~~~~~~~~/20\\[0.5cm]
+%& \\
+\hline
+% & \\
+4 & ~~~~~~~~~/25\\[0.5cm]
+%& \\
+\hline
+\hline %& \\
+Total & ~~~~~~~~~/100\\[0.5cm]
+%& \\
+\hline
+\end{tabular}
+\end{flushright}
+
+\end{multicols}
+
+\newpage
+
+\section*{Answer Sheet (for Problem 1 True/False)} \label{answersheet}
+
+%(3 points each) Select the correct option.  You need not explain your answer.  No partial credit will be given.
+%
+%\vspace{0.5cm}
+
+\noindent
+\textbf{You must record your final answers on the following answer sheet.  Only this page will be graded.}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tabular}{| c | c c c c c |}
+\hline
+
+1 & \mycirc{T} & \mycirc{F} & & &  \\
+% & & & & & \\
+2 & \mycirc{T} & \mycirc{F} & & &   \\
+% & & & & & \\
+3 & \mycirc{T} & \mycirc{F} & & &   \\
+% & & & & & \\
+4 & \mycirc{T} & \mycirc{F} & & &  \\
+% & & & & & \\
+5 & \mycirc{T} & \mycirc{F} & & &  \\
+6 & \mycirc{T} & \mycirc{F} & & & \\
+7 & \mycirc{T} & \mycirc{F} & & & \\
+8 & \mycirc{T} & \mycirc{F} & & & \\
+9 & \mycirc{T} & \mycirc{F} & & & \\
+10 & \mycirc{T} & \mycirc{F} & & & \\
+\hline
+\end{tabular}
+\end{center}
+\begin{flushright}
+\begin{tikzpicture}
+[scale=1, line/.style={black}]
+\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+\node at (-0.5, 1) [anchor=east]{\Large TOTAL};
+\end{tikzpicture}
+\end{flushright}
+\renewcommand\arraystretch{1}
+
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+
+\newpage
+\section*{True or False}
+
+(2 points each) Determine if each of the following statement is TRUE or FALSE.\\Choose TRUE if the statement is always true, and choose FALSE if it is not always true. Each question is worth 3 points.
+
+\vspace{0.2cm}
+
+\noindent
+\textbf{Indicate your solution in the answer sheet on page \pageref{answersheet}.  You need not provide any justification.}
+
+
+\begin{enumerate}
+\item There are integers $x$ and $y$ satisfying the equation $15x+18y=9$.
+\vspace{0.8cm}
+\item There is an element of $\mathbb{Z}_{12}$ that does not have a reciprocal. (Hint: Trying to compute the inverse of all elements is a very inefficient approach.)
+\vspace{0.8cm}
+\item Prime factorization of integers is easy and therefore it is easy to break public key encryption.
+\vspace{0.8cm}
+\item If $G$ is a subgraph of $H$, then $\alpha(G)\leq\alpha(H)$.
+\vspace{0.8cm}
+\item A group is a pair $(G,*)$ where $G$ is a set and $*$ is an operation on it that is commutative but not necessarily associative.
+\vspace{0.8cm}
+\item No tree with more than one vertex has an Eulerian trail.
+\vspace{0.8cm}
+\item Let $G$ be a graph. Then either $G$ or $\bar{G}$ must be connected.
+\vspace{0.8cm}
+\item If a graph has the same number of vertices as edges then it is a cycle.
+\vspace{0.8cm}
+\item There is a graph with exactly one vertex with an odd degree.
+\vspace{0.8cm}
+\item $\chi(G)\leq\Delta(G)$ for all graphs $G$.
+\end{enumerate}
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+\newpage
+\section*{Free Response}
+
+\textbf{Show all work and justification.} 
+
+\begin{enumerate}
+\item 
+\begin{enumerate}
+\item (3 points) Give the precise definition of the greatest common divisor of two positive numbers $a$ and $b$.\vspace{3cm}
+\item (7 points) Use Euclid's algorithm to compute $gcd(230,123)$. (No partial credit will be given for guessing.)
+
+HELP: $107=6\cdot 16+11$
+\vspace{5cm}
+\item (7 points) Compute the reciprocal of $123$ in $\mathbb{Z}_{230}$. \vspace{5cm}
+\item (3 points) Solve the equation $123\otimes x=2$ in $\mathbb{Z}_{230}$.\newpage
+
+\end{enumerate}
+\newpage
+\item In this problem we prove the following proposition.
+\begin{proposition}
+ Prove that consecutive perfect squares are relatively prime.
+\end{proposition}
+
+\begin{enumerate}
+\item (5 points) First show that if there are two numbers $a$ and $b$ such that no prime divides them both, then $gcd(a,b)=1$.
+\item (8 points) Assume FTSC that there are consecutive perfect squares and a prime that divides them both. Reach a contradiction.
+
+HINT: Can you drop the square in $p|a^2$?
+\item (2 points) Conclude from this that the Proposition is true.
+\end{enumerate}
+
+\newpage
+\item(20 points) Find all simultaneous solution of the following pair of congruences:
+\begin{align*}
+x&\equiv 5~({\rm mod}~9)\\
+x&\equiv 7~({\rm mod}~16).
+\end{align*}
+
+\newpage
+\item \textbf{Graph theory}
+
+Consider the following graph $G$:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{Euler.png}
+\end{figure}
+
+\begin{enumerate}
+\item (4 Points) Draw the subgraph $G[1,4,5,6]$ induced on the vertex set $\{1,2,4,5,6\}$.\vspace{3cm}
+\item (4 Points) Find the minimum and maximum degree $\delta(G)$ and $\Delta(G)$.\vspace{2cm}
+\item (2 Points) Find a cut edge in $G[1,2,4,5,6]$.\vspace{2cm}
+\item (4 Points) Does $G$ contain a spanning tree (with justification) and if yes find it (Draw. WARNING: Practice on the sketch paper, if there are multiple versions here, it will not be graded.)!\vspace{5cm}
+\item (2 Points) Is this graph Eulerian? (with justification) If yes, exhibit an Euler tour (Draw).\vspace{5cm}
+\item (4 Points) Show that this graph is 4 colorable by exhibiting such a coloring. (Draw the graph again and indicate the colors by labels. WARNING: Practice on the sketch paper, if there are multiple versions here, it will not be graded.)\vspace{5cm} 
+\item (5 Points) Show that this graph is not $3$ colorable by assuming that it is and then arguing to a contradiction. HINT: Assign a color to vertex one and then discuss the colors of the other vertices in numerical order.
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\newpage
+\noindent
+\textbf{Extra paper}
+%
+%\newpage
+%\noindent
+%\textbf{Extra paper}
+
+%\includepdf[pages=1-2]{FormulaSheets.pdf}
+
+\end{document}

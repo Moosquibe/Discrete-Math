@@ -1,0 +1,47 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\date{September 12, 2016}
+
+\title{Discrete Mathematics, Sect 001, 2016 Fall - Quiz 1}
+\author{Name:}
+\institute{Courant Institute of Mathematical Sciences, NYU}
+
+\newtheorem*{proposition}{Proposition}
+
+
+
+\begin{document}
+
+\maketitle
+
+This quiz is scheduled for 15 minutes. No outside notes or calculators are permitted. To get full credit  in all of the problems, use rigorous justification and unless otherwise indicated, make sure that your solution reads as a perfect English sentence. You should only assume the notion of integers, operations, order relations and geometrical objects as given. If you use a statement or a definition from the textbook, make sure to indicate it.
+\vspace{0.2cm}
+
+\begin{enumerate}
+\item (20 points)
+\begin{enumerate}
+\item State the definition of divisibility.
+
+\vspace{1cm}
+
+An integer $a$ is divisible by an integer $b$ (or $b$ divides $a$) provided there is an integer $c$ such that $a = bc$.
+\vspace{1cm}
+\item Using the definition of divisibility above, prove (by a rigorous formal proof) or disprove (by a counterexample) the following statement:
+\begin{proposition}
+If $a$, $b$, $c$ are integers, and $a|b$ then $ac|bc$.
+\end{proposition}
+\begin{proof}
+Since $a|b$, there is an integer $k$ such that $b=ak$. Multiply both sides of this equality by $c$ to get
+\[
+bc=k(ac)
+\]
+which means that $ac|bc$ and therefore the claim is proved.
+\end{proof}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

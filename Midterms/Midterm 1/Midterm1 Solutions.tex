@@ -1,0 +1,395 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, graphicx, hyperref}
+%\usepackage{subfigure}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{multirow, multicol}
+\usepackage{pdfpages}
+%\usepackage{stfloats}
+\usepackage{tikz}
+\pagestyle{fancy}
+
+\fancypagestyle{firststyle}
+{
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[LO]{\includegraphics{nyu_short_black}}
+  \fancyhead[RO]{}
+	\fancyfoot{}
+}
+
+\fancyhead[LO]{\scalebox{0.25}{\includegraphics{nyu_short_black}}}
+\fancyhead[RO]{\tiny MATH-UA.120.002}
+
+
+%\fancyfoot[RO]{\begin{tikzpicture}
+%[scale=1, line/.style={black}]
+%\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+%%\node at (-0.5, 1) [anchor=east]{\large Score};
+%\end{tikzpicture}}
+
+\newcommand*\mycirc[1]{%
+  \begin{tikzpicture}[baseline=(C.base)]
+    \node[draw,circle,inner sep=1pt](C) {#1};
+  \end{tikzpicture}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\proj}{\textbf{proj}}
+\newcommand{\curl}{\textrm{curl }}
+\newcommand{\divergence}{\textrm{div }}
+% For boldface vectors:
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\renewcommand\arraystretch{2}
+
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{solution}{Solution}
+
+
+\begin{document}
+\thispagestyle{firststyle}
+~
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{\Large MATH-UA.120.001 - Discrete Mathematics 2016 Fall\\ \vspace{0.5cm} Midterm 1}\\~\\
+Thursday, February 25, 2016
+\end{center}
+
+\vspace{1cm}
+
+%\noindent
+%\textbf{Name:} \underline{\hspace{15cm}}
+
+\vspace{1cm}
+
+\noindent
+This exam is scheduled for 110 minutes, to be done individually, without calculators, notes, textbooks, and other outside materials.
+\vspace{0.5cm}
+
+\noindent
+\textbf{Show all work to receive full credit, except where specified.}
+
+\vspace{1cm}
+
+\begin{multicols}{2}
+\noindent
+
+\noindent
+\fbox{\parbox{10cm}{
+\vspace{1cm}
+\noindent
+\textbf{Name: }
+
+\vspace{1cm}
+
+\noindent
+\textbf{NYU NetID (email): }
+
+
+\vspace{2cm}
+
+\noindent
+\emph{I pledge that I have observed the NYU honor code, and that I have neither given nor received unauthorized assistance during this examination.}
+\noindent
+
+
+
+\noindent
+
+\vspace{1cm}
+
+\noindent
+\textbf{Signature:}
+
+\vspace{2cm}
+}}
+%
+%\vspace{0.5cm}
+%
+
+\begin{flushright}
+\begin{tabular}{| c | c |}
+\hline
+Problem & Points \\
+\hline
+% & \\
+TF & 17.27/21\\[0.5cm]
+%& \\
+\hline
+% & \\
+1 & 16.27/20\\[0.5cm]
+%& \\
+\hline
+% & \\
+2 & 7.84/15\\[0.5cm]
+%& \\
+\hline
+% & \\
+3 & 19.27/22\\[0.5cm]
+%& \\
+\hline
+% & \\
+4 & 17.7/22\\[0.5cm]
+%& \\
+\hline
+\hline %& \\
+Total & 78.35/100\\[0.5cm]
+%& \\
+\hline
+\end{tabular}
+\end{flushright}
+
+\end{multicols}
+
+\newpage
+
+\section*{Answer Sheet (for Problem 1 True/False)} \label{answersheet}
+
+%(3 points each) Select the correct option.  You need not explain your answer.  No partial credit will be given.
+%
+%\vspace{0.5cm}
+
+\noindent
+\textbf{You must record your final answers on the following answer sheet.  Only this page will be graded.}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tabular}{| c | c c c c c |}
+\hline
+
+1 & \mycirc{T} & \mycirc{F} & & &  \\
+% & & & & & \\
+2 & \mycirc{T} & \mycirc{F} & & &   \\
+% & & & & & \\
+3 & \mycirc{T} & \mycirc{F} & & &   \\
+% & & & & & \\
+4 & \mycirc{T} & \mycirc{F} & & &  \\
+% & & & & & \\
+5 & \mycirc{T} & \mycirc{F} & & &  \\
+6 & \mycirc{T} & \mycirc{F} & & & \\
+7 & \mycirc{T} & \mycirc{F} & & & \\
+\hline
+\end{tabular}
+\end{center}
+\begin{flushright}
+\begin{tikzpicture}
+[scale=1, line/.style={black}]
+\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+\node at (-0.5, 1) [anchor=east]{\Large TOTAL};
+\end{tikzpicture}
+\end{flushright}
+\renewcommand\arraystretch{1}
+
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+
+\newpage
+\section*{True or False}
+
+(2 points each) Determine if each of the following statement is TRUE or FALSE.\\Choose TRUE if the statement is always true, and choose FALSE if it is not always true. Each question is worth 3 points.
+
+\vspace{0.2cm}
+
+\noindent
+The average score on the True/False was 17.27
+%\textbf{Indicate your solution in the answer sheet on page \pageref{answersheet}.  You need not provide any justification.}
+
+Let
+\[
+\mathbb{Z}^5=\mathbb{Z}\times\mathbb{Z}\times\mathbb{Z}\times\mathbb{Z}\times \mathbb{Z}
+\]
+i.e. the set of lists of length 5 with integer entries.
+\begin{enumerate}
+\item $(1,2,3)\in\mathbb{Z}^5$  
+
+FALSE, this is not a list of length 5.
+\item $\forall x\in \mathbb{Z}^5,\forall y\in\mathbb{Z}^5,\exists z\in\mathbb{Z}^5,\forall j\in \{1,2,3,4,5\}, x_j\leq z_j\leq y_j$.
+
+FALSE e.g. $x=(2,2,2,2,2)$ and $y=(1,1,1,1,1)$.
+\item The number of ways to divide a 100 elements into five parts of size 20 is greater than the number of ways to divide a 100 elements into 20 parts of size 5.
+
+FALSE. The first number is $\frac{100!}{(20!)^5 5!}$ and $\frac{100!}{(5!)^{20}20!}$. This means that we have to decide which one is bigger out of $(20!)^4$ or $(5!)^{19}$. If you wrote out the products involving in the factorials, you would have a product of $80$ numbers for $(20!)^4$ and $75$ numbers for $(5!)^{19}$. Moreover in the latter one the numbers are much smaller (only between 1 and 5). From this it is heuristically clear (we don't need to use exact science here as we are not writing a proof.) that $(20!)^4$ is much larger and therefore the statement is false.
+
+ 
+\item On the set $A=\{1,2,3,4,5,6,7\}$, the relation 
+\[
+R=\{(x,y)\in A\times A\textrm{ such that }y^2 \equiv x~(mod~10)\}
+\]
+is an equivalence relation. 
+
+FALSE, e.g. $4R2$ but $4^2 \equiv 6\neq 2$ and therefore $2\not R 4$ and $R$ is not even symmetric.
+
+\item $\left(\binom{8}{4}\right)=2\left(\binom{4}{8}\right)$. 
+
+TRUE by formula or by combinatorial arguments.
+
+\item The coefficient of $x^4$ in the expansion of $(1+2x)^5$ is $80$.
+
+TRUE by the binomial theorem.
+
+\item For any sets $X,Y,Z$, we have
+\[
+X-(Y\cup Z)=(X-Y)\cup Z
+\]
+
+FALSE. E.g. if $X=Y$ and $Z$ is nonempty, then $X-(Y\cup Z)=\emptyset$ but $(X-Y)\cup Z=Z\neq\emptyset$. 
+
+
+\end{enumerate}
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+\newpage
+\section*{Free Response}
+
+\textbf{Show all work and justification.} 
+
+The average score on this question was 16.27. Since this used the very first definitions in this class, the grading was less forgiving than on other problems. Many of you wrote way too much (which I did not penalize, but you definitely lost time because of it). The most typical mistakes:
+\begin{itemize}
+\item Not nowing the definition. Can't really help you on that.
+\item Assuming what you are trying to prove. Having sentences in your proof starting as "Since $d|(ax+by)$..." or "Assuming $d|(ax+by)$" were considered capital mistakes.
+\item Using fractions. We emphasized over and over not to use fractions in connection with divisibility because numbers can be zero. Many of you got a division by zero error which is a serious misstep in this class.
+\item Not realizing that part $(b)$ is an if and only if proof.
+\end{itemize}
+
+\begin{enumerate}
+\item
+
+\begin{enumerate}
+\item (10 points) $a,b,d,x,$ and $y$ are integers. Prove that if $d|a$ and $d|b$ then $d|(ax+by)$. 
+
+\begin{proof}
+Since $d|a$, there is an integer $k_1$ such that $a=k_1 d$. Similarly since $d|b$, we have $b=k_2d$. This means
+\[
+ax+by=k_1dx+k_2d+y=d(k_1x+k_2y)
+\]
+As $k_1x+k_2y$ is an integer, we have $d|(ax+by)$.
+\end{proof}
+
+\item (10 points) Prove that an integer is odd if and only if it is the sum of two consecutive integers.
+
+\begin{proof}
+If $n$ is an odd integer, there is another integer $k$ such that $n=2k+1=k+k+1$. Since $k$ and $k+1$ are consecutive integers, this means that $n$ is the sum of consecutive integers.
+
+If $n$ is the sum of two consecutive integers, let's say $k$ and $k+1$, then $n=k+k+1=2k+1$.
+\end{proof}
+\end{enumerate}
+
+
+\newpage
+\item (15 points) The squares of a $4\times 4$ checkerboard are colored black or white. Use the inclusion-exclusion principle to find the number of ways the checkerboard can be colored so that no row is entirely one color.
+
+The average score on this problem was 7.84. This was the hard one on this exam, I tried to grade it more leniently. Only 5 people got full score on this one, many nonsensical answers has been given. Many of you got half of the right idea. The big issue was identifying what sets to use the inclusion-exclusion formula for.
+
+\begin{solution}
+The total number of possible coloring is $2^{16}$ as each $16$ squares can be colored black or white. We count the bad colorings first, i.e. the ones where at least one row is of the same color. For $i=1,2,3,4$, define the sets $B_i$ to be the set of those colorings where the $i$th row is colored uniformly (either black or white). Then the set of bad colorings is given by
+\[
+B=B_1\cup B_2\cup B_3\cup B_4.
+\]
+To find the cardinality, we use the inclusion exclusion formula
+\[
+|B|=\binom{4}{1}|B_i|-\binom{4}{2}|B_i\cap B_j|+\binom{4}{3}|B_i\cap B_j\cap B_k|-\binom{4}{4}|B_i\cap B_j\cap B_k\cap{B_l}|
+\]
+where $i,j,k,l$ can be arbitrary but different elements of $\{1,2,3,4\}$.
+
+Clearly, $|B_i|=2\cdot 2^{12}$ as we can choose the color of the $i$th row to be either all black or all white, and the color of the remaining 12 squares can be colored arbitrarily. 
+
+Similarly, $|B_i\cap B_j|=2^2\cdot 2^8$ as there are $2$ ways to chose black/white for the $i$th row, $2$ ways to do the same for the $j$th row and the remaining $8$ squares can be colored arbitrarily.
+
+Along the same logic, one can show $|B_i\cap B_j\cap B_k|= 2^3\cdot 2^4$ and $|B_i\cap B_j\cap B_k\cap B_l|=2^4$. Plugging it back to the formula for $|B|$ and substracting $|B|$ from the total number of possible coloring gives the answer to the question.
+
+To get a numerical value (You did not need to do this necessarily to get full score.), note that we can write
+\[
+|B|=\sum_{m=1}^4\binom{4}{m}(-1)^{i-1}2^m 2^{4(4-m)}.
+\]
+Then if $|G|$ is the number of good colorings then
+\[
+|G|=2^{16}-|B|=\sum_{m=0}^4\binom{4}{m}(-1)^m2^m2^{4(4-m)}=(2^4-2)^4=14^4
+\]
+
+\end{solution}
+
+\newpage
+\item Prove or disprove each statement.
+
+The average score for this problem was 19.27. A handful of you wrote a truth table with only four rows. Since I even warned against this out loud, this was not an excusable mistake.
+
+\begin{itemize}
+\item[a)] (11 points) Here $x$ and $y$ are Boolean expressions and $=$ stands for logical equivalence. 
+\[
+(x\to y)\wedge(\neg y\to\neg z)=(x\vee z)\to y
+\]
+
+This statement is true. You could verify it using a truth table or you could write.
+\[
+LHS = (\neg x \vee y)\wedge(y\vee\neg z)= y\vee (\neg x\wedge \neg z)=y\vee \neg(x\vee y)=(x\vee y)\to y
+\]
+\item[b)] (11 points) DeMorgan's second law
+\[
+ A-(B\cap C)=(A-B)\cup (A-C).
+\]
+\textbf{Warning:} A Venn diagram illustration does not constitute a proof. However, if you don't know how to give the proper proof, you can do it for 3 points.
+
+This statement is also true. You could have done an if an only if proof (but then do BOTH directions) or write
+\[
+LHS= \{x\in A: x\notin B\cap C\}=\{x\in A:\neg ((x\in B)\wedge(x\in C))\}
+\]
+\[
+=\{x\in A: \neg(x\in B)\vee \neg(x\in C)\}=\{x\in A: \neg (x\in B)\}\cup\{x\in A: \neg (x\in C)\}
+\]
+\[
+=\{x\in A: x\notin B\}\cup\{x\in A: x\notin C\}=(A-B)\cup (A-C).
+\]
+\end{itemize}
+\newpage
+%\item Let $R$ be the relation on the set of integers $\{1, 2, 3, 4,\dots , 10\}$ defined by
+%\[
+%x R y \qquad\textrm{provided}\qquad x^2\equiv y^2 (mod 10).
+%\]
+%\begin{enumerate}
+%\item (10 points) Show that this is an equivalence relation.
+%\item (8 points) Find the equivalence classes. 
+%\end{enumerate}
+%\newpage
+\item The average score here was $17.7$. People were mostly okay with the factorial formula, however some answers was very very sketchy. There was one extreme case when I even took points off for that and this is going to be more and more the case. Full English sentences and a clear logical flow please. On the other hand, many people had troubles with the combinatorial proof. We have seen how to structure a combinatorial proof and practiced it plentifully. Question - Answer 1 - Answer 2. Many people would have been helped to find the right train of thoughts by just sticking to the format. Also, if a hint talks about choosing A group with A leader, it might not be a good idea to start talking about multiple groups and multiple leaders.
+\begin{enumerate}
+
+\item (11 points) Give a proof of the following identity using the factorial formula for the binomial coefficient.
+\[
+k\binom{n}{k}=n\binom{n-1}{k-1}
+\]
+
+\begin{proof}
+\[
+k\binom{n}{k}=k\frac{n!}{k!(n-k)!}=\frac{kn(n-1)!}{k(k-1)!(n-1-k+1)!}=n\binom{n-1}{k-1}.
+\]
+\end{proof}
+
+\item (11 points) Now give a combinatorial proof.
+Hint: Consider choosing a group with a leader.
+
+Question: How many ways can we choose a group of $k$ people with a leader out of $n$ people.
+
+Answer 1: We can first choose the $k$ group members $\binom{n}{k}$ ways and then choosing the leader out of the chosen $k$ people, which we can do $k$ ways. This gives a total of $k\binom{n}{k}$ ways.
+
+Answer 2: We can first choose the leader, which we have $n$ ways to do and then from the remaining $n-1$ people we have to choose the rest of the $k-1$ group members, which we have $\binom{n-1}{k-1}$ ways to do. Total this gives us $n\times\binom{n-1}{k-1}$ ways.
+
+Since both answers are valid, they have to be equal proving the claim. 
+
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+\noindent
+\textbf{Extra paper}
+%
+%\newpage
+%\noindent
+%\textbf{Extra paper}
+
+%\includepdf[pages=1-2]{FormulaSheets.pdf}
+
+\end{document}

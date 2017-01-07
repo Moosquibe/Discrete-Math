@@ -1,0 +1,124 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 18}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{November 16, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item For the given integers $a,b$, find the integers $q$ and $r$ such that $a=qb+r$ and $0\leq r<b$.
+\enumb
+\item $a=100$, $b=3$
+\[
+100=33\cdot 3 +1
+\]
+\item $a=-100$, $b=3$
+\[
+-100=(-34)\cdot 3 + 2
+\]
+\enume
+\item For the given integers $a,b$, compute $a\textrm{ div } b$ and $a\textrm{ mod } b$.
+\enumb
+\item $a=99$, $b=3$.
+\[
+a{\rm~div~} b = 33\qquad a{\rm~mod~} b = 0
+\]
+\item $a=-99$,$b=3$.
+\[
+a{\rm~div~} b = -33\qquad a{\rm~mod~}b = 0
+\]
+\item $a=10$, $b=3$.
+\[
+a{\rm~div~}b = 3\qquad a{\rm~mod~} b = 1
+\]
+\enume
+
+\item Please calculate:
+\enumb
+\item $gcd(20,25)$
+We write
+\begin{align*}
+20& = 0\cdot 25+20\\
+25& = 1\cdot 20+ 5\\
+20& = 4\cdot 5 + 0
+\end{align*}
+and thus $gcd(20,25)=5$.
+\item $gcd(-89,-98)$.
+We write
+\begin{align*}
+-89&=1\cdot(-98)+9\\
+-98&= -11\cdot 9 + 1\\
+9&=9\cdot 1 + 0
+\end{align*}
+and thus $gcd(-89,-98)=1$
+\enume
+\item For each pair of integers $a,b$ in the previous problem, find integers $x$ and $y$ such that $ax+by=gcd(a,b)$.
+Working our way backwards from the bottom in the first case, we can write
+\[
+gcd(20,25)=5 = 25 - 1\cdot 20 =(-1)\cdot 20 + 1\cdot 25
+\]
+and hence $x=-1$ and $y=1$. In the second one,
+\[
+gcd(-89,-98)=1=11\cdot 9 + (-1)\cdot 98 = 11\cdot(98-89)-98 = 11\cdot(-89)+(-10)\cdot (-98)
+\]
+and hence $x=11$ and $y=-10$.
+\item Let $a$ and $b$ be positive integers. Prove that $2^a$ and $2^b-1$ are relatively prime.
+
+Note that by the theorem in class, we can conclude that $2^a$ and $2^b$ are relative primes if we can find integers $x,y\in\mathbb{Z}$ such that
+\[
+x2^a+y(2^b-1)=1
+\]
+If $a\leq b$ then $y=-1$ and $x=2^{b-a}$ works. On the other hand if $a>b$, then the situation is more complicated. Let $N$ be a number such that $2^Nb>a$. Then we write
+\[
+(2^b-1)(2^b+1)=2^{2b}-1
+\]
+\[
+(2^{2b}-1)(2^{2b}+1)=2^{4b}-1
+\]
+\[
+\vdots
+\]
+\[
+(2^{2^{N-1}b}-1)(2^{2^{N-1}b}+1)=2^{2^Nb}-1
+\]
+Then take $x=2^{2^{N}b-a}$ and 
+\[
+y=-(2^b+1)(2^{2b}+1)\dots(2^{2^{N-1}b}+1)
+\]
+\item Decide if the following diophantine equations have a solution or not and if yes find a solution:
+\itemb
+\item $3x+4y=2$
+
+Since $gcd(3,4)=1$, the solution exists and one possible solution is given by $x=-2$, $y=2$. (taking $t=2$, $u=-1$, $v=1$ on the slides)
+\item $6x-2y=4$
+Since $gcd(6,2)=2|4$, the solution exists. We can write $gcd(6,2)=6-2\cdot 2$ so $u=1$ and $v=-2$. Since $t=2$, we have $x=2$, $y=-4$.
+\iteme
+\enume
+\end{document}

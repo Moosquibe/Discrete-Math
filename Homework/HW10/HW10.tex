@@ -1,0 +1,69 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{tikz}
+
+\newtheorem{proposition}{Proposition}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\integers{\mathbb{Z}}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+\title{Discrete Mathematics, 2016 Spring - HW 10}
+\author{Instructor: Zsolt Pajor-Gyulai}
+\institute{Courant Institute of Mathematical Sciences, NYU}
+
+
+
+\begin{document}
+
+\maketitle
+
+To get full credit  in all of the problems, use rigorous justification and unless otherwise indicated, make sure that your solution reads as a perfect English sentence. You should only assume integers, operations and order relations as given. If you use a statement or a definition from the textbook, make sure to indicate it.
+\vspace{0.2cm}
+
+\textbf{Section 35}
+\enumb
+\item[8)] Prove Proposition 35.8 in the textbook.
+\item[9)] Prove that the sum of any three consequtive integers is divisible by $3$.
+%\item[12)] \textit{Polynomial division} The degree of a polynomial is the exponent of the highest power of $x$. For example, $x^{10}-5x^2+6$ has degree $10$, and the degree of $3x-\frac{1}{2}$ is $1$. When the polynomial is a constant (no $x$-terms), we say the degree is $0$, except when it is identically zero, in which case we say that its degree is $-\infty$. If $p$ is a polynomial, we write $\textrm{deg}(p)$ to stand for its degree.
+%\enumb
+%\item Suppose $p$ and $q$ are polynomials. Make up a careful definition of what it means for $p$ to divide $q$ (i.e. p|q). Verify that
+%\[
+%(2x-6)|(x^3-3x^2+3x-9)
+%\]
+%is true using your definition.
+%\item Give an example of two polynomials $p$ and $q$ with $p\neq q$ but $p|q$ and $q|p$. What is the relationship between polynomials that divide each other? 
+%\item Prove the following analogue of the division with remainder theorem:
+%\begin{proposition}
+%Let $a$ and $b$ be polynomials, with $b$ nonzero. Then there exist polynomials $q$ and $r$ so that $a=qb+r$ with $deg(r)<deg(b)$. For example if $a=x^5-3x^2+2x+1$ and $b=x^2+1$, then we can take $q=x^3-x-3$ and $r=3x+4$.
+%\end{proposition}
+%\enume
+\enume
+
+\textbf{Section 36}
+
+\enumb
+
+\item[1-2)] Please calculate:
+\enumb
+\item $gcd(54321,50)$.
+\item $gcd(1739,-29341)$.
+\enume
+In each case, find the integers $x$ and $y$ such that $ax+by=gcd(a,b)$.
+\item[11)] Prove that consecutive integers must be relatively prime.
+\item[15)] Suppose that $a$ and $b$ are relatively prime integers and that $a|c$ and $b|c$. Prove that $(ab)|c$.
+\item[21)] You have two measuring cups. One holds $8$ ounces and the other holds $13$ ounces. These cups have no marks to show individual ounces. All you can measure is either a full $13$ or a full $8$ ounces. If you want to measure, say, 5 ounces, you can fill the 13-ounce measuring cup, use it to fill the 8-ounce cup, and you will have $5$ ounces left in the larger cup.
+\enumb
+\item Show how to measure exactly $1$ ounce. You may assume you have a large bowl for holding liquid, but this large bowl has no marks for measuring. At the end, the bowl should contain exactly one ounce.
+\item Generalize this problem. Suppose you have $a$ and $b$ ounces where $a$ and $b$ are positive integers. Give a necessary and sufficient conditions on $a$ and $b$ such that it is possible to measure out exactly $1$ ounce using these cups. (Hint: Think how this problem relates to the lecture in the first place.)
+\item Watch \verb https://www.youtube.com/watch?v=BVtQNK_ZUJg ~and be proud that you're better than John McClane.
+\enume
+\enume
+
+
+\end{document}

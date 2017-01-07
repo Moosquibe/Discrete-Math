@@ -1,0 +1,75 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 19}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{November 28,2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item In the context of $\mathbb{Z}_{10}$, calculate
+\enumb
+\item $3\oplus 3$
+\item $7\otimes 3$
+\enume
+\item In the context of $\mathbb{Z}_ {12}$, calculate
+\enumb
+\item $9\oplus 8$
+\item $11\otimes 5$
+\enume
+\item In the context of $\mathbb{Z}_9$, calculate
+\enumb
+\item $5\ominus 8$
+\item $8\ominus 5$
+\enume
+
+\item In the context of $\mathbb{Z}_{10}$, calculate
+\enumb
+\item $8\oslash7$
+\item $5\oslash 9$
+\enume
+
+\item In $\mathbb{Z}_{431}$, find $29^{-1}$.
+
+\item Solve 
+\enumb
+\item $4\otimes (x\ominus 8)=9$ in $\mathbb{Z}_{11}$.
+\item $2\otimes x=3$ in $\mathbb{Z}_{10}$.
+\enume
+
+\item Find all solutions of
+\enumb
+\item $3x\equiv 17$ (mod $20$)
+\item $2x\equiv 12$ (mod $15$)
+\enume
+\enume
+\underline{\textbf{Optional programming exercise:}}
+
+\noindent Write a modular arithmetic calculator, i.e. functions oplus(a,b,n), ominus(a,b,n), otimes(a,b,n), odivide(a,b,n) that implement the operations in $\mathbb{Z}_n$ we learned about today.
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 15}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{November 2, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Let $A=\{1,2,\dots, n\}$ be an $n$-element set and let $k\in\mathbb{N}$. How many functions are there from $A$ to $A$ for which there are exactly $k$ elements $a$ in $A$ with $f(a)=1$?
+\item Show that the number of onto functions $f:A\to B$ when $|A|>|B|$ is
+\[
+\sum_{j=0}^{|B|}(-1)^j\binom{|B|}{j}(|B|-j)^{|A|}.
+\]
+
+\item
+\enumb
+\item Let $N$ be a positive integer. Explain why if $N$ is at least ten billion, then two of its digits must be the same. What is the largest integer that does not have a repeated digit?
+
+\item How large a group of people do we need to consider to be certain that two members of the group have the same birthday (month and day)? (Don't forget about Feb 29th!)
+
+\item In any typical large city, there are (at least) two people with exactly the same nuber of hairs on their heads. Explain why. (An average person has about 100,000 hairs.)
+\enume
+
+\item Let $E$ denote the set of even integers. Find a bijection between $E$ and $\mathbb{Z}$.
+\enume
+\end{document}

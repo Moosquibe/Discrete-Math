@@ -1,0 +1,71 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Spring - Worksheet 7}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item What condition ensures $x\equiv y$ (mod 2)?.
+
+\item Find the equivalence class of $[1]$ and $[4]$ under the following equivalence relation on $\{1,2,3,4\}$.
+\[
+R=\{(1,1),(1,2),(2,1),(2,2),(3,3),(4,4)\}
+\] 
+\item Consider $\equiv$ mod $2$. Prove $[3]=[1]$.
+\item Let $R$ be an equivalence relation on a set $A$. Prove that the union of all of the equivalence classes of $R$ is $A$.
+\item Find all possible partitions of $\{1,2,3\}$. (There are five of them.)
+\item How many different anagrams (including nonsensical words) can be made from each of the following?
+\enumb
+\item STAPLE
+\item DISCRETE
+\item SUCCESS
+\enume
+\item
+\enumb
+\item How many different anagrams (including nonsensical words) can be made from SUCCESS if we require that the first and last letters must both be $S$.
+\item How many different anagrams (including nonsensical words) can be made from FACETIOUSLY if we require that the six vowels must remain in alphabetical order (but not necessarily contiguous with each other)
+\enume
+\item Write a proper proof of the following theorem summarizing the technique used above:
+\begin{theorem}[Counting equivalence classes]
+Let $R$ be an equivalence relation on a finite set $A$. If all the equivalence classes of $R$ have the same size, $m$, then the number of equivalence classes is $|A|/m$.
+\end{theorem}
+\item You wish to make a necklace with $20$ different beads. In how many different ways can you do this?
+\item A Tennis club has $40$ members. 
+\enumb
+\item One afternoon, they get together to play single matches. Every member plays one match with another member so $20$ matches are held at the same time. In how many ways can this be arranged?
+\item The next afternoon, the club members decide to play double mathces (teams of two pitted against each other). The players are divided into $20$ teams, and these teams each play one match against another team (ten matches total). In how many ways can this be done.
+\enume
+\item One hundred people are to be divided into ten discussion groups with ten people in each group. How many ways can this be done?
+
+\item Twelwe people join hands for a circle dance. 
+\enumb
+\item In how many ways can they do this?
+\item Suppose six of these people are men, and the other six are women. In how many ways can they join hands for a circle dance, assuming they alternate in gender around the circle?
+\enume
+\item How many partitions, with exactly two parts, can be made of the set $\{1,2,3,4\}$? Answer the same question for the set $\{1,2,3,\dots,100\}$.
+\enume
+
+\end{document}

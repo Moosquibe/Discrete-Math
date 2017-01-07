@@ -1,0 +1,399 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, graphicx, hyperref}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{multirow, multicol}
+\usepackage{pdfpages}
+\usepackage{stfloats}
+\usepackage{tikz}
+\pagestyle{fancy}
+
+\fancypagestyle{firststyle}
+{
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[LO]{\includegraphics{nyu_short_black}}
+  \fancyhead[RO]{}
+	\fancyfoot{}
+}
+
+\fancyhead[LO]{\scalebox{0.25}{\includegraphics{nyu_short_black}}}
+\fancyhead[RO]{\tiny MATH-UA.120.002}
+
+
+%\fancyfoot[RO]{\begin{tikzpicture}
+%[scale=1, line/.style={black}]
+%\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+%%\node at (-0.5, 1) [anchor=east]{\large Score};
+%\end{tikzpicture}}
+
+\newcommand*\mycirc[1]{%
+  \begin{tikzpicture}[baseline=(C.base)]
+    \node[draw,circle,inner sep=1pt](C) {#1};
+  \end{tikzpicture}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\proj}{\textbf{proj}}
+\newcommand{\curl}{\textrm{curl }}
+\newcommand{\divergence}{\textrm{div }}
+% For boldface vectors:
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\renewcommand\arraystretch{2}
+
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{solution}{Solution}
+
+
+\begin{document}
+\thispagestyle{firststyle}
+~
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{\Large MATH-UA.120.002 - Discrete Mathematics \\ \vspace{0.5cm} Midterm 1 Solutions}\\~\\
+Thursday, February 25, 2016
+\end{center}
+
+\vspace{1cm}
+
+%\noindent
+%\textbf{Name:} \underline{\hspace{15cm}}
+
+\vspace{1cm}
+
+\noindent
+This exam is scheduled for 110 minutes, to be done individually, without calculators, notes, textbooks, and other outside materials.
+\vspace{0.5cm}
+
+\noindent
+\textbf{Show all work to receive full credit, except where specified.}
+
+\vspace{1cm}
+
+\begin{multicols}{2}
+\noindent
+
+\noindent
+\fbox{\parbox{10cm}{
+\vspace{1cm}
+\noindent
+\textbf{Name: }
+
+\vspace{1cm}
+
+\noindent
+\textbf{NYU NetID (email): }
+
+
+\vspace{2cm}
+
+\noindent
+\emph{I pledge that I have observed the NYU honor code, and that I have neither given nor received unauthorized assistance during this examination.}
+\noindent
+
+
+
+\noindent
+
+\vspace{1cm}
+
+\noindent
+\textbf{Signature:}
+
+\vspace{2cm}
+}}
+%
+%\vspace{0.5cm}
+%
+
+\begin{flushright}
+\begin{tabular}{| c | c |}
+\hline
+Problem & Points \\
+\hline
+% & \\
+TF & ~~~~~~~~~/18\\[0.5cm]
+%& \\
+\hline
+% & \\
+1 & ~~~~~~~~~/15\\[0.5cm]
+%& \\
+\hline
+% & \\
+2 & ~~~~~~~~~/13\\[0.5cm]
+%& \\
+\hline
+% & \\
+3 & ~~~~~~~~~/20\\[0.5cm]
+%& \\
+\hline
+% & \\
+4 & ~~~~~~~~~/18\\[0.5cm]
+%& \\
+\hline
+% & \\
+5 & ~~~~~~~~~/16\\[0.5cm]
+%& \\
+\hline
+\hline %& \\
+Total & ~~~~~~~~~/100\\[0.5cm]
+%& \\
+\hline
+\end{tabular}
+\end{flushright}
+
+\end{multicols}
+
+\newpage
+
+\section*{Answer Sheet (for Problem 1 True/False)} \label{answersheet}
+
+%(3 points each) Select the correct option.  You need not explain your answer.  No partial credit will be given.
+%
+%\vspace{0.5cm}
+
+\noindent
+\textbf{You must record your final answers on the following answer sheet.  Only this page will be graded.}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tabular}{| c | c c c c c |}
+\hline
+
+1 & \mycirc{T} & \mycirc{\color{red}{\textbf{F}}} & & &  \\
+% & & & & & \\
+2 & \mycirc{\color{red}\textbf{T}} & \mycirc{F} & & &   \\
+% & & & & & \\
+3 & \mycirc{T} & \mycirc{\color{red}\textbf{F}} & & &   \\
+% & & & & & \\
+4 & \mycirc{T} & \mycirc{\color{red}\textbf{F}} & & &  \\
+% & & & & & \\
+5 & \mycirc{T} & \mycirc{\color{red}\textbf{F}} & & &  \\
+6 & \mycirc{\color{red}\textbf{T}} & \mycirc{F} & & & \\
+\hline
+\end{tabular}
+\end{center}
+\begin{flushright}
+\begin{tikzpicture}
+[scale=1, line/.style={black}]
+\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+\node at (-0.5, 1) [anchor=east]{\Large TOTAL};
+\end{tikzpicture}
+\end{flushright}
+\renewcommand\arraystretch{1}
+
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+
+\newpage
+\section*{True or False}
+
+(2 points each) Determine if each of the following statement is TRUE or FALSE.\\Choose TRUE if the statement is always true, and choose FALSE if it is not always true. Each question is worth 3 points.
+
+\vspace{0.2cm}
+
+\noindent
+\textbf{Indicate your solution in the answer sheet on page \pageref{answersheet}.  You need not provide any justification.}
+
+We define the set
+\[
+A=\{X\in 2^{\mathbb{N}}:|X|=6\}
+\]
+Note: Recall that in this class $0\in\mathbb{N}$.
+\begin{enumerate}
+\item $\{-4,2,3,7,8,9\}\in A$. FALSE, $-4\notin\mathbb{N}$.
+\vspace{1cm}
+\item $\{1,2,3,4,5,6\}\in A$. TRUE
+\vspace{1cm}
+\item $\{1,1,2,3,4,5\}\in A$. FALSE, this set has only $5$ elements.
+\vspace{1cm}
+\item $2\in A$. FALSE, $A$ is a set of sets, not numbers.
+\vspace{1cm}
+\item $\forall X\in A, \exists Y\in A: |X\Delta Y|=5$. FALSE:
+\[
+|X\Delta Y|=|X\cup Y|-|X\cap Y|=|X|+|Y|-2|X\cap Y|=12-2|X\cap Y|,
+\]
+which means that $|X\Delta Y|$ has to be even.
+\vspace{1cm}
+\item $\exists X\in A: \sum_{x\in X}x=15$. TRUE, $X=\{0,1,2,3,4,5\}$ works.
+\end{enumerate}
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+\newpage
+\section*{Free Response}
+
+\textbf{Show all work and justification.} 
+
+\begin{enumerate}
+\item (15 points) Prove  the the following proposition rigorously .
+\begin{proposition}
+If $n$ is a positive integer and $n^2-1$ is a prime, then $n=2$.
+\end{proposition}
+Hint: It is easy to find two divisors of $n^2-1$. 
+
+\begin{proof}
+Let $n$ be a positive integer such that $n^2-1$ is a prime. We are going to prove that $n=2$.
+
+We know from elementary algebra that $n^2-1=(n-1)(n+1)$. Since $n^2-1$ is a prime and since we can rule out $n=1$ (as $1^2-1=0$ is not a prime), it follows that this has to be a trivial decomposition and since $n+1>n-1$, we must have $n-1=1$ and $n+1=n^2-1$. This implies $n=2$ and the proposition is proved.
+\end{proof}
+
+Remarks:
+\begin{itemize}
+\item As the math in this problem is fairly simple your style and clarity was also strongly graded here.
+\item Most of you did good, the average score was $12.77$, there were a few chaos proofs here as well.
+\item Some of you went overboard and wrote a lot more than it was neccessary. Along the same lines, many of you introduced new quantities $a,b,c,k$, etc. which is not strictly speaking bad, but completely unnecessary in which case it makes the readers job harder. If you are one of these overshooters. Try to always spend a minute checking that you didn't overcomplicate things.
+\item Some of you implicitely used that $n\neq 1$ without actually showing thatt $n=1$ can be ruled out.
+\end{itemize}
+\newpage
+\item Solve the following counting problems:
+\begin{enumerate}
+\item (10 points) How many ways can we make a list of three integers $(a,b,c)$ where $1\leq a,b,c\leq 8$ are all different and $abc$ is odd.
+\item (3 points) How many different sets $\{a,b,c\}$ are there, where $1\leq a,b,c\leq 8$ are all different and $abc$ is odd.
+\end{enumerate}
+Hint: First figure out what restriction $abc$ being odd imposes on the numbers $a$, $b$, $c$.
+
+\begin{solution}
+\begin{enumerate}
+\item The number $a\cdot b\cdot c$ is odd only if all three of $a$, $b$, and $c$ are odd. This gives four numbers to choose from: $1,3,5,7$. The number of lists of length $3$ you can make out of four elements is
+\[
+(4)_3=4\cdot 3\cdot 2\cdot 1= 24.
+\]
+\item When we are looking at a set, all we need to do is identify those lists from part (a), that only differ in the order of the elements.  Under this equivalence relation, every equivalence class has $3!$ elements, we have to divide the number in part (a) by $3!$ to get
+\[
+\frac{24}{3!}=4.
+\]
+Alternatively, you can argue that we are choosing $3$ elements out of $4$ and therefore the answer is $\binom{4}{3}$ which is, of course, again $4$.
+\end{enumerate}
+\end{solution}
+
+\begin{itemize}
+\item The average score on this problem was $10.64$.
+\item Some of you interpreted $abc$ instead as a three digit number. I accepted this interpretation as well.
+\item In part (b), I also accepted if somebody just listed the sets correctly.
+\item Some people did not know the binomial formula correctly. That is not good.
+\item Some people didn't read the part where it said \textbf{different}. Try to avoid such unforced mistakes in the future.
+\end{itemize}
+\newpage
+\item Prove or disprove each statement.
+\begin{itemize}
+\item[a)] (10 points) Here $x$ and $y$ are Boolean expressions and $=$ stands for logical equivalence.
+\[
+(x\wedge\neg y) \to (x\vee y) = x\to (x\vee y)
+\]
+
+\begin{solution}
+Writing out the truth tables of both sides, you see that both the left and the right hand side always evaluate to TRUE. Alternatively, you can use the identites to write
+\begin{align*}
+(x\wedge\neg y)\to (x\vee y)&=\neg(x\wedge\neg y)\vee (x\vee y)=\\
+&=\neg x\vee y\vee x\vee y=(\neg x\vee x)\vee (y\vee y)=True\vee y=True.
+\end{align*}
+and
+\[
+x\to(x\vee y)=\neg x\vee(x\vee y)=(\neg x\vee x)\vee y=True\vee y=True.
+\]
+\end{solution}
+\item[b)] (10 points) Here $A,B,C$ are sets. 
+\[
+(A\cup B)-C=(A-C)\cup (B-C)
+\]
+\textbf{Warning:} A Venn diagram illustration does not constitute a proof. However, if you don't know how to give the proper proof, you can do it for 3 points.
+
+\begin{solution}
+We are going to show that the two sets on the left and the right hand sides are equal.
+
+Assume $x\in (A\cup B)-C$. This means that $x\in A\cup B$, but $x\notin C$. This means that $x\in A$ or $x\in B$ and $x\notin C$, which in turn implies that $x\in A-C$ or $x\in B-C$ or in other words $x\in (A-C)\cup (B-C)$. 
+
+On the other hand assume $x\in (A-C)\cup (B-C)$. This means that $x\in A-C$ or $x\in B-C$, which implies that $x\in A$, $x\notin C$ or $x\in B$,$x\notin C$ or in other words $x\in A$ or $x\in B$ but $x\notin C$ which exactly means $x\in (A\cup B)-C$.
+
+This finishes the proof.
+\end{solution}
+
+\end{itemize}
+
+\begin{itemize}
+\item Almost all people got part (a) right, part (b) however was a little less popular. The overall average score was $17.66$.
+\item Part (b) could have been done alternatively, by using Boolean algebra as well.
+\item Some of you decided not to use any proof templates, which was ok as long as you could present a coherent argument. However, I did not have much sympathy who ended up with a mess this way.
+\item Unfortunately, I still saw several works where sets were added or taken to a power or other nonsensical stuff. I was not kind about that.
+\end{itemize}
+\newpage
+\item Let $R$ be the relation on the set of integers $\{1, 2, 3, 4,\dots , 10\}$ defined by
+\[
+x R y \qquad\textrm{provided}\qquad x^2\equiv y^2 (mod 10).
+\]
+\begin{enumerate}
+\item (10 points) Show that this is an equivalence relation.
+\item (8 points) Find the equivalence classes. 
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item To show that $R$ is an equivalence relation, we have to prove that $R$ is reflexive, symmetric, and transitive.
+\begin{itemize}
+\item To show that $R$ is reflexive, let $x\in\{1,2,\dots,10\}$. Then since $x^2-x^2=0$, $10|x^2-x^2$ and therefore $x^2\equiv x^2$ $(mod 10)$, which means $xRx$. This proves that $R$ is reflexive.
+\item To show that $R$ is symmetric, let $x,y\in\{1,2,\dots,10\}$ and assume $xRy$. This means that $x^2\equiv y^2$ $(mod 10)$, which in turn means $10|y^2-x^2$. By definition, this means that there is a $k\in\mathbb{Z}$ such that $y^2-x^2=k10$. But then $x^2-y^2=(-k)10$ and therefore $10|x^2-y^2$ which in turn implies $y^2\equiv x^2$ and thus $yRx$. This proves that $R$ is symmetric.
+\item To show that $R$ is transitive, let $x,y,z\in\{1,2,\dots,10\}$ and assume that $xRy$ and $yRz$. This means that $y^2-x^2=10k_1$ and $z^2-y^2=10k_2$ for some $k_1,k_2\in\mathbb{Z}$. Adding these equations yield
+\[
+z^2-x^2=10(k_1+k_2)
+\]
+which means that $xRz$. 
+\end{itemize}
+\item By direct checking, one can easily see that
+\begin{align*}
+[1]=\{1,9\}=[9], [2]=\{2,8\}=[8], [3]=\{3,7\}=[7],\\
+[4]=\{4,6\}=[6], [5]=\{5\}, [10]=\{10\}.
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{itemize}
+\item This was the problem that has given you the biggest problem, the average score was $12.23$.
+\item Many of you tricked yourself into circular reasoning. YOU CANNOT ASSUME WHAT YOU ARE TRYING TO PROVE. When you are proving that $xRx$ you cannot start your prove with `Assume $xRx$. This means...'. 
+\item Many of you were in great confusion about what symmetric is.
+\item I decided to grade leniently and if you wrote down the words reflexive, symmetric, transitive, you got 5 points on part (a). However, I was more tight fisted with further points.
+\item Many of you didn't recognize a clearly wrong solution for the equivalence classes. If $[1]=\{1,9\}$, then it cannot be that $[9]=\{9\}$.
+\item During the proof of part (a), many of you introduced unnecessary and confusiong notation. If you have $xRy$ then it is absolutely unnecessary to introduce a,b, and $c$.
+\item Since there were many diverging versions, it was impossible to keep a consistent grading rubrik which resulted in a diversity of points. 
+\end{itemize}
+\newpage
+\item (16 points) Give a combinatorial proof of the following identity:
+\[
+\binom{m+n}{r}=\sum_{k=0}^r\binom{m}{k}\binom{n}{r-k}
+\] 
+Hint: Consider a group of $m$ men and $n$ women.
+
+\begin{proof}
+We are going to ask the question how many ways can one choose a group of $r$ people out of a group on $m$ man and $m$ women. 
+
+\begin{itemize}
+\item On one hand, the answer is $\binom{m+n}{k}$ by definition.
+\item On the other hand, we can count the groups with a fixed gender composition separately. We can select a group of $r$ people by first selecting $k$ men out of $m$ and then selecting $r-k$ woman out of $n$. Since the choice of the man and the women are independent, there are $\binom{m}{k}\binom{n}{r-k}$ to do that. Since the set of groups with a different gender composition are disjoint, and the union of these sets over $k$ ranging from $0$ to $r$ contains all of the possible groups, the extended addition principle implies that the total number of groups is given by the right hand side above.
+
+Since both of these numbers answer the same question, we have proven their equality.
+\end{itemize}
+\end{proof}
+
+\begin{itemize}
+ \item The average score on this problem was $14.17$.
+ \item No credit was given for the proof by the formula with the factorials.
+ \item I tried to be lenient overall, but I did take of point if the style was very bad or the presentation got really painful to read or if the logic was really twisted.
+ \item Many of you wrote that the two numbers were equivalent. Say equal instead.
+\end{itemize}
+\end{enumerate}
+
+\newpage
+\noindent
+\textbf{Extra paper}
+%
+%\newpage
+%\noindent
+%\textbf{Extra paper}
+
+%\includepdf[pages=1-2]{FormulaSheets.pdf}
+
+\end{document}

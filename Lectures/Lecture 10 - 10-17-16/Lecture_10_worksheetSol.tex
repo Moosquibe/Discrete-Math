@@ -1,0 +1,139 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 10}
+\date{October 17, 2016}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+
+
+\begin{document}
+
+\maketitle
+
+
+\enumb
+
+\item Please state the contrapositive of each of the following statements:
+\enumb
+\item If $x$ is odd, then $x^2$ is odd.
+
+If $x^2$ is not odd then $x$ is not odd.
+
+\item If $x$ is non-zero, then $x^2$ is positive.
+
+If $x^2$ is not positive, then $x$ is zero.
+\enume
+
+\item  Prove by the contrapositive method that if $a$ does not divide $b$, then the equation $ax^2+bx+b-a=0$ has no positive integer solution for $x$.
+
+\begin{proof}
+We prove the contrapositive, i. e. that if $ax^2+bx+b-a=0$ has a positive integer solution then $a$ divides $b$.
+
+Assume that there is a positive integer solution $ax^2+bx+b-a=0$, denote this by $k$. Since $k$ is an integer solution, we have $k\in\mathbb{Z}$ and $ak^2+bk+b-a=0$. Rearranging this gives $a(1-k^2)=b(k+1)$, which can also be written as $b(k+1)=a(1-k)(1+k)$. Since $k$ is a positive integer, $k+1\neq 0$ and we can simplify by it to get $b=a(1-k)$. Since $1-k\in\mathbb{Z}$, this means $a|b$.
+\end{proof}
+
+\item For each of the following statements, write the first sentences of a proof by contradiction (do not attempt to complete the proofs). Please use the phrase ``for the sake of contradiction''.
+\enumb
+ \item If $A\subseteq B$ and $B\subseteq C$, then $A\subseteq C$.
+
+\begin{proof}
+Let $A\subseteq B$, $B\subseteq C$ and for the sake of contradiction assume $A\not\subseteq C$. [...]
+\end{proof}
+
+ \item The sum of two negative integers is a negative integer.
+
+\begin{proof}
+Let $x$ and $y$ be two negative integers and for the sake of contradiction assume $x+y$ is positive. [...]
+\end{proof}
+
+ \item If the square of a rational number is an integer, then the rational number must also be an integer.
+
+\begin{proof}
+Let $q$ be a rational number such that $q^2\mathbb{Z}$ and for the sake of contradiction assume that $q$ is not an integer. [...]
+\end{proof}
+\enume
+
+\item Prove the following statements by contradiction.
+\enumb
+\item Consecutive integers cannot be both even.
+\begin{proof}
+Let $x$ be an integer and assume for the sake of contradiction that $x$ and $x+1$ are both even. Then there are integers $k_1$ and $k_2$ such that $x=2k_1$ and $x+1=2k_2$. Combining the two, we get $2k_1+1=2k_2$ which implies $k_1-k_2=1/2$. Since $k_1$ and $k_2$ are integers, this is impossible.
+\end{proof}
+\item Consecutive integers cannot be both odd.
+\begin{proof}
+Let $x$ be an integer and assume for the sake of contradiction that $x$ and $x+1$ are both odd. In particular, this means that there is an integer $b$ such that $x+1=2c+1$. Substracting $1$ from both sides, we get $x=2c$ which means that $x$ is even. Since we have proved in class that a number cannot be both even and odd, this contradicts the assumption that $x$ is odd. This proves the claim.
+\end{proof}
+
+\item If the sum of two primes is prime, then one of the primes must be $2$ (you may assume that every integer is either even or odd, but never both.)
+
+\begin{proof}
+Let $p_1$ and $p_2$ be two primes such that $p_1+p_2$ is also a prime and assume for the sake of contradiction that neither $p_1$ nor $p_2$ equals $2$. Since $p_1\neq 2$, $p_1$ must not be divisible by $2$ and therefore it is odd and there is an integer $k_1\in\mathbb{Z}$ such that $p_1=2k_1+1$. Similarly $p_2=2k_2+1$ for some integer $k_2\in\mathbb{Z}$. Then $p_1+p_2=2(k_1+k_2+1)$ which means $2|(p_1+p_2)$. Since $p_1+p_2$ is also a prime, this means $p_1+p_2=2$. But as $p_1,p_2\geq 2$, this is impossible.
+\end{proof}
+
+\item Suppose $n$ is an integer that is divisible by $4$. Then $n+2$ is not divisible by $4$.
+\begin{proof}
+Let $n$ be an integer divisible by $4$. For the sake of contradiction, assume that $n+2$ is divisible by $4$. This means that there is an integer $k\in\mathbb{Z}$, such that $n+2=4k$, which means $n=4k-2$, which contradicts the assumption that $n$ is divisible by $4$.
+\end{proof}
+\item Let $A$ and $B$ be sets. Then $(A-B)\cap (B-A)=\emptyset$.
+\begin{proof}
+Let $A$ and $B$ be sets and for the sake of contradiction suppose $(A-B)\cap (B-A)\neq\emptyset$. This means that there is an element $x\in (A-B)\cap (B-A)$. On one hand, this means $x\in A-B$ which in turn implies that $x\in A$ but $x\notin B$. On the other hand $x\in B-A$ which implies $x\in B$ but $x\notin A$. These two are in contradiction to each other, which proves the claim.
+\end{proof}
+\enume
+
+\item Prove by the method of smallest counterexample that $1+2+3+\dots+n=n(n+1)/2$ for all positive integer $n$.
+
+\begin{proof}
+For the sake of contradiction assume that there is a positive integer such that the claim is not true. Let $n*$ be the smallest such number. Note that $n^*\neq 1$ as $1=1\cdot 2/2$. This means that $n^{*}-1$ is a positive integer and 
+\[
+1+2+3+\dots+n^*-1=\frac{(n^*-1)n^*}{2}.
+\]
+Adding $n^*$ to both side of this equation gives
+\[
+1+2+3+\dots+n^*=\frac{(n^*-1)n^*}{2}+n^*=\frac{(n^*)^2-n^*+2n^*}{2}=\frac{(n^*)^2+n^*}{2}=\frac{n^*(n^*+1)}{2}
+\]
+which contradicts $n^*$ being a counterexample.
+
+\end{proof}
+
+\item Prove by the method of smallest counterexample that $n<2^n$ for all $n\in \mathbb{N}$.
+\begin{proof}
+For the sake of contradiction, assume that there is a $k\in\mathbb{N}$ such that $k>2^k$ and by the well ordering principle assume that it is the smallest such natural. As $0<2^0=1$, we now that $k\neq 0$. This implies that $k-1\in\mathbb{N}$ and since $k-1<k$, we have by assumption that $k-1<2^{k-1}$. By adding $1$ to both sides of this, we get 
+\[
+k<2^{k-1}+1<2^{k-1}+2^{k-1}=2\cdot 2^{k-1}=2^k,
+\]
+using that for $k\geq 1$, we have $1\leq 2^{k-1}$. This contradicts the assumption that $k$ is a counterexample which proves the claim.
+\end{proof}
+\item[7.] Prove by the method of smallest counterexmaple that when $a\neq 0,1$, then
+\[
+a^0+a^1+a^2+\dots+a^n=\frac{a^{n+1}-1}{a-1},\qquad\forall n\in\mathbb{N}.
+\]
+
+\begin{proof}
+p131 in the textbook.
+\end{proof}
+
+ \item[8.] For all integers $n\geq 5$, we have $2^n>n^2$.
+ \begin{proof}
+p132 in the textbook.
+ \end{proof}
+\enume
+
+\end{document}

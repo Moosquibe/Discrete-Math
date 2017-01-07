@@ -1,0 +1,452 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, graphicx, hyperref}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{multirow, multicol}
+\usepackage{pdfpages}
+\usepackage{stfloats}
+\usepackage{tikz}
+\pagestyle{fancy}
+
+\fancypagestyle{firststyle}
+{
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[LO]{\includegraphics{nyu_short_black}}
+  \fancyhead[RO]{}
+	\fancyfoot{}
+}
+
+\fancyhead[LO]{\scalebox{0.25}{\includegraphics{nyu_short_black}}}
+\fancyhead[RO]{\tiny MATH-UA.120.002}
+
+
+%\fancyfoot[RO]{\begin{tikzpicture}
+%[scale=1, line/.style={black}]
+%\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+%%\node at (-0.5, 1) [anchor=east]{\large Score};
+%\end{tikzpicture}}
+
+\newcommand*\mycirc[1]{%
+  \begin{tikzpicture}[baseline=(C.base)]
+    \node[draw,circle,inner sep=1pt](C) {#1};
+  \end{tikzpicture}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\proj}{\textbf{proj}}
+\newcommand{\curl}{\textrm{curl }}
+\newcommand{\divergence}{\textrm{div }}
+% For boldface vectors:
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\renewcommand\arraystretch{2}
+
+\newtheorem*{proposition}{Proposition}
+
+
+\begin{document}
+\thispagestyle{firststyle}
+~
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{\Large MATH-UA.120.002 - Discrete Mathematics \\ \vspace{0.5cm} Final Exam 2016 Spring}\\~\\
+Thursday, May 12, 2016
+\end{center}
+
+\vspace{1cm}
+
+%\noindent
+%\textbf{Name:} \underline{\hspace{15cm}}
+
+\vspace{1cm}
+
+\noindent
+This exam is scheduled for 110 minutes, to be done individually, without calculators, notes, textbooks, and other outside materials.
+\vspace{0.5cm}
+
+\noindent
+\textbf{Show all work to receive full credit, except where specified.}
+
+\vspace{1cm}
+
+\begin{multicols}{2}
+\noindent
+
+\noindent
+\fbox{\parbox{10cm}{
+\vspace{1cm}
+\noindent
+\textbf{Name: }
+
+\vspace{1cm}
+
+\noindent
+\textbf{NYU NetID (email): }
+
+
+\vspace{2cm}
+
+\noindent
+\emph{I pledge that I have observed the NYU honor code, and that I have neither given nor received unauthorized assistance during this examination.}
+\noindent
+
+
+
+\noindent
+
+\vspace{1cm}
+
+\noindent
+\textbf{Signature:}
+
+\vspace{2cm}
+}}
+%
+%\vspace{0.5cm}
+%
+
+\begin{flushright}
+\begin{tabular}{| c | c |}
+\hline
+Problem & Points \\
+\hline
+% & \\
+TF & ~~~~~~~~~/20\\[0.5cm]
+%& \\
+\hline
+% & \\
+1 & ~~~~~~~~~/25\\[0.5cm]
+%& \\
+\hline
+% & \\
+2 & ~~~~~~~~~/16\\[0.5cm]
+%& \\
+\hline
+% & \\
+3 & ~~~~~~~~~/18\\[0.5cm]
+%& \\
+\hline
+% & \\
+4 & ~~~~~~~~~/21\\[0.5cm]
+%& \\
+\hline
+\hline %& \\
+Total & ~~~~~~~~~/100\\[0.5cm]
+%& \\
+\hline
+\end{tabular}
+\end{flushright}
+
+\end{multicols}
+
+\newpage
+
+\section*{Answer Sheet (for Problem 1 True/False)} \label{answersheet}
+
+%(3 points each) Select the correct option.  You need not explain your answer.  No partial credit will be given.
+%
+%\vspace{0.5cm}
+
+\noindent
+\textbf{You must record your final answers on the following answer sheet.  Only this page will be graded.}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tabular}{| c | c c c c c |}
+\hline
+
+1 & \mycirc{T} & \mycirc{F} & & &  \\
+% & & & & & \\
+2 & \mycirc{T} & \mycirc{F} & & &   \\
+% & & & & & \\
+3 & \mycirc{T} & \mycirc{F} & & &   \\
+% & & & & & \\
+4 & \mycirc{T} & \mycirc{F} & & &  \\
+% & & & & & \\
+5 & \mycirc{T} & \mycirc{F} & & &  \\
+6 & \mycirc{T} & \mycirc{F} & & & \\
+7 & \mycirc{T} & \mycirc{F} & & & \\
+8 & \mycirc{T} & \mycirc{F} & & & \\
+9 & \mycirc{T} & \mycirc{F} & & & \\
+10 & \mycirc{T} & \mycirc{F} & & & \\
+\hline
+\end{tabular}
+\end{center}
+\begin{flushright}
+\begin{tikzpicture}
+[scale=1, line/.style={black}]
+\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+\node at (-0.5, 1) [anchor=east]{\Large TOTAL};
+\end{tikzpicture}
+\end{flushright}
+\renewcommand\arraystretch{1}
+
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+
+\newpage
+\section*{True or False}
+
+(2 points each) Determine if each of the following statement is TRUE or FALSE.\\Choose TRUE if the statement is always true, and choose FALSE if it is not always true. Each question is worth 3 points.
+
+\vspace{0.2cm}
+
+%\noindent
+%\textbf{Indicate your solution in the answer sheet on page \pageref{answersheet}.  You need not provide any justification.}
+
+
+\begin{enumerate}
+\item There are integers $x$ and $y$ satisfying the equation $6x+3y=2$. 
+
+FALSE, $\textrm{gcd}(6,3)=3\not|2$.
+\vspace{0.1cm}
+\item Every non-zero element of $\mathbb{Z}_{23}$ has a reciprocal. (Hint: Trying to computing the inverse of all elements is a very inefficient approach.)
+
+TRUE, $23$ is a prime and therefore every $0\neq a\in\mathbb{Z}_{23}$ has $gcd(a,23)=1$.
+\vspace{0.1cm}
+\item (H) If $a$ and $b$ are two integers such that $gcd(a,b)=1$, then $gcd(a+b,ab)=1$.
+
+TRUE, $a$ and $b$ are relative primes therefore they have different primes in the factorization. Therefore $a+b$ is not divisible by any of these primes, but $ab$ has exactly these primes in its factorization and thus $gcd(a+b,ab)=1$.
+\vspace{0.1cm}
+\item Let $\sigma=(1,2)\circ (3,4)$ and $\tau=(3,1)\circ (4,2)\circ (1,5)$ in $S_5$. Then $\tau\circ \sigma$ is an even permutation.
+
+FALSE, $\tau\circ\sigma$ can immediately be seen as the composition of 5 transpositions.
+\vspace{0.1cm}
+\item All permutations of $\{1,2,3\}$ arise as symmetries of an equilateral triangle.
+
+TRUE, you can write all six and identify them with symmetries.
+\vspace{0.1cm}
+\item (H) If $(G,*)$ is a group and $g^2=1$ for all $g\in G$ then $G$ is Abelian. (HINT: Think inverses)
+
+TRUE, $a*b=(a*b)^{-1}=b^{-1}*a^{-1}=b*a$.
+\vspace{0.1cm}
+\item $\mathbb{Z}_{720}$ is isomorphic to $S_6$.
+
+FALSE, every transposition in $S_6$ is its own inverse, however this is only true for the element 360 in $\mathbb{Z}_{720}$
+\vspace{0.1cm}
+\item If a graph on $n$ vertices does not contain a cycle, then it must have exactly $n-1$ edges.
+
+FALSE, consider a forest with multiple non-trivial trees.
+\vspace{0.1cm}
+\item There exists a $k$-regular tree for some $k$
+
+TRUE, the $0$ regular tree (i.e. an edgeless graph on one vertex).
+\vspace{0.1cm}
+\item If a graph contains an Euler tour, then it does not have a cut edge.
+
+TRUE, No matter how you drop an edge, the Euler tour becomes an Euler trail and you can reach every point from every point along this Euler tour.
+\end{enumerate}
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+\newpage
+\section*{Free Response}
+
+\textbf{Show all work and justification.} 
+
+\begin{enumerate}
+\item \textbf{Number theory}
+\begin{enumerate}
+\item (3 points) Give the precise definition of the greatest common divisor of two positive numbers $a$ and $b$.\vspace{0.5cm}
+
+A number $d$ is called the greatest common divisor of the integers $a$ and $b$ provided
+\begin{itemize}
+\item $d|a$ and $d|b$
+\item For any other integer $c$ such that $c|a$ and $c|b$, we have $c\leq d$.
+\end{itemize}\vspace{1cm}
+\item (5 points) Use Euclid's algorithm to compute $gcd(216,125)$. (No partial credit will be given for guessing.)\vspace{0.5cm}
+\[
+\begin{array}{rcl}
+216&=&1\cdot 125+91\\
+125&=&1\cdot 91+34\\
+91&=&2\cdot 34+23\\
+34&=&1\cdot 23+11\\
+23&=&2\cdot 11+1
+\end{array}
+\]
+and therefore $gcd(216,125)=1$.\vspace{0.5cm}
+\item (5 points) Compute the reciprocal of $125$ in $\mathbb{Z}_{216}$. (i.e. the inverse of $125$ in $\mathbb{Z}_{216}$ under the operation $\otimes$)
+
+Working backwards on the Euclidean algorithm:
+\begin{align*}
+1&=23-2\cdot 11=23-2(34-23)=3\cdot 23-2\cdot 34=3(91-2\cdot 34)-2\cdot 34=\\
+&=3\cdot 91-8\cdot 34=3\cdot 91-8(125-91)=11\cdot 91-8\cdot 125=\\
+&=11(216-125)-8\cdot 125=11\cdot 216-19\cdot 125
+\end{align*}
+Therefore $125^{-1}=(-19)\textrm{ mod }216=197$.
+\item (2 points) Solve the equation $125\otimes x=7$ in $\mathbb{Z}_{216}$.
+
+$\otimes$-ing both sides by $125^{-1}=197$,
+\[
+x=197\otimes 7=1379\textrm{ mod }216=1379-6\cdot 216=1379-1296=83
+\]\newpage
+\item (5 points) Note that $216\cdot 125=27000= 30^3$. We also have that $216=6^3$ and $125=5^3$. Show that this is not an accident by proving the following proposition.
+\begin{proposition}
+If $a$ and $b$ are relative primes and $ab$ is a $k$-th power, then $a$ and $b$ are $k$-th powers as well.
+\end{proposition}
+\begin{proof}
+Since $a$ and $b$ are relative primes, the factorization theorem gives
+\[
+a=p_1^{\alpha_1}\cdot\dots\cdot p_n^{\alpha_n},\qquad b=q_1^{\beta_1}\cdot\dots\cdot q_m^{\beta_m}
+\]
+where the $p$-s and the $q$-s are all different primes. Then the factorization of $ab$ is given by
+\[
+ab=p_1^{\alpha_1}\cdot\dots\cdot p_n^{\alpha_n}q_1^{\beta_1}\cdot\dots\cdot q_m^{\beta_m}
+\]
+and this can only be a $k$th power if $k|\alpha_i$ and $k|\beta_j$ for $i=1,\dots, n$, $j=1,\dots, m$. But this means that
+\[
+a=\left(p_1^{\alpha_1/k}\cdot\dots\cdot p_n^{\alpha_n/k}\right)^k,\qquad b=\left(q_1^{\beta_1/k}\cdot\dots\cdot q_m^{\beta_m/k}\right)^k
+\]
+\end{proof}
+\item (5 points) Show that the proposition is not necessarily true if $a$ and $b$ are not relative primes by providing a counterexample. HINT: Where did you use the relative prime property when proving the above proposition?
+
+For example, $a=2$, $b=8$ gives $ab=16=4^2$, but neither $2$ nor $8$ are perfect squares.
+\end{enumerate}
+
+\newpage
+\item \textbf{Symmetries and permutations}\\ Consider the dihedral group $D_5$ which is the set of symmetries of a regular pentagon equipped with the subsequent application of these symmetries as an operation. Label the corners from $1$ to $5$ as shown in the figure. Then every symmetry of the pentagon induces a permutation of the $5$ labels (so an element of $S_5$).
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.05]{Pentagon.jpg}
+\end{figure}
+\begin{enumerate}
+\item (2 Points) Find the permutation $\sigma$ corresponding to rotating the pentagon counterclockwise by $72^\circ$ in the array notation.
+\[
+\sigma=\left(\begin{array}{ccccc}
+1&2&3&4&5\\
+2&3&4&5&1
+\end{array}\right)
+\]
+\item (2 Points) Find the permutation $\tau$ corresponing to reflecting the pentagon about a vertical axis in the array notation.
+\[
+\tau=\left(\begin{array}{ccccc}
+1&2&3&4&5\\
+1&5&4&3&2
+\end{array}\right)
+\]
+\item (4 Points) Find the cycle representation of $\sigma\circ\tau$. 
+\[
+\sigma\circ\tau=(1 2 3 4 5)(2 5)(3 4)=(1 2)(3 5) (4)
+\]
+\item (4 Points) Find $(\sigma\circ\tau)^{-1}$. What symmetry does this correspond to? 
+
+Since $\sigma\circ\tau$ is the composition of disjoint transpositions, it is its own inverse, i.e.
+\[
+(\sigma\circ\tau)^{-1}=\sigma\circ\tau=(1 2)(3 5)
+\]
+which corresponds to a reflection about an axis that passes through $4$ and the midpoint of the side $1-2$.
+\item (2 Points) Is $(\sigma\circ\tau)^{-1}$ even or odd as a permutation?
+
+It is written above as the composition of two transposition and therefore it is an even permutation.
+\item (2 Points) Explain why the permutation $(2~4)$ does not correspond to a symmetry of the pentagon.
+
+Because that would tear up the pentagon.
+\end{enumerate}
+\newpage
+\item \textbf{Group theory} 
+
+Consider the following set
+\[
+G=\{1,-1,i,-i\}
+\]
+and equip it with the usual product operation augmented by the rule $i^2=-1$. Then $(G,\cdot)$ is a group.
+
+\begin{enumerate}
+\item (4 Points) Provide the multiplication table of this group.
+
+\begin{tabular}{c|cccc}
+&1&-1&i&-i\\
+\hline
+1&1&-1&i&-i\\
+-1&-1&1&-i&i\\
+i&i&-i&-1&1\\
+-i&-i&i&1&-1
+\end{tabular}
+\item (2 Points) What is the identity element? (with justification) 
+
+The identity element is $1$ as it is clear from the first row and the first column of the multiplication table that multiplying anything else results in that anything else.
+\item (2 Points) What is $i^{-1}$? (with justification) 
+
+As you can read it off from the fourth entry in the third row, $i^{-1}=-i$.
+\item (4 Points) Is this group cyclic? (with justification)
+
+Yes, e.g. with generator $i$:
+\[
+i^0=1, i^1=i, i^2=-1, i^3=-i
+\]
+\item (2 Points) How many elements can a proper subgroup of $(G,\cdot)$ have according to Lagrange's theorem? 
+
+Since $|G|=4$, Lagrange's theorem imply that a proper subgroup can only have two elements.
+\item (4 Points) Is this group isomorphic to $\mathbb{Z}_5^*$?
+
+Yes, we have seen in class that $\mathbb{Z}_5*$ is isomorphic to $\mathbb{Z}_4$. Since $G$ is cyclic, it is also isomorphic to $\mathbb{Z}_4$ and therefore $G$ and $\mathbb{Z}_5*$ are isomorphic.
+\end{enumerate}
+
+\newpage
+\item \textbf{Graph theory}
+
+Consider the following graph $G$:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{Euler.jpg}
+\end{figure}
+
+\begin{enumerate}
+\item (3 Points) Draw the subgraph $G[1,3,4,5,6]$ induced on the vertex set $\{1,3,4,5,6\}$.
+It's the graph
+\[
+(\{1,3,4,5,6\},\{\{1,4\},\{1,5\},\{2,4\},\{2,5\},\{3,4\})
+\]
+\item (3 Points) Find the minimum and maximum degree $\delta(G)$ and $\Delta(G)$.
+\[
+\delta(G)=2,\qquad \Delta(G)=4,
+\]
+realized e.g. at the vertex $1$ and $7$ respectively.
+\item (4 Points) Find the clique number $\omega(G)$ and the independence number $\alpha(\bar{G})$\\ (Warning: This is not $\alpha(G)$ being asked).
+\[
+\alpha(\bar{G})=\omega(G)=4
+\]
+Note that $G[5,7,6,2]=K_4$. Since $\omega(K)\leq\Delta(K)$, I can be sure there is no larger clique. By the theroem in class, the independence number of the complement of $G$ is the same as the clique number of $G$.
+
+\item (2 Points) Find a cut edge in $G[1,3,4,5,6]$.
+
+The edge $(3,4)$ will be a cut edge because dropping it results in the component $(\{3\},\emptyset)$ and the cycle $1~4~2~5~1$.
+\item (4 Points) Does $G$ contain a spanning tree (with justification) and if yes find it!
+
+One possible solution is the graph
+\[
+(\{1,2,3,4,5\},\{\{1,4\},\{2,4\},\{2,5\},\{3,4\},\{4,6\},\{6,7\}\})
+\]
+\item (3 Points) Is this graph Eulerian? (with justification) If yes, exhibit an Euler trail/tour.
+
+Yes every vertex has an even degree. One Euler tour is 
+\[
+1~4~3~7~5~6~4~2~6~7~2~5~1
+\]
+\item (2 Points) What is the chromatic number of $G[1,3,4,5,6]$? 
+
+The only cycle in this graph if $C_4$ and therefore the graph is bipartite and thus
+\[
+\chi(G[1,3,4,5,6])=2
+\]
+\end{enumerate}
+
+
+\end{enumerate}
+
+\newpage
+\noindent
+\textbf{Extra paper}
+%
+%\newpage
+%\noindent
+%\textbf{Extra paper}
+
+%\includepdf[pages=1-2]{FormulaSheets.pdf}
+
+\end{document}

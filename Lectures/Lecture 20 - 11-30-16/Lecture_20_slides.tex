@@ -1,0 +1,355 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \usecolortheme{orchid}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{footline}[frame number]
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{cancel}
+
+
+\usetikzlibrary{shapes,backgrounds}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+\def\blue{\color{blue}~}
+\def\black{\color{black}~}
+\def\bl[#1]#2{\begin{block}{#1}#2\end{block}}
+\def\integers{\mathbb{Z}}
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\div{~\textrm{div}~}
+\def\mod{~\textrm{mod}~}
+
+
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+\title{Discrete Mathematics, Section 001, Fall 2016}
+\subtitle{Lecture 20: Chinese remainder theorem, Factoring}
+\date{November 30, 2016}
+
+\author[Zsolt]{Zsolt Pajor-Gyulai \\ \texttt{zsolt@cims.nyu.edu}}
+
+\pgfdeclareimage[height=1cm]{NYUlogo}{NYUlogo.jpg}
+
+\institute[NYU] 
+{
+\normalsize Courant Institute of Mathematical Sciences
+}
+\titlegraphic{\pgfuseimage{NYUlogo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}}
+
+\section{Chinese remainder theorem}
+
+\begin{frame}{Solving two equations}
+We have seen how to solve one congruence and noted that there were an infinite number of solutions. Now we want to solve two congruences simultaneously.
+\begin{align*}
+x&\equiv a ~({\rm mod}~m)\\
+x&\equiv b ~({\rm mod}~n)
+\end{align*}
+We start with the example
+\begin{align*}
+x&\equiv 1 ~({\rm mod}~7)\\
+x&\equiv 4 ~({\rm mod}~11)
+\end{align*}
+Our task is to find all integers $x$ that satisfies both equations.
+\end{frame}
+
+\begin{frame}{Solving two equations}
+We start with the example
+\begin{align*}
+x&\equiv 1 ~({\rm mod}~7)\\
+x&\equiv 4 ~({\rm mod}~11)
+\end{align*}
+By the first congruence, there is an integer $k$, such that
+\[
+1+7k=x\equiv 4~({\rm mod} 11)\qquad\Rightarrow\qquad 7k\equiv 3~({\rm mod}~11)
+\]
+\begin{center}
+\textcolor{red}{We reduced it to a single equation!}
+\end{center}
+Solution (Problem 1 on WS):
+\[
+k = 2 + 11j,\qquad j\in\mathbb{Z},
+\]
+and therefore
+\[
+x=1+7(2+11j)=15+77j,\qquad j\in\mathbb{Z}.
+\]
+\end{frame}
+
+
+\begin{frame}
+\bl[Chinese remainder theorem]{
+The pair of congruences where $gcd(m,n)=1$,\vspace{-0.3cm}
+\[
+x\equiv x_1\textrm{ (mod $m$)},\qquad x\equiv x_2 \textrm{ (mod $n$)}
+\]\vspace{-0.7cm}\\
+has a unique solution $x_0$ with $0\leq x_0<mn$. Furthermore, every mutual solution to these congruences differs from $x_0$ by a multiple of $mn$.
+}
+WLOG assume $m<n$. From $x\equiv x_1$ $(\textrm{mod } m)$, we have $x=x_1+km$ where $k\in \mathbb{Z}$. Plugging this into the other equation
+\[
+x_1+km\equiv x_2\textrm{ (mod $n$)}\qquad\to\qquad km\equiv x_2-x_1\textrm{ (mod n)}
+\]
+Note that adding or subtracting a multiple of $n$ from either side does not change this equation and therefore let 
+\[
+c=x_2-x_1\textrm{ mod }n.
+\]
+This yields the equation $km\equiv c\textrm{ (mod $n$)}$ which is also
+\[
+(k\textrm{ mod } n)\otimes m=c,\qquad\textrm{in $\mathbb{Z}_{n}$}
+\]\vspace{-1cm}
+
+[...]
+\end{frame}
+\begin{frame}
+\bl[Chinese remainder theorem]{
+The pair of congruences\vspace{-0.3cm}
+\[
+x\equiv x_1\textrm{ (mod $m$)},\qquad x\equiv x_2 \textrm{ (mod $n$)}
+\]\vspace{-0.7cm}\\
+has a unique solution $x_0$ with $0\leq x_0<mn$. Furthermore, every mutual solution to these congruences differs from $x_0$ by a multiple of $mn$.
+}
+[...]
+\[
+(k\textrm{ mod }n)\otimes m=c,\qquad\textrm{in $\mathbb{Z}_{n}$}
+\]
+Since $gcd(m,n)=1$, $m$ has a reciprocal $m^{-1}$ in $\mathbb{Z}_n$. Then
+\[
+(k\textrm{ mod }n)=c\otimes m^{-1}=:d,\qquad\textrm{in $\mathbb{Z}_{n}$}.
+\]
+This can be written as
+\[
+k=d+jn,\qquad\textrm{for some $j\in\mathbb{Z}$}.
+\]
+[...]
+\end{frame}
+
+\begin{frame}
+\bl[Chinese remainder theorem]{
+The pair of congruences\vspace{-0.3cm}
+\[
+x\equiv x_1\textrm{ (mod $m$)},\qquad x\equiv x_2 \textrm{ (mod $n$)}
+\]\vspace{-0.7cm}\\
+has a unique solution $x_0$ with $0\leq x_0<mn$. Furthermore, every mutual solution to these congruences differs from $x_0$ by a multiple of $mn$.
+}
+[...]
+\[
+k=d+jn,\qquad\textrm{for some $j\in\mathbb{Z}$}.
+\]
+Plugging this back into $x=x_1+km$, we get
+\[
+x=x_1+(d+jn)m=x_1+dm+jnm
+\]
+from which
+\[
+x_0=x_1+dm\textrm{ mod }nm
+\]
+with $d=((x_2-x_1)\textrm{ mod } n)\otimes m^{-1}$ where the reciprocal is taken in $\mathbb{Z}_n$.\qed
+\end{frame}
+
+\section{Factoring}
+
+\begin{frame}{Fundamental theorem of arithmetics}
+\bl[Theorem]{Let $n$ be a positive integer. Then $n$ factors into a product of primes. Furthermore, this factorization is unique up to the order of the primes}
+In other words, for every positive integer $n$, there is $l\in\mathbb{N}$ and primes $p_1,\dots,p_l$, such that 
+\[
+n=\prod_{i=1}^lp_i
+\]
+and the only ambiguity lies in reidexing the $p_i$.
+
+\center Believing this is true, do Problem 3 on the worksheet!
+\end{frame}
+
+\begin{frame}{Auxilliary lemma 1}
+\bl[Lemma]{Suppose $a,b,p\in\mathbb{Z}$ and $p$ is a prime. If $p|ab$, then $p|a$ or $p|b$.}
+\bl[Proof]{
+Suppose for the sake of contradiction that there are integers $a,b,p$ such that $p|ab$ but $p$ divides neither $a$ nor $b$.\\
+~~~~Since $p$ is a prime, its only divisors are $\pm 1,\pm p$. We also know $p\not|~a$, and thus $gcd(a,p)=1$. Similarly, $gcd(b,p)=1$. \\
+~~~~By two lectures before,
+\[
+ax+py=1,\qquad bz+pw=1
+\]
+for some integers $x,y,z,w$.\\
+$[...]$
+}
+
+\end{frame}
+
+\begin{frame}{Auxiliary Lemma 1}
+\bl[Lemma]{Suppose $a,b,p\in\mathbb{Z}$ and $p$ is a prime. If $p|ab$, then $p|a$ or $p|b$.}
+
+\bl[Proof]{
+$[...]$\\
+~~~~By two lectures before,
+\[
+ax+py=1,\qquad bz+pw=1
+\]
+for some integers $x,y,z,w$. Multiplying these equations, we get
+\[
+1=(ax+py)(bz+pw)=abxz+pybz+paxw+p^2yw.
+\]
+Since $p|ab$, all four terms are divisible by $p$ and thus $p|1$. $\Rightarrow\Leftarrow$\qed
+}
+\end{frame}
+
+\begin{frame}{Auxiliary Lemma 2}
+\bl[Lemma]{Suppoese $p,q_1,\dots, q_t$ are prime numbers. If\vspace{-0.2cm}
+\[
+p|(q_1\dots q_t),
+\]\vspace{-0.6cm}\\
+then $p=q_i$ for some $1\leq i\leq t$.}
+
+\bl[Proof]{
+We prove this by induction on $t$.\\
+~~~The base case $t=1$ is clear as if $p|q_1$ then since $p$ and $q_1$ are primes, $p=q_1$.\\
+~~~Suppose this is true for $t=k$ and consider $p|(q_1\dots q_kq_{k+1})$. Let\vspace{-0.2cm}
+\[
+a=q_1\dots q_k,\qquad b=q_{k+1}
+\]\vspace{-0.6cm}\\
+Then $p|ab$ and by the previous lemma, either $p|a$ or $p|b$.\\
+$[...]$
+}
+\end{frame}
+
+\begin{frame}{Auxiliary Lemma 2}
+\bl[Lemma]{Suppoese $p,q_1,\dots, q_t$ are prime numbers. If\vspace{-0.2cm}
+\[
+p|(q_1\dots q_t),
+\]\vspace{-0.6cm}\\
+then $p=q_i$ for some $1\leq i\leq t$.}
+\bl[Proof]{
+$[...]$\vspace{-0.3cm}
+\[
+a=q_1\dots q_k,\qquad b=q_{k+1}
+\]\vspace{-0.6cm}\\
+Then $p|ab$ and by the previous lemma, either $p|a$ or $p|b$.
+\itemb
+\item If $p|a=q_1\dots q_k$, then by the induction hypothesis, $p=q_i$ for some $1\leq i\leq t$.
+\item If $p|b=q_{k+1}$ then $p=q_{k+1}$ as before.
+\iteme
+In either case, the result is proven for $t=k+1$ and therefore by induction the result holds for all $t$.\qed
+}
+
+\end{frame}
+
+\begin{frame}{Proof of existence of factorization}
+~~~~Suppose for the sake of contradiction, that not all positive integers factor into primes and let $X$ be the set of these numbers.
+\itemb
+\item $1=\prod_{i=1}^{0}p_i$ (empty product) and so $1\notin X$.
+\item If $p$ is a prime itself, then $p\notin X$.
+\iteme
+~~~~By the WOP, let $x$ be the least element of $X$. We have $x\neq 1$ and that $x$ is not a prime. Therefore $x$ is composite.
+
+~~~~This means that there is an $a\in\mathbb{Z}$ with $1<a<x$ such that $a|x$. Then there is a $b\in\mathbb{Z}$ such that $ab=x$ and clearly, $1<b<x$. 
+
+~~~~Sice $a<x$ and $b<x$, they have a factorization, let's say given by\vspace{-0.2cm}
+\[
+a=p_1\dots p_s,\qquad b=q_1\dots q_t
+\]\vspace{-0.6cm}\\
+Then \vspace{-0.2cm}
+\[
+x=ab=p_1\dots p_sq_1\dots q_t
+\]\vspace{-0.6cm}\\
+is a factorization of $x$ contradicting $x\in X$.$\Rightarrow\Leftarrow$.
+\end{frame}
+
+\begin{frame}{Proof of Uniqueness of factorization}
+Suppose for the sake of contradiction that some positive integer can be factored into primes in two distinct ways and let $Y$ be the set of these numbers.
+\itemb
+\item $1\notin Y$ as the empty product is the only representation.
+\iteme
+By the WOP, let $y$ be the least element of $Y$. Thus $y$ can be factored into primes in two distinct ways:
+\[
+y=p_1p_2\dots p_s,\qquad y=q_1q_2\dots q_t
+\]
+Note that $p_1|y=q_1q_2\dots q_t$ and therefore by Aux Lemma 2, $p_1=q_j$ for some $j$. Then
+\[
+\frac{y}{p_1}=p_2\dots p_j,\qquad \frac{y}{p_1}=\prod_{i=1\atop i\neq j}^tq_j.
+\]
+But $\frac{y}{p_1}<y$ and it has two distinct factorization which contradict $y$ being the smallest element of $Y$.$\Rightarrow\Leftarrow$.
+\end{frame}
+
+\section{Applications of the factorization theorem}
+
+\begin{frame}{Infinitely many primes}
+\bl[Theorem]{There are infinitely many prime numbers}
+FTSC, assume that there are finitely many primes: 
+\[
+2,3,5,7,\dots,p.
+\]
+Let $n=(2\cdot 3\cdot 5\cdot\dots\cdot p)+1$. 
+\itemb
+\item Is $n$ a prime? Clearly, $n>p$ and therefore it is not, so $n$ is composite.
+\item Let $q$ be any prime and note
+\[
+n=(2\cdot 3\cdot\dots\cdot q\cdot\dots\cdot p)+1.
+\]
+Then $n\mod q=1$ and $q\not|~ n$. Since the choice of the prime $q$ was arbitrary, there is no prime factorization of $n$.    $\Rightarrow\Leftarrow$ \qed
+\iteme
+\end{frame}
+
+\begin{frame}{Formula for greatest common divisor}
+\bl[Theorem]{Let $a$ and $b$ be positive integers with
+\[
+a=2^{e_2}\cdot 3^{e_3}\cdot 5^{e_2}\cdot 7^{e_7}\dots,\qquad b=2^{f_2}\cdot 3^{f_3}\cdot 5^{f_5}\cdot 7^{f_7}\cdot\dots,
+\]
+where $e_i$-s are naturals (possibly zero). Then 
+\[
+gcd(a,b)=2^{min(e_2,f_2)}\cdot 3^{min(e_3,f_3)}\cdot 5^{min(e_5,f_5)}\cdot 7^{min(e_7,f_7)}\cdot\dots
+\]}
+For example, if $a=24$, $b=30$,
+\[
+24=2^3\cdot 3^1\cdot 5^0\cdot 7^0\cdot \dots,\qquad 30=2^1\cdot 3^1\cdot 5^1\cdot 7^0\cdot\dots
+\]
+and
+\[
+gcd(24,30)=2^{1}\cdot 3^1\cdot 5^0\cdot 7^0\cdot\dots=6.
+\]
+\begin{center}
+Do Problem 4 on the worksheet!
+\end{center}
+\end{frame}
+
+\begin{frame}{Irrationality of $\sqrt{2}$}
+Do Problem 6 on the worksheet first!
+\bl[Proposition]{There is no rational number $x$ such that $x^2=2$.}
+FTSC, suppose that there is a rational number $x=\frac{a}{b}$ where $a$ and $b$ are integers, such that $x^2=2$.
+
+This implies $\left(\frac{a}{b}\right)^2=2$ which in turn implies $a^2=2b^2$. Consider the prime factorization of $n=a^2=2b^2$.
+\itemb
+\item $2$ must appear in the factorization of $n=a^2$ an even number of times.
+\item $2$ must appear in the factorization of $n=2b^2$ an odd number of times.
+\iteme
+$\Rightarrow\Leftarrow$\qed
+\end{frame}
+
+
+\end{document}

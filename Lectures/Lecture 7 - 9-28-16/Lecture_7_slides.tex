@@ -1,0 +1,369 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \usecolortheme{orchid}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{footline}[frame number]
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{cancel}
+
+
+\usetikzlibrary{shapes,backgrounds}
+
+\def\blue{\color{blue}~}
+\def\black{\color{black}~}
+\def\bl[#1]#2{\begin{block}{#1}#2\end{block}}
+\def\integers{\mathbb{Z}}
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+
+
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+\title{Discrete Mathematics, Section 002, Fall 2016}
+\subtitle{Lecture 7: Equivalence classes, Partitions}
+\date{September 28, 2016}
+
+\author[Zsolt]{Zsolt Pajor-Gyulai \\ \texttt{zsolt@cims.nyu.edu}}
+
+\pgfdeclareimage[height=1cm]{NYUlogo}{NYUlogo.jpg}
+
+\institute[NYU] 
+{
+\normalsize Courant Institute of Mathematical Sciences
+}
+\titlegraphic{\pgfuseimage{NYUlogo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}}
+
+\section{Equivalence classes}
+\begin{frame}{Equivalence Classes}
+\only<1>{\center Do Problem 1 on your worksheet!}
+\only<2>{
+We have seen on Problem 1 on the worksheet that two numbers are congruent mod $2$ if and only if they are either both odd or both even. 
+\itemb
+\item Any two odd numbers are congruent mod $2$.
+\item Any two even numbers are congruent mod $2$.
+\[
+even+odd\to \textrm{all } \integers
+\]
+\iteme
+
+\begin{Definition}
+Let $R$ be an equivalence relation on a set $A$ and let $a\in A$. The \textbf{equivalence class} of $a$, denoted $[a]$, is the set of all elements of $A$ related to $a$, that is
+\[
+[a]=\{x\in A: x R a\}.
+\]
+\end{Definition}
+Example: Do Problem 2 on Worksheet!}
+\end{frame}
+
+\begin{frame}
+\begin{Definition}
+Let $R$ be an equivalence relation on a set $A$ and let $a\in A$. The \textbf{equivalence class} of $a$, denoted $[a]$, is the set of all elements of $A$ related to $a$, that is
+\[
+[a]=\{x\in A: x R a\}.
+\]
+\end{Definition}
+For example, let $\equiv$ (mod $2$). Then
+\[
+[1]=\{x\in\integers: x\equiv 1 \textrm{ (mod $2$)}\}
+\]
+This is the set of all integers $x$ such that 
+\[
+2|(x-1),\qquad\textrm{ i.e.}\qquad x-1=2k
+\]
+for some $k\in\integers$. Therefore $x=2k+1$ and thus $x$ is odd.
+\end{frame}
+
+\begin{frame}
+\begin{Definition}
+Let $R$ be an equivalence relation on a set $A$ and let $a\in A$. The \textbf{equivalence class} of $a$, denoted $[a]$, is the set of all elements of $A$ related to $a$, that is
+\[
+[a]=\{x\in A: x R a\}.
+\]
+\end{Definition}
+For example, let $\equiv$ (mod $2$). Then
+\[
+[1]=\{x\in\integers: x\equiv 1 \textrm{ (mod $2$)}\}=\textrm{odd numbers}
+\]
+\[
+[0]=\{x\in\integers: x\equiv 0 \textrm{ (mod $2$)}\}=\uncover<2->{\textrm{even numbers}}
+\]
+\uncover<3->{What about $[3]$? $\to$ Problem 3 Worksheet!}
+\end{frame}
+
+\begin{frame}{Equivalence class fun facts.}
+1. Every element is the member of its own equivalence class.
+\bl[Proposition]{
+Let $R$ be an equivalence relation on a set $A$ and let $a\in A$. Then 
+\[a\in[a].
+\]
+}
+\begin{proof}
+Note that $[a]=\{x\in A: x R a\}$. To show that $a\in [a]$, we just need to show that $a R a$, and that is true by definition since $R$ is reflexive.
+\end{proof}
+
+2. The union of all equivalence classes is $A$.
+\bl[Proposition]{
+\[
+\cup_{a\in A}[a]=A,\qquad \textrm{(Problem 4 on Worksheet!)}
+\]
+}
+\end{frame}
+
+\begin{frame}
+3. Equivalent elements have identical equivalence classes.
+\bl[Proposition]{
+Let $R$ be an equivalence relation on a set $A$ and let $a,b\in A$. Then $a R b$ if and only if $[a]=[b]$.
+}
+\begin{proof}
+\itemb
+\item[($\Rightarrow$)] Suppose $a R b$, we will show that $[a]$ and $[b]$ are the same. Suppose $x\in[a]$. This means that $x R a$. Since $a R b$, we have (by transitivity) $x R b$. Therefore $x\in[b]$.
+
+~~~~On the other hand suppose $y\in [b]$, i.e. $y R b$. We are given $a R b$, and thus $b R a$ by symmetry. Transitivity implies $y R a$, i.e. $y\in [a]$. Hence $[a]=[b]$.
+
+\item[($\Leftarrow$)] Suppose $[a]=[b]$. We have seen that $a\in [a]$. But $[a]=[b]$, so $a\in [b]$. Therefore $a R b$.\qedhere
+\iteme
+\end{proof}
+\end{frame}
+
+\begin{frame}
+4. Two elements from the same equivalence class are equivalent.
+\bl[Proposition]{Let $R$ be an equivalence relation on $A$ and $a,x,y\in A$. If $x,y\in[a]$, then $x R y$.}
+
+\begin{proof}
+Homework. 
+\end{proof}
+\end{frame}
+
+\begin{frame}
+5. Equivalence classes are either disjoint or coincide.
+\bl[Proposition]{Let $R$ be an equivalence relation on $A$ and suppose $[a]\cap[b]\neq\emptyset$. Then $[a]=[b]$.}
+
+\begin{proof}
+Let $R$ be an equivalence relation on $A$ and suppose $[a]$ and $[b]$ are equivalence classes with $[a]\cap[b]\neq \emptyset$. Hence $\exists x\in[a]\cap[b]$. So $x R a$ and $x R b$. By symmetry, we have $a R x$ and therefore by transitivity $a R b$. We have seen that this implies $[a]=[b]$.
+\end{proof}
+
+
+\bl[Corollary]{The equivalence classes of an equiv. rel $R$ are nonempty, pairwise disjoint subsets of $A$ whose union is $A$.}
+\end{frame}
+
+\section{Partitions}
+
+
+\begin{frame}{Definition of a partition}
+\bl[Theorem]{
+Let $R$ be an equivalence relation on a set $A$. The equivalence classes of $R$ are nonempty, pairwise disjoint subsets of $A$ whose union is $A$.}
+In other words we say that the equivalence classes of $R$ from a partition of $A$.
+
+\bl[Partition]{
+Let $A$ be a set. A \textbf{partition} of $A$ is a set of nonempty, pairwise disjoint sets whose union is $A$.
+}
+\itemb
+\item A partition is a subset of $2^A$. Its members are called \textbf{parts}.
+\item The parts of the partition are non-empty. 
+\item The parts are pairwise disjoint.
+\item The union of all the parts is the original set.
+\iteme
+\end{frame}
+
+\begin{frame}{Example}
+Let $A=\{1,2,3,4,5,6\}$ and let
+\[
+\mathcal{P}=\{\{1,2\},\{3\},\{4,5,6\}\}
+\]
+This is a partition of $A$ into three parts.
+
+\vspace{0.5cm}
+Two trivial partitions:
+\[
+\{\{1,2,3,4,5,6\}\},\qquad \{\{1\},\{2\},\{3\},\{4\},\{5\},\{6\}\}.
+\]
+Practice: Do Problem 5 on the worksheet.
+\end{frame}
+
+\begin{frame}{Equivalence relations and partitions}
+\bl[Theorem]{
+Let $R$ be an equivalence relation on a set $A$. The equivalence classes of $R$ form a partition of the set $A$.}
+
+We can also go the other way.
+
+\bl[Definition]{
+Let $\mathcal{P}$ be a partition of a set $A$. We define an equivalence relation $\stackrel{\mathcal{P}}{\equiv}$ as follows. For $a,b\in A$,
+\[
+a\stackrel{\mathcal{P}}{\equiv} b,\quad\Leftrightarrow \exists P\in\mathcal{P}: a,b\in P
+\]
+}
+In other words, $a$ and $b$ are equivalent under the partition $\mathcal{P}$ provided they belong to the same part $P\in\mathcal{P}$.
+\end{frame}
+
+\begin{frame}
+\bl[Proposition]{
+The relation $\stackrel{\mathcal{P}}{\equiv}$ is an equivalence relation on $A$.
+}
+\begin{proof}
+We will show that $\stackrel{\mathcal{P}}{\equiv}$ is reflexive, symmetric and transitive.
+\itemb
+\item We show that $\stackrel{\mathcal{P}}{\equiv}$ is reflexive. Let $a$ be an arbitrary element of $A$. Since $\mathcal{P}$ is a partition, there must be a part $P\in\mathcal{P}$ that contains $a$ since the union of all parts is the entire set. Since $a,a\in P\in\mathcal{P}$, we have $a\stackrel{\mathcal{P}}{\equiv}a$.
+\item We show that $\stackrel{\mathcal{P}}{\equiv}$ is symmetric. Suppose $a\stackrel{\mathcal{P}}{\equiv}b$ for some $a,b\in A$. Then there is a $P\in\mathcal{P}$ such that $a,b\in P$. This also implies $b\stackrel{\mathcal{P}}{\equiv}a$.
+\iteme
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\bl[Proposition]{
+The relation $\stackrel{\mathcal{P}}{\equiv}$ is an equivalence relation on $A$.
+}
+\begin{proof}
+We will show that $\stackrel{\mathcal{P}}{\equiv}$ is reflexive, symmetric and transitive.
+
+[\dots]
+\itemb
+\item We show that $\stackrel{\mathcal{P}}{\equiv}$ is transitive. Let $a,b,c\in A$ and suppose $a\stackrel{\mathcal{P}}{\equiv}b$, and $b\stackrel{\mathcal{P}}{\equiv}c$. Since $a\stackrel{\mathcal{P}}{\equiv}b$, there is a part $P\in\mathcal{P}$ containing both $a$ and $b$. Since $b\stackrel{\mathcal{P}}{\equiv}c$, there is a part $Q\in\mathcal{P}$ with $b,c\in Q$. Notice that $b$ is in both $P$ and $Q$. Since the parts are pairwise disjoint, this is only possible if $P=Q$. Therefore $a,c\in P$, which implies $a\stackrel{\mathcal{P}}{\equiv}c$.
+\iteme
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\bl[Proposition]{
+The relation $\stackrel{\mathcal{P}}{\equiv}$ is an equivalence relation on $A$.
+}
+What are the equivalence classes?
+\bl[Proposition]{
+The equivalence classes of $\stackrel{\mathcal{P}}{\equiv}$ are exactly the parts of $\mathcal{P}$.
+}
+
+\end{frame}
+
+\begin{frame}{Counting parts}
+\bl[Question]{
+How many ways can the letters in the word WORD be rearranged?
+}
+
+\bl[Answer]{
+4 letters to first place, 3 choices for second, $\dots \to\quad4!=24$.}
+What happens if a letter occurs more than once?
+
+\bl[Question]{
+How many different ways can the letters in the word HELLO be rearranged?
+}
+
+\end{frame}
+
+\begin{frame}{Counting parts}
+\bl[Question]{
+How many different ways can the letters in the word HELLO be rearranged?
+}
+\itemb
+\item If there were no repeated letters $\quad\to\quad 5!=120$.
+\item But this counts
+\[
+HEL_1L_2O,\qquad HEL_2L_1O
+\]
+as different.
+\item Guess?
+\iteme
+
+\end{frame}
+
+\begin{frame}{Counting parts}
+\bl[Question]{
+How many different ways can the letters in the word HELLO be rearranged?
+}
+\itemb
+\item Let
+\[
+A=\{\textrm{All rearrangements of }  H,E,L_1,L_2,O\},\qquad |A|=120.
+\]
+\item Next define a relation $R$ such that for $a,b\in A$,
+\[
+aRb\quad\Leftrightarrow\quad \textrm{$a$ and $b$ differ only by $L_1\leftrightarrow L_2$}
+\]
+\item Check that this is an equivalence relation.
+\[
+[HL_1EOL_2]=\{HL_1EOL_2,HL_2EOL_1\}
+\]
+\item We need to count the number of equivalence classes!
+\iteme
+\end{frame}
+
+\begin{frame}{Counting parts}
+\bl[Question]{
+How many different ways can the letters in the word HELLO be rearranged?
+}
+\itemb
+\item $A=\{\textrm{All rearrangements of }  H,E,L_1,L_2,O\},\qquad |A|=120.$
+\item Define \textbf{an equivalence relation} $R$ such that for $a,b\in A$,
+\[
+aRb\quad\Leftrightarrow\quad \textrm{$a$ and $b$ differ only by $L_1\leftrightarrow L_2$}
+\]
+\item Every class has to elements: $|[a]|=2$ for all $a\in A$.
+\item Therefore there are 
+\[
+|A|/|[a]|=120/2=60
+\]
+equivalence classes which are the possible different rearrangements when the two L's are not distinguished.
+\iteme
+\end{frame}
+
+\begin{frame}{Counting parts}
+\bl[Question]{
+How many different ways can the letters in the word AARDVARK be rearranged?
+}
+Again, the problem boils down to figuring out how big the equivalence classes
+\[
+[R_1A_1DA_2KR_2A_3V].
+\]
+\vspace{-0.4cm}
+\itemb
+\only<1-2>{\item 2 choices for first $R$.}
+\only<3>{\item 3 choices for the first $A$.}
+\only<4>{\item $D$ is fixed.}
+\only<5>{\item 2 choices for second $A$.}
+\only<6>{\item $K$ is fixed.}
+\only<7>{\item 1 choice for second $R$.}
+\only<8>{\item 1 choice for last $A$.}
+\only<9->{\item $V$ is fixed.}
+\iteme
+\vspace{0.2cm}
+\[
+\uncover<2->{2\cdot}\uncover<3->{3\cdot}\uncover<4->{1\cdot}\uncover<5->{2\cdot}\uncover<6->{1\cdot}\uncover<7->{1\cdot}\uncover<8->{1\cdot}\uncover<9->{1=12}
+\]
+\uncover<10>{And therefore the number of rearrangements is
+\[
+\frac{8!}{3!2!}=\frac{40320}{12}=3360.
+\]
+}
+\end{frame}
+
+
+
+
+\end{document}

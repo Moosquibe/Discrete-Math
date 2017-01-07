@@ -1,0 +1,151 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 6}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+\date{September 26, 2016}
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Similar to what we did on the slide for $<$, define the corresponding relation set to two of the integer relations $\leq,=,>,\geq$.
+
+\vspace{0.2cm}
+\[
+R_{\leq}=\{(x,y)\in \mathbb{Z}\times\mathbb{Z}: x\leq y\}
+\]
+\[
+R_{=}=\{(x,x)\in \mathbb{Z}\times\mathbb{Z}: x\in\mathbb{Z}\}
+\]
+\[
+R_{>}=\{(x,y)\in \mathbb{Z}\times\mathbb{Z}: x>y\}
+\]
+\[
+R_{\geq}=\{(x,y)\in \mathbb{Z}\times\mathbb{Z}: x\geq y\}
+\]
+\vspace{0.1cm}
+
+\item Write the following relations on the set $\{1,2,3,4,5\}$ as sets of ordered pairs.
+\enumb
+\item The $\leq$ relation.
+\[
+R=\{(1,1),(1,2),(1,3),(1,4),(1,5),(2,2),(2,3),(2,4),(2,5),(3,3),(3,4),(3,5),(4,4),(4,5),(5,5)\}
+\]
+\item The `divides' relation.
+\[
+R_{|}=\{(1,1),(1,2),(1,3),(1,4),(1,5),(2,2),(2,4),(3,3),(4,4),(5,5)\}
+\]
+\item The $=$ relation.
+\[
+R_{=}=\{(1,1),(2,2),(3,3),(4,4),(5,5)\}
+\]
+\enume
+
+\item Each of the following is a relation on the set $\{1,2,3,4,5\}$. Express these relations in words and then find their inverses.
+\enumb
+\item $R=\{(1,2),(2,3),(3,4),(4,5)\}$. Being consecutive integers.
+\[
+R^{-1}=\{(2,1),(3,2),(4,3),(5,4)\}
+\]
+\item $R=\{(1,1),(2,1),(2,2),(3,1),(3,2),(3,3),(4,1),(4,2),(4,3),(4,4),(5,1),(5,2),(5,3),(5,4),(5,5)\}$  Greater than or equal.
+\[
+R^{-1}=\{(1,1),(1,2),(2,2),(1,3),(2,3),(3,3),(1,4),(2,4),(3,4),(4,4),(1,5),(2,5),(3,5),(4,5),(5,5)\}
+\]
+\item $R=\{(1,5),(2,4),(3,3),(4,2),(5,1)\}$. Sum to $6$.
+\[
+R^{-1}=\{(5,1),(4,2),(3,3),(2,4),(1,5)\}
+\]
+\enume
+
+\item What is the inverse of the following relations?
+\enumb
+\item $\leq$.
+\[
+\geq
+\]
+\item $\{(x,y):x,y\in\integers,x-y=1\}$.
+\[
+\{(x,y):x,y\in\integers, y-x =1\}
+\]
+\item $\{(x,y):x,y\in\integers, xy>0\}$.
+\[
+\{(x,y): x,y\in\integers, xy>0\}.
+\]
+\enume
+
+\item For each of the following relations on $\{1,2,3,4,5\}$ determine whether the relation is reflexive, irreflexive, symmetric, antisymmetric, and/or transitive:
+\itemb
+\item $R=\{(1,1),(2,2),(3,3),(4,4),(5,5)\}$. Reflexive, Symmetric, Transitive, Antisymmetric
+\item $R=\{(1,2),(2,3),(3,4),(4,5)\}$. Irreflexive, Antisymmetric (Vacuously)
+\item $R=\{(1,1),(1,2),(1,3),(1,4),(1,5)\}$. Antisymmetric, Transitive
+\item $R=\{(1,1),(1,2),(2,1),(3,4),(4,3)\}$. Symmetric
+\item $R=\{1,2,3,4,5\}\times\{1,2,3,4,5\}$. Reflexive, Symmetric, Transitive
+\iteme
+
+\item For the following relations on the set of humans beings, please determine whether the relation if reflexive, irreflexive, symmetric, antisymetric, and/or transitive.
+\enumb
+\item has the last name as REFLEXIVE, SYMMETRIC, ANTISYMMETRIC, TRANSITIVE
+\item is the child of IRREFLEXIVE, ANTISYMMETRIC (Vacuously)
+\item is married to SYMMETRIC, IRREFLEXIVE
+\item has a common parent as REFLEXIVE, SYMMETRIC
+\enume
+
+\item Consider the relation $|$ (divisible) on
+\enumb
+\item On the naturals. REFLEXIVE, ANTISYMMETRIC, TRANSITIVE
+\item On the integers. REFLEXIVE, TRANSITIVE
+\enume
+Decide what properties do they have.
+
+\item Show that the following relation is an equivalence relation:
+\[
+A=\{B\in 2^{\integers}: |B|<\infty\}, \qquad R=\{(B,C): B,C \in A, |B|=|C|\}
+\]
+\begin{proof}
+We have to show that $R$ is reflexive, symmetric and transitive.
+
+Obviously $|B|=|B|$ for every $B\in A$ and therefore $(B,B)\in R$ and $R$ is reflexive. Also if $(B,C)\in R$, i.e. $|B|=|C|$, then $|C|=|B|$, i.e. $(C,B)\in R$ and therefore $R$ is symmetric. Finally, if $(B,C)\in R$, i.e. $|B|=|C|$ and $(C,D)\in R$ i.e., $|C|=|D|$ for some $B,C,D\in A$, then $|B|=|D|$ and thus $(B,D)\in R$ and therefore $R$ is transitive.
+\end{proof}
+\item Which of the following are equivalence relations?
+\enumb
+\item $R=\{(1,1),(1,2),(2,1),(2,2),(3,3)\}$ on the set $\{1,2,3\}$. THIS ONE.
+\item $|$ on $\integers$. NOT THIS ONE
+\item $\leq$ on $\integers$. NOT THIS ONE
+\item Is-an-anagram-of on the set of English words. THIS ONE
+\enume
+\item For each of the following congruences, find all integers $N$, with $N>1$, that make the congruence true
+\enumb
+\item $23\equiv 13$ (mod $N$) $N=1,2,5,10$
+\item $10\equiv 5$ (mod $N$) $N=1,5$
+\item $6\equiv 60$ (mod $N$) $N=1,2,3,6,9,18,27,54$
+\enume
+
+%\item There is only one possible equivalence relation on a one-element set: If $A=\{1\}$, then $R=\{(1,1)\}$ is the only possible equivalence relation. On a two element set $A=\{1,2\}$, there are exactly two equivalence relations:
+%\[
+%R_1=\{(1,1),(2,2)\},\qquad R_2=\{(1,1),(1,2),(2,1),(2,2)\}.
+%\]
+%How many different equivalence relations are there on a three and on a four element set?
+
+\enume
+
+\end{document}

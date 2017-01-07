@@ -1,0 +1,86 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{solution}{Solution}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 17}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{November 9, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Please express the following permutations in disjoint cycle form.
+\enumb
+\item $\pi=\left[\begin{array}{cccccc}
+1&2&3&4&5&6\\
+2&3&4&5&6&1
+\end{array}\right]$.
+
+
+\item $\sigma=\left[\begin{array}{cccccc}
+1&2&3&4&5&6\\
+2&4&6&1&3&5
+\end{array}\right]$
+
+\enume
+\item Prove that in the cycle decomposition produced by the algorithm discussed on the slides, the resulting cycles are pairwise disjoint.
+
+
+
+\item How many permutations in $S_n$ have exactly one cycle?
+
+
+\item Let $\pi,\sigma$ be given by
+\[
+\pi=(1)(2,3,4,5)(6,7,8,9),\qquad\sigma=(1,3,5,7,9,2,4,6,8)
+\]
+Calculate the following
+\enumb
+\item $\pi\circ\sigma$
+\item $\sigma\circ\pi$
+\item $\pi^{-1}$
+\item $\pi^{-1}\circ\pi$.
+\enume
+
+\item Write the following permutations as the composition of transpositions and determine whether the permutation is even or odd.
+\enumb
+\item $(1,3)(2,4,5)$
+\item $(1,2,4,3)(5)$
+\item $[(1,3)(2,4,5)]^{-1}$.
+\enume
+
+\item Prove the following group facts: 
+\enumb
+\item If $(G,*)$ is a group and $g\in G$, then $(g^{-1})^{-1}=g$.
+\item  If $(G,*)$ is a group with identity element $e$, then $e^{-1}=e$.
+\item If $(G,*)$ is a group and $g,h\in G$, then $(g*h)^{-1}=h^{-1}*g^{-1}$.
+\enume
+
+\item Show that the alternating group $(A_n,\circ)$ is indeed a group.
+\enume
+\end{document}

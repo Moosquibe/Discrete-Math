@@ -1,0 +1,90 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\newtheorem{proposition}{Proposition}
+
+\title{Discrete Mathematics, 2016 Spring - Worksheet 2}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+\date{September 12, 2016}
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\begin{enumerate}
+\item Recast the following statements in the $if-then$ form.
+\begin{enumerate}
+\item The product of an odd integer and an even integer is even.
+\item The square of a prime number is not a prime.
+\item The product of two negative integers is negative.
+\item The sum of three consecutive integers is divisible by three.
+\end{enumerate}
+
+
+\item Consider the claim: 'If a guinea pig has a tail, its eyes are blue'. True or False? (Hint: Guinea pigs don't have tails.)
+
+\item  Below you will find pairs of statements $A$ and $B$. For each pair, please indicate which of the following three sentences are true and which are false:
+\begin{itemize}
+\item If $A$, then $B$.
+\item If $B$, then $A$.
+\item $A$ if and only if $B$.
+\end{itemize}
+You may just write True or False.
+\begin{enumerate}
+\item $A$: $x>0$,  $B$: $x^2>0$.
+\item $A$: $x<0$,  $B$: $x^3<0$.
+\item $A$: $xy=0$, $B$:$x=0$ or $y=0$.
+\item $A$: $xy=0$  $B$: $x=0$ and $y=0$
+\end{enumerate}
+
+\item Consider the two statements:
+\begin{enumerate}
+\item If $A$, then $B$.
+\item If $(\textrm{not}~B)$, then $\textrm{not}~A$.
+\end{enumerate}
+Under what circumstances are these statements true? When are they false? Explain why these statements are, in essence, identical.
+\newpage
+
+
+
+\item Write a proof of the following result:
+\begin{proposition}\label{prop:divtrans}
+Let $a$, $b$, and $c$ be integers. If $a|b$ and $b|c$, then $a|c$.
+\end{proposition}
+
+\item Write a proof of the following result:
+\begin{proposition}
+Let $x$ be an integer. Then $x$ is even if and only if $x+1$ is odd.
+\end{proposition}
+
+\item Using Proposition \ref{prop:divtrans}, write a proof of the following result:
+
+\begin{proposition}
+Let $a$, $b$, $c$, and $d$ be integers. If $a|b$, $b|c$, and $c|d$, then $a|d$.
+\end{proposition}
+
+\item Write a proof for the following statements:
+\begin{enumerate}
+\item The sum of two odd integers is even.
+\item If $n$ is an odd integer, then $-n$ is also odd.
+\item The product of an even integer and an odd integer is even.
+\end{enumerate}
+
+%\item In the following, assume that $a$, $b$, $c$, and $d$ are integers. Write a proof for the following statements:
+%\begin{enumerate}
+%\item If $a|b$, then $a|(bc)$.
+%\item $a<b$ if and only if $a\leq b-1$.
+%\end{enumerate}
+
+\item Suppose you are asked to prove a statement of the form '$A$ iff $B$'. The standard method is to prove both $A\Rightarrow B$ and $B\Rightarrow A$. Consider the following alternative proof strategy: Prove both $A\Rightarrow B$ and $(\textrm{not} A)\Rightarrow (\textrm{not} B)$. Explain why this would give a valid proof.
+
+\end{enumerate}
+\end{document}

@@ -1,0 +1,70 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 12}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{October 24, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+\enumb
+
+\item Calculate the first six terms of the sequence (that is, $a_0$ through $a_5$) 
+
+\[
+a_n=2a_{n-1}+2,\qquad a_0=1
+\]
+
+\item Let $e_0=1$, $e_1=4$ and, for $n>1$, let $e_n=4(e_{n-1}-e_{n-2})$. What are the first five terms of the sequence $e_0,e_1,e_2,\dots$? Prove $e_n=(n+1)2^n$ for every natural $n$.
+
+%\item Let $F_n$ denote the $n$th Fibonacci number. Prove:
+%\[
+%F_n=\frac{\left(\frac{1+\sqrt{5}}{2}\right)^{n+1}-\left(\frac{1-\sqrt{5}}{2}\right)^{n+1}}{\sqrt{5}}
+%\]
+
+\item Solve the following first order recurrence relations.
+\enumb
+\item $a_n=\frac{2}{3}a_{n-1}, a_0=4$.
+\item $a_n=2a_{n-1}+2,a_0=2$.
+%\item $a_n=a_{n-1}+7, a_0=-3$.
+%\item $a_n=4-2a_{n-1}, a_0=0$.
+\enume
+
+\item Solve the following second order recurrence relations.
+\enumb
+\item $a_n=3a_{n-1}+4a_{n-2}, a_0=3, a_1=2$.
+\item $a_n=-6a_{n-1}-9a_{n-2}, a_0=3, a_1=6$.
+\enume
+\item What can go wrong with the technique we used to solve the non-homogeneous equation on the slides? Try to solve
+\itemb
+\item $a_n=4a_{n-1}+5a_{n-2}+4, a_0=2, a_1=3$.
+\item $a_n=3a_{n-1}-2a_{n-2}+5, a_0=a_1=3$.
+\item $a_n=6a_{n-1}-9a_{n-2}-2,a_0=-1,a_1=4$.
+\item $a_n=2a_{n-1}-a_{n-2}+2,a_0=4,a_1=2$.
+\iteme
+\enume
+\end{document}

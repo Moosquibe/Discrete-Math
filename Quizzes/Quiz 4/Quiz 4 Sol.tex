@@ -1,0 +1,50 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\title{Discrete Mathematics, Sect 002, 2016 Fall - Quiz 4}
+\author{Name:}
+\institute{Courant Institute of Mathematical Sciences, NYU}
+\date{October 2, 2016}
+
+\newtheorem*{proposition}{Proposition}
+
+
+
+\begin{document}
+
+\maketitle
+
+This quiz is scheduled for 10 minutes. No outside notes or calculators are permitted. To get full credit  in all of the problems, use rigorous justification and unless otherwise indicated, make sure that your solution reads as a perfect English sentence. You should only assume the notion of integers, operations, order relations and geometrical objects as given. If you use a statement or a definition from the textbook, make sure to indicate it.
+\vspace{0.2cm}
+
+\begin{enumerate}
+\item(10 points) Identify whether the following relation on the set \{1, 2, 3, 4\} is reflexive,
+irreflexive, symmetric, antisymmetric, and/or transitive. Is it an equivalence relation? When the answer is no, support why.
+\[
+R = \{(1, 2), (3, 2), (4, 3), (2, 3), (3, 4), (2, 1)\}
+\]
+\begin{itemize}
+\item Reflexive:No, there are elements not in relation with themselves (actually none of them are)
+\item Irreflexive: Yes
+\item Antisymmetric: No, e.g $(1,2)$ and $(2,1)$ are in $R$ but clearly $1\neq 2$.
+\item Transitive: No, e.g. $(1,2)$ and $(2,1)$ are in $R$ but $(1,1)$ is not.
+\item Equivalence relation: No, it's not reflexive nor transitive so it cannot be an equivalence relation.
+\item Symmetric: Yes
+\end{itemize}
+\vspace{2cm}
+\item (10 points) 20 people are to be divided into two teams with ten players on each team. In how many ways can this be done? Define an equivalence relation on the set of all arrangements of the 20 people and then count how many elements are in the equivalence classes.
+
+\vspace{2cm}
+
+Let $A$ be the set of all arrangements of the $20$ people. Then $|A|=20!$. Define an equivalence relation $R$ on $A$ under which $xRy$ provided the first and the last $10$ people are the same for both $x$ and $y$ but perhaps differently arranged or when the first and last 10 people are swapped between $x$ and $y$ (and perhaps also differently arranged within themselves). If we choose the teams by selecting the first 10 people and the last 10 people into the two teams respectively, then two arrangements are equivalent under R exactly if they give the same two teams.
+
+Every equivalence class consists of $|[.]|=10!\cdot 10!\cdot 2$ arrangements and therefore the number of possible different teams is
+\[
+\frac{|A|}{[.]}=\frac{20!}{2(10!)^2}
+\]
+\end{enumerate}
+\end{document}

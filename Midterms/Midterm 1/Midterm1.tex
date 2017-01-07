@@ -1,0 +1,290 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, graphicx, hyperref}
+%\usepackage{subfigure}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{multirow, multicol}
+\usepackage{pdfpages}
+%\usepackage{stfloats}
+\usepackage{tikz}
+\pagestyle{fancy}
+
+\fancypagestyle{firststyle}
+{
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[LO]{\includegraphics{nyu_short_black}}
+  \fancyhead[RO]{}
+	\fancyfoot{}
+}
+
+\fancyhead[LO]{\scalebox{0.25}{\includegraphics{nyu_short_black}}}
+\fancyhead[RO]{\tiny MATH-UA.120.002}
+
+
+%\fancyfoot[RO]{\begin{tikzpicture}
+%[scale=1, line/.style={black}]
+%\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+%%\node at (-0.5, 1) [anchor=east]{\large Score};
+%\end{tikzpicture}}
+
+\newcommand*\mycirc[1]{%
+  \begin{tikzpicture}[baseline=(C.base)]
+    \node[draw,circle,inner sep=1pt](C) {#1};
+  \end{tikzpicture}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\proj}{\textbf{proj}}
+\newcommand{\curl}{\textrm{curl }}
+\newcommand{\divergence}{\textrm{div }}
+% For boldface vectors:
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\renewcommand\arraystretch{2}
+
+\newtheorem*{proposition}{Proposition}
+
+
+\begin{document}
+\thispagestyle{firststyle}
+~
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{\Large MATH-UA.120.001 - Discrete Mathematics 2016 Fall\\ \vspace{0.5cm} Midterm 1}\\~\\
+Thursday, February 25, 2016
+\end{center}
+
+\vspace{1cm}
+
+%\noindent
+%\textbf{Name:} \underline{\hspace{15cm}}
+
+\vspace{1cm}
+
+\noindent
+This exam is scheduled for 110 minutes, to be done individually, without calculators, notes, textbooks, and other outside materials.
+\vspace{0.5cm}
+
+\noindent
+\textbf{Show all work to receive full credit, except where specified.}
+
+\vspace{1cm}
+
+\begin{multicols}{2}
+\noindent
+
+\noindent
+\fbox{\parbox{10cm}{
+\vspace{1cm}
+\noindent
+\textbf{Name: }
+
+\vspace{1cm}
+
+\noindent
+\textbf{NYU NetID (email): }
+
+
+\vspace{2cm}
+
+\noindent
+\emph{I pledge that I have observed the NYU honor code, and that I have neither given nor received unauthorized assistance during this examination.}
+\noindent
+
+
+
+\noindent
+
+\vspace{1cm}
+
+\noindent
+\textbf{Signature:}
+
+\vspace{2cm}
+}}
+%
+%\vspace{0.5cm}
+%
+
+\begin{flushright}
+\begin{tabular}{| c | c |}
+\hline
+Problem & Points \\
+\hline
+% & \\
+TF & ~~~~~~~~~/21\\[0.5cm]
+%& \\
+\hline
+% & \\
+1 & ~~~~~~~~~/20\\[0.5cm]
+%& \\
+\hline
+% & \\
+2 & ~~~~~~~~~/15\\[0.5cm]
+%& \\
+\hline
+% & \\
+3 & ~~~~~~~~~/22\\[0.5cm]
+%& \\
+\hline
+% & \\
+4 & ~~~~~~~~~/22\\[0.5cm]
+%& \\
+\hline
+\hline %& \\
+Total & ~~~~~~~~~/100\\[0.5cm]
+%& \\
+\hline
+\end{tabular}
+\end{flushright}
+
+\end{multicols}
+
+\newpage
+
+\section*{Answer Sheet (for Problem 1 True/False)} \label{answersheet}
+
+%(3 points each) Select the correct option.  You need not explain your answer.  No partial credit will be given.
+%
+%\vspace{0.5cm}
+
+\noindent
+\textbf{You must record your final answers on the following answer sheet.  Only this page will be graded.}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tabular}{| c | c c c c c |}
+\hline
+
+1 & \mycirc{T} & \mycirc{F} & & &  \\
+% & & & & & \\
+2 & \mycirc{T} & \mycirc{F} & & &   \\
+% & & & & & \\
+3 & \mycirc{T} & \mycirc{F} & & &   \\
+% & & & & & \\
+4 & \mycirc{T} & \mycirc{F} & & &  \\
+% & & & & & \\
+5 & \mycirc{T} & \mycirc{F} & & &  \\
+6 & \mycirc{T} & \mycirc{F} & & & \\
+7 & \mycirc{T} & \mycirc{F} & & & \\
+\hline
+\end{tabular}
+\end{center}
+\begin{flushright}
+\begin{tikzpicture}
+[scale=1, line/.style={black}]
+\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+\node at (-0.5, 1) [anchor=east]{\Large TOTAL};
+\end{tikzpicture}
+\end{flushright}
+\renewcommand\arraystretch{1}
+
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+
+\newpage
+\section*{True or False}
+
+(2 points each) Determine if each of the following statement is TRUE or FALSE.\\Choose TRUE if the statement is always true, and choose FALSE if it is not always true. Each question is worth 3 points.
+
+\vspace{0.2cm}
+
+\noindent
+\textbf{Indicate your solution in the answer sheet on page \pageref{answersheet}.  You need not provide any justification.}
+
+Let
+\[
+\mathbb{Z}^5=\mathbb{Z}\times\mathbb{Z}\times\mathbb{Z}\times\mathbb{Z}\times \mathbb{Z}
+\]
+i.e. the set of lists of length 5 with integer entries.
+\begin{enumerate}
+\item $(1,2,3)\in\mathbb{Z}^5$
+\item $\forall x\in \mathbb{Z}^5,\forall y\in\mathbb{Z}^5,\exists z\in\mathbb{Z}^5,\forall j\in \{1,2,3,4,5\}, x_j\leq z_j\leq y_j$.
+\item The number of ways to divide a 100 elements into five parts of size 20 is greater than the number of ways to divide a 100 elements into 20 parts of size 5.
+\item On the set $A=\{1,2,3,4,5,6,7\}$, the relation 
+\[
+R=\{(x,y)\in A\times A\textrm{ such that }y^2 \equiv x~(mod~10)\}
+\]
+is an equivalence relation.
+\item $\left(\binom{8}{4}\right)=2\left(\binom{4}{8}\right)$
+\item The coefficient of $x^4$ in the expansion of $(1+2x)^5$ is $80$.
+
+\item For any sets $X,Y,Z$, we have
+\[
+X-(Y\cup Z)=(X-Y)\cup Z
+\]
+
+
+\end{enumerate}
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+\newpage
+\section*{Free Response}
+
+\textbf{Show all work and justification.} 
+
+\begin{enumerate}
+\item
+
+\begin{enumerate}
+\item (10 points) $a,b,d,x,$ and $y$ are integers. Prove that if $d|a$ and $d|b$ then $d|(ax+by)$. \vspace{7cm}
+
+\item (10 points) Prove that an integer is odd if and only if it is the sum of two consecutive integers.
+\end{enumerate}
+
+
+\newpage
+\item (15 points) The squares of a $4\times 4$ checkerboard are colored black or white. Use the inclusion-exclusion principle to find the number of ways the checkerboard can be colored so that no row is entirely one color.
+
+\newpage
+\item Prove or disprove each statement.
+\begin{itemize}
+\item[a)] (11 points) Here $x$ and $y$ are Boolean expressions and $=$ stands for logical equivalence. 
+\[
+(x\to y)\wedge(\neg y\to\neg z)=(x\vee z)\to y
+\]
+\item[b)] (11 points) DeMorgan's second law
+\[
+ A-(B\cap C)=(A-B)\cup (A-C).
+\]
+\textbf{Warning:} A Venn diagram illustration does not constitute a proof. However, if you don't know how to give the proper proof, you can do it for 3 points.
+\end{itemize}
+\newpage
+%\item Let $R$ be the relation on the set of integers $\{1, 2, 3, 4,\dots , 10\}$ defined by
+%\[
+%x R y \qquad\textrm{provided}\qquad x^2\equiv y^2 (mod 10).
+%\]
+%\begin{enumerate}
+%\item (10 points) Show that this is an equivalence relation.
+%\item (8 points) Find the equivalence classes. 
+%\end{enumerate}
+%\newpage
+\item 
+\begin{enumerate}
+
+\item (11 points) Give a proof of the following identity using the factorial formula for the binomial coefficient.
+\[
+k\binom{n}{k}=n\binom{n-1}{k-1}
+\]\vspace{6cm}
+
+\item (11 points) Now give a combinatorial proof.
+Hint: Consider choosing a group with a leader.
+
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+\noindent
+\textbf{Extra paper}
+%
+%\newpage
+%\noindent
+%\textbf{Extra paper}
+
+%\includepdf[pages=1-2]{FormulaSheets.pdf}
+
+\end{document}

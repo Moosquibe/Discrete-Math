@@ -1,0 +1,189 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{solution}{Solution}
+
+\title{Discrete Mathematics, 2016 Spring - Some solutions to Worksheet 7}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item What condition ensures $x\equiv y$ (mod 2)?.
+
+\begin{solution}
+$x\equiv y$ (mod 2) means that $2|x-y$ i.e. that there is an integer $k$ such that $x=y+2k$.
+\end{solution}
+
+\item Find the equivalence class of $[1]$ and $[4]$ under the following equivalence relation on $\{1,2,3,4\}$.
+\[
+R=\{(1,1),(1,2),(2,1),(2,2),(3,3),(4,4)\}
+\] 
+
+\item Consider $\equiv$ mod $2$. Prove $[3]=[1]$.
+\begin{solution}
+\[
+[1]=\{1,2\},\qquad [4]=\{4\}
+\]
+\end{solution}
+
+
+\begin{proof}
+Clearly, if $x\in [3]$, then $2|x-3$ which means that $\exists k\in\mathbb{Z}$ such that $x-3=2k$ and therefore
+\[
+x-1 = 2k+2=2(k+1).
+\]
+Since $k+1$ is an integer and thus $2|x-1$, we have $x\in [1]$ which proves $[3]\in [1]$. The other direction can be proved working this direction backwards.
+\end{proof}
+
+\item Let $R$ be an equivalence relation on a set $A$. Prove that the union of all of the equivalence classes of $R$ is $A$.
+
+\begin{proof}
+Note that for every $a\in A$, we have $a\subseteq[a]$. Then
+\[
+A=\cup_{a\in A}\{a\}\subseteq\cup_{a\in A}[a].
+\]
+Since clearly $\cup_{a\in A}[a]\subseteq A$, this means that we have
+\[
+A=\cup_{a\in A}[a]
+\]\qedhere
+\end{proof}
+
+
+\item Find all possible partitions of $\{1,2,3\}$.
+
+\begin{solution}
+\[
+\{\{1\},\{2\},\{3\}\}, \{\{1,2\},\{3\}\},\{\{1,3\},\{2\}\},\{\{1\},\{2,3\}\},\{\{1,2,3,4\}\}
+\]
+\end{solution}
+
+\item How many different anagrams (including nonsensical words) can be made from each of the following?
+\enumb
+\item STAPLE
+\begin{solution}
+Clearly, $6!$.
+\end{solution}
+\item DISCRETE
+\begin{solution}
+Let's distinguish the two $E$-s. The number of rearrangements of the letters $\{D,I,S,C,R,E_1,T,E_2\}$ is $8!$. Two such rearrangements will be called equivalent if they only differ by the order of the $E$'s. Clearly, all equivalence classes contains two rearrangements. Since every equivalence class have the same number of elements, the number of equivalence classes is
+\[
+\frac{|A|}{[.]}=\frac{8!}{2!}
+\]
+\end{solution}
+\item SUCCESS
+Let's distinguish the $S$-s and the $C$-s. The number of rearrangements of the letters $\{S_1,U,C_1,C_2,E,S_2,S_3\}$ is $7!$. To drop the distinction between the identical letters, define an equivalence relation on the set of such rearrangements $A$, such that two such rearrangements are equivalent if only they only differ by the order in which the $S$-s and the $C$-s, but the position of each letter is unchanged besides that. Every equivalence class under this relation consists of $3!\cdot 2!$ rearrangements as this is the number of rearrangements of $\{S_1,S_2,S_3\}$ times the number of rearrangements $\{C_1,C_2\}$. Since every equivalence class have the same number of elements, the number of equivalence classes (and the final answer to the problem) is
+\[
+\frac{|A|}{|[.]|}=\frac{7!}{3!\cdot 2!}.
+\] 
+where $[.]$ stands for any equivalence class.
+\enume
+
+\item[8,]
+\enumb
+\item How many different anagrams (including nonsensical words) can be made from SUCCESS if we require that the first and last letters must both be $S$?
+\begin{solution}
+Let's distinguish the $S$-s and the $C$-s. The number of rearrangements of the letters $\{S_1,U,C_1,C_2,E,S_2,S_3\}$ such that there is an $S$ in the beginning and the end is $(3\cdot 2)\cdot 5!$ as there are $3$ ways to choose the first $S$, two ways to choose the last $S$ (from the remaining two $S$-s) after which the spaces in between can be filled in any arrangement of the five remaining letter. To drop the distinction between the identical letters, define an equivalence relation on the set of such rearrangements $A$, such that two such rearrangements are equivalent if only they only differ by the order in which the $S$-s and the $C$-s, but the position of each letter is unchanged besides that. Every equivalence class under this relation consists of $3!\cdot 2!$ rearrangements as this is the number of rearrangements of $\{S_1,S_2,S_3\}$ times the number of rearrangements $\{C_1,C_2\}$. Since every equivalence class have the same number of elements, the number of equivalence classes (and the final answer to the problem) is
+\[
+\frac{|A|}{|[.]|}=\frac{6\cdot 5!}{3!\cdot 2!}.
+\] 
+where $[.]$ stands for any equivalence class.
+\end{solution}
+\item How many different anagrams (including nonsensical words) can be made from FACETIOUSLY if we require that the six vowels must remain in alphabetical order (but not necessarily contiguous with each other)
+
+\begin{solution}
+On the set of all rearrangements $A$ of the letters $\{F,A,C,E,T,I,O,U,S,L,Y\}$, we define the equivalence relation under which two such rearrangements are equivalent provided they differ only by the vowels being rearranged within each other, e.g.
+\[
+FACETIOUSLY\equiv FECATOIUSLY-
+\]
+Note that in each equivalence class there is exactly only one `good' rearrangement, i.e. with the vowels appearing in alphabetical order. Therefore to give the answer to the question, it suffices to count the equivalence classes. This is exactly the problem we did on the slides and the answer is
+\[
+\frac{|A|}{|[.]|}=\frac{11!}{6!}.
+\]
+\end{solution}
+
+\enume
+
+
+\item[9,] Write a proper proof of the following theorem summarizing the technique used above:
+\begin{theorem}[Counting equivalence classes]
+Let $R$ be an equivalence relation on a finite set $A$. If all the equivalence classes of $R$ have the same size, $m$, then the number of equivalence classes is $|A|/m$.
+\end{theorem}
+
+\begin{proof}
+We assume that all equivalence classes of $R$ have the same size $m$ and prove that the number of equivalence classes is $|A|/m$. 
+
+We know from the lecture that the equivalence classes form a partition of the set $A$, which means implies that they are non-empty, disjoint and their union gives all of $A$. Let these equivalence classes be denoted by $A_1,\dots A_n$, where $n$ is the number of equivalence classes. On one hand, we know by assumption that $|A_i|=m$ for every $i\in\{1,\dots,n\}$. On the other hand, we also know that they are disjoint and therefore the extended addition principle implies that
+\[
+|A|=\sum_{i=1}^n|A_i|=\sum_{i=1}^nm=m\sum_{i=1}^n 1=m n.
+\]
+Dividing both sides of this by $m$ proves the theorem.
+\end{proof}
+\item[10,] You wish to make a necklace with $20$ different beads. In how many different ways can you do this?
+\begin{solution}
+On the set of all arrangements $A$ of the twenty beads we want to define an equivalence relation that captures when two such rearrangements make the same necklace when the two ends of the chain is joined. Indeed, let two rearrangements be equivalent if one can be reached from another by subsequent application of transferring the first element to the end and shifting all the others to the left (amounts to rotating the necklace). Since I can exactly do this twenty times before arriving back to the original rearrangement, every equivalence class will have $20$ elements. Therefore the number of possible necklaces is
+\[
+\frac{|A|}{|[.]|}=\frac{20!}{20}=19!
+\]
+\end{solution}
+\item[11,] A Tennis club has $40$ members. 
+\enumb
+\item One afternoon, they get together to play single matches. Every member plays one match with another member so $20$ matches are held at the same time. In how many ways can this be arranged?
+\begin{solution}
+Consider the set $A$ of all rearrangements of the $40$ players and divide them into games by two:
+\[
+\underbrace{a_1,a_2}_{Game 1}, \underbrace{a_3,a_4}_{Game 2},\dots, \underbrace{a_{39},a_{40}}_{Game 20}.
+\]
+where $a_i$ stands for the $i$th player. Define the equivalence relation that captures when two such rearrangements give the same game schedule. Indeed, let two rearrangements be equivalent provided the order of the Game-s are rearranged, or the players within one game are swapped, but otherwise everything is the same. The cardinality of the equivalence classes are going to be $20!\cdot 2^20$ as we have $20!$ ways to rearrange the $20$ games and within each game we have two options to swap the players or not. Therefore the number of possible schedules is
+\[
+\frac{|A|}{|[.]|}=\frac{40!}{20! 2^{20}}
+\]
+\end{solution}
+\item The next afternoon, the club members decide to play double mathces (teams of two pitted against each other). The players are divided into $20$ teams, and these teams each play one match against another team (ten matches total). In how many ways can this be done.
+
+\begin{solution}
+Consider the set $A$ of all rearrangements of the $40$ players and divide them into games by pairs of two:
+\[
+\underbrace{\underbrace{a_1,a_2}_{Team 1}, \underbrace{a_3,a_4}_{Team 2}}_{Game 1},\dots,\underbrace{\underbrace{a_{37},a_{38}}_{Team1} \underbrace{a_{39},a_{40}}_{Team 2}}_{Game 10}.
+\]
+Now define the equivalence relation under which two rearrangements are equivalent if the games are rearranged, the teams within the games are rearranged, or the players within a team are rearranged but everything else is the same. Now the cardinality of the equivalence classes will be $10!\cdot (2\cdot 2^2)^10$. This is because there are $10!$ ways to rearrange the games, for every arrangement of the games, we have two options to swap the teams or not and for each such decision we have two ways to swap the players within a team or not. Therefore the number of possible schedules is
+\[
+\frac{|A|}{|[.]|}=\frac{40!}{10! 8^{10}}
+\]
+\end{solution}
+\enume
+\item[12,] One hundred people are to be divided into ten discussion groups with ten people in each group. How many ways can this be done?
+
+\begin{solution}
+Consider the set $A$ of all rearrangements of the hundred people and divide them into discussion groups by 10:
+\[
+\underbrace{a_1,\dots a_{10}}_{Group 1},\dots,\underbrace{a_{91},\dots,a_{100}}_{Group 10}.
+\]
+Define the equivalence relation that captures when two such rearrangements give the same set of discussion groups. Indeed, let two rearrangements be equivalent provided the order of the Groups are rearranged, or the members within one groups are rearranged, but otherwise everything is the same. Now the cardinality of the equivalence classes will be $10!\cdot (10!)^{10}$ as there are $10!$ ways to rearange the groups and withing each group $10!$ way to rearrange the members. Therefore the number of possible discussion group configurations is
+\[
+\frac{|A|}{|[.]|}=\frac{100!}{(10!)^{11}}.
+\]
+\end{solution}
+\enume
+
+\end{document}

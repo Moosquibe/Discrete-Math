@@ -1,0 +1,168 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\newtheorem{proposition}{Proposition}
+
+\title{Discrete Mathematics, 2016 Spring - Worksheet 2}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+
+\date{September 12, 2016}
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\begin{enumerate}
+\item Recast the following statements in the $if-then$ form.
+\begin{enumerate}
+\item The product of an odd integer and an even integer is even.
+
+\vspace{0.1cm}
+\textit{If $a$ is an odd integer and $b$ is an even integer, then $a\cdot b$ is even.}
+\vspace{0.1cm}
+
+\item The square of a prime number is not a prime.
+
+\vspace{0.1cm}
+\textit{If $p$ is a prime number, then $p^2$ is not a prime.}
+\vspace{0.1cm}
+
+\item The product of two negative integers is negative.
+
+\vspace{0.1cm}
+\textit{If $a$ and $b$ are negative integers, then $a\cdot b$ is negative.}
+\vspace{0.1cm}
+
+\item The sum of three consecutive integers is divisible by three.
+
+\vspace{0.1cm}
+\textit{If $a$, $b$, and $c$ are consecutive integers, then $a+b+c$ is divisible by $3$.}
+\vspace{0.1cm}
+
+\end{enumerate}
+
+
+\item Consider the claim: 'If a guinea pig has a tail, its eyes are blue'. True or False? (Hint: Guinea pigs don't have tails.)
+
+\vspace{0.1cm}
+\textit{True, because it is vacuously true.}
+\vspace{0.1cm}
+
+\item  Below you will find pairs of statements $A$ and $B$. For each pair, please indicate which of the following three sentences are true and which are false:
+\begin{itemize}
+\item If $A$, then $B$.
+\item If $B$, then $A$.
+\item $A$ if and only if $B$.
+\end{itemize}
+You may just write True or False.
+\begin{enumerate}
+\item $A$: $x>0$,  $B$: $x^2>0$. \textit{TRUE, FALSE, FALSE}
+\item $A$: $x<0$,  $B$: $x^3<0$. \textit{TRUE, TRUE, TRUE}
+\item $A$: $xy=0$, $B$:$x=0$ or $y=0$. \textit{TRUE, TRUE, TRUE}
+\item $A$: $xy=0$  $B$: $x=0$ and $y=0$ \textit{FALSE, TRUE, FALSE}
+\end{enumerate}
+
+\item Consider the two statements:
+\begin{enumerate}
+\item If $A$, then $B$.
+\item If $(\textrm{not}~B)$, then $\textrm{not}~A$.
+\end{enumerate}
+Under what circumstances are these statements true? When are they false? Explain why these statements are, in essence, identical.
+
+\vspace{0.1cm}
+\textit{$(a)$ is true if whenever $A$ is true, then so is $B$. $(b)$ is true if whenever $B$ isn't true, $A$ can't hold either. The only way either $(a)$ or $(b)$ would be false is there are circumstances under which $A$ holds but $B$ does not. This means that the two statements have the same truth value under all circumstances and they are, in essence, identical.}
+\vspace{0.1cm}
+
+
+\item Write a proof of the following result:
+\begin{proposition}\label{prop:divtrans}
+Let $a$, $b$, and $c$ be integers. If $a|b$ and $b|c$, then $a|c$.
+\end{proposition}
+
+\begin{proof}
+Since $a|b$, there is an integer $k_1$, such that $b=k_1a$. Since $b|c$, there is an integer $k_2$ such that $c=k_2b$. This means that
+\[
+c=k_2b=k_2k_1a
+\]
+Since $k_1k_2$ is an integer (by the virtue of $k_1$ and $k_2$ being integers, this means that $a|c$ and the claim is proved.
+\end{proof}
+
+\item Write a proof of the following result:
+\begin{proposition}
+Let $x$ be an integer. Then $x$ is even if and only if $x+1$ is odd.
+\end{proposition}
+
+\begin{proof}
+Let $x$ be even. Then there is an integer $k$ such that $x=2k$. By adding $1$ to both sides of this equation, we get $x+1=2k+1$, which means that $x+1$ is odd.
+
+On the other hand, assume $x+1$ is odd. This means that there is an integer $k$ such that $x+1=2k+1$. Substracting $1$ from both sides of this equation, we get $x=2k$ which means that $x$ is an even number.
+
+This proves the claim.
+\end{proof}
+
+
+
+\item Using Proposition \ref{prop:divtrans}, write a proof of the following result:
+
+\begin{proposition}
+Let $a$, $b$, $c$, and $d$ be integers. If $a|b$, $b|c$, and $c|d$, then $a|d$.
+\end{proposition}
+
+\begin{proof}
+Since $a|b$ and $b|c$, Proposition \ref{prop:divtrans} implies that $a|c$. Using this, and $c|d$ another application of Proposition 1 yields that $a|d$ and the claim is proved.
+\end{proof}
+
+\item Write a proof for the following statements:
+\begin{enumerate}
+\item The sum of two odd integers is even.
+
+\begin{proof}
+(The statement can be rephrased as an 'if-then' statement as "If $a,b$ are two odd integers, then $a+b$ is even." You don't need to say this but it might be helpful to do so initially.)
+
+Let $a$ and $b$ be two odd integers. This means that there are integers $k_1,k_2$ such that $a=2k_1+1$ and $b=2k_2+1$, which implies
+\[
+a+b=2(k_1+k_2)+2=2(k_1+k_2+1).
+\]
+Since $k_1$ and $k_2$ are integers, so is $k_1+k_2+1$ and therefore $a+b$ is even.
+\end{proof}
+\item If $n$ is an odd integer, then $-n$ is also odd.
+\begin{proof}
+If $n$ is an odd integer, there is an integer $k$ such that $n=2k+1$. Then
+\[
+-n=-(2k+1)=-2k-1=-2k-2+1=2(-k-1)+1.
+\]
+Since $k$ is an integer, so is $-k-1$ and therefore $-n$ is odd.
+\end{proof}
+\item The product of an even integer and an odd integer is even.
+\begin{proof}
+Let $a$ be an even integer and $b$ be an odd integer. This means there are integers $k_1$ and $k_2$ such that $a=2k_1$ and $b=2k_2+1$. Thus
+\[
+ab=2k_1\cdot (2k_2+1)=2(2k_1k_2+k_1).
+\]
+Since $k_1$ and $k_2$ are integers, so is $2k_1k_2+k_1$ and this shows that $ab$ is even.
+\end{proof}
+
+\end{enumerate}
+
+
+
+%\item In the following, assume that $a$, $b$, $c$, and $d$ are integers. Write a proof for the following statements:
+%\begin{enumerate}
+%\item If $a|b$, then $a|(bc)$.
+%\item $a<b$ if and only if $a\leq b-1$.
+%\end{enumerate}
+
+\item Suppose you are asked to prove a statement of the form '$A$ iff $B$'. The standard method is to prove both $A\Rightarrow B$ and $B\Rightarrow A$. Consider the following alternative proof strategy: Prove both $A\Rightarrow B$ and $(\textrm{not} A)\Rightarrow (\textrm{not} B)$. Explain why this would give a valid proof.
+
+\vspace{0.1cm}
+\textit{$A$ iff $B$ is true provided $A$ is true exactly when $B$ is true. This is equivalent to saying that $A$ is false exactly when $B$ is false. Proving both $A\Rightarrow B$, and $(not A)\Rightarrow(not B)$ shows that when $A$ is true, so is $B$ and that when $A$ is false so is $B$. Since there are no third option, this means exactly the above.}
+
+\end{enumerate}
+\end{document}

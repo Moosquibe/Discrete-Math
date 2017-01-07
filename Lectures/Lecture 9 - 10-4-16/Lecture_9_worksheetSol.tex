@@ -1,0 +1,106 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 9}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{October 4, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Evaluate $\multiset{3}{2}$ and $\multiset{2}{3}$ by explicitely listing all possible multisets of the appropriate size.
+
+\vspace{0.1cm}
+For $\multiset{3}{2}$, the corresponding multisets are
+\[
+\langle 1,1\rangle, \langle 1,2\rangle, \langle 1,3\rangle, \langle 2,2\rangle, \langle 2,3\rangle, \langle 3,3\rangle.
+\]
+For $\multiset{2}{3}$, the corresponding multisets are
+\[
+\langle 1,1,1\rangle, \langle 1,2,1\rangle, \langle 1,2,2\rangle, \langle 2,2,2\rangle.
+\]
+
+
+\item Evaluate the following special values
+\enumb
+\item $\multiset{0}{n} = 0$
+\item $\multiset{n}{0} = 1$
+\item $\multiset{0}{0} = 1$
+\enume
+
+\item What multiset is encoded by the stars-and-bars notation $*|||***$ ? What set are the elements taken from?
+
+\vspace{0.1cm}
+The corresponding multiset is
+\[
+\langle 1,5,5,5\rangle
+\]
+and the set is $\{1,2,3,4,5\}$.
+
+\item There are four large groups of people, each with $1000$ members. Any two of these groups have $100$ members in common. Any three of these groups have $10$ members in common. There is $1$ person in all four groups. All together, how many people are in these groups?
+
+\vspace{0.1cm}
+Let $A_1,A_2,A_3,A_4$ be the four groups. 
+\[
+|\cup_{i=1}^4A_i|=\binom{4}{1}|A_i|-\binom{4}{2}|A_i\cap A_j|+\binom{4}{3}|A_i\cap A_j\cap A_k|-\binom{4}{4}|A_i\cap A_j\cap A_k\cap A_l|=
+\]
+\[
+=4\cdot 1000 - 6\cdot 100 + 4\cdot 10 - 1\cdot 1=3439
+\]
+
+\item The number of length-$6$ lists whose elements are chosen from the set $\{1,2,3,4,5\}$ is $5^6$. How many of these use all of the elements in $\{1,2,3,4,5\}$?
+
+Instead of counting the 'good lists', i.e. those lists that use all of the elements (which would be really hard), we are going to count the bad lists, namely, how many lists of length 6 are there that does not use at least of the elements in $\{1,2,3,4,5\}$. Then
+\[
+\#\textrm{Good lists}=\#\textrm{All lists}-\#\textrm{Bad lists}.
+\]
+We can count the bad lists using the inclusion-exclusion formula. Let $A_i$ be the set of those list that does not use the number $i=1,2,3,4,5$. Then clearly
+\[
+|A_i|=4^6,\qquad i=1,2,3,4,5
+\]
+Similarly,
+\[
+|A_i\cap A_j|=3^6,\qquad i\neq j
+\]
+and
+\[
+|A_i\cap A_j\cap A_k|= 2^6
+\]
+while the four intersections
+\[
+|A_i\cap A_j\cap A_k\cap A_l|=1^6
+\]
+Therefore by the inclusion exclusion formula,
+\[
+\#\textrm{Bad lists}=5\cdot 4^6-\binom{5}{2}\cdot 3^6+\binom{5}{3}\cdot 2^6-\binom{5}{4}\cdot 1^6+\binom{5}{5}\cdot 0=
+\]
+and therefore
+\[
+\#\textrm{Good lists}=5^6-5\cdot 4^6+10\cdot 3^6-10\cdot 2^6+5
+\]
+\enume
+
+\end{document}

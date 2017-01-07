@@ -1,0 +1,227 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{remark}{Remark}
+
+\title{Discrete Mathematics, 2016 Spring - Worksheet 5}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{September 21,2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Rewrite the following sentences using the quantifier notation.
+\enumb
+\item Every integer is a prime.
+\[
+\forall x\in\mathbb{Z}, x\textrm{ is a prime.}
+\]
+\item There is an integer whose square is $2$. 
+\[
+\exists x\in\mathbb{Z}\textrm{ such that }x^2=2.
+\]
+\item All integers are divisible by $5$. 
+\[
+\forall x\in\mathbb{Z}, 5|x.
+\]
+\item Some integer is divisible by $7$. 
+\[
+\exists x\in\mathbb{Z}\textrm{ such that }7|x.
+\]
+\item For every integer $x$, there is an integer $y$ such that $xy=1$. 
+\[
+\forall x\in\mathbb{Z}, \exists y\in\mathbb{Z}\textrm{ such that }xy=1.
+\]
+\item There is an integer $x$ and an integer $y$ such that $x/y=10$. 
+\[
+\exists x\in\mathbb{Z},\exists y\in\mathbb{Z}\textrm{ such that }x/y=10.
+\]
+\item There is an integer that, when multiplied by any integer, always gives the result $0$. 
+\[
+\exists x\in\mathbb{Z},\forall y\in\mathbb{Z},xy=0.
+\]
+\item No matter what integer you choose, there is always another integer that is larger. 
+\[
+\forall x\in\mathbb{Z}, \exists y\in\mathbb{Z}\textrm{ such that }y>x.
+\]
+\enume
+
+\item Write the negation of each of the sentences in the previous problem, first with quantifiers and then in plain English. In the firs way, move the $\neg$ symbol as far to the right as possible.
+\enumb
+\item Every integer is a prime.
+\[
+\exists x\in\mathbb{Z}, \neg(x\textrm{ is a prime}).
+\]
+\item There is an integer whose square is $2$. 
+\[
+\forall x\in\mathbb{Z},\neg(x^2=2).
+\]
+\item All integers are divisible by $5$. 
+\[
+\exists x\in\mathbb{Z}, \neg(5|x).
+\]
+\item Some integer is divisible by $7$. 
+\[
+\forall x\in\mathbb{Z}, \neg(7|x).
+\]
+\item For every integer $x$, there is an integer $y$ such that $xy=1$. 
+\[
+\exists x\in\mathbb{Z}, \forall y\in\mathbb{Z},\neg(xy=1).
+\]
+\item There is an integer $x$ and an integer $y$ such that $x/y=10$. 
+\[
+\forall x\in\mathbb{Z},\forall y\in\mathbb{Z},\neg(x/y=10).
+\]
+\item There is an integer that, when multiplied by any integer, always gives the result $0$. 
+\[
+\forall x\in\mathbb{Z},\exists y\in\mathbb{Z}, \neg(xy=0).
+\]
+\item No matter what integer you choose, there is always another integer that is larger. 
+\[
+\exists x\in\mathbb{Z}, \forall y\in\mathbb{Z},\neg(y>x).
+\]
+\enume
+
+\item Label each of the following sentences about integers as either true or false. (No need to prove them)
+\enumb
+\item $\forall x,\forall y, xy=0$ FALSE
+\item $\forall x, \exists y, xy=0$ TRUE, y=0
+\item $\exists x,\forall y, xy=0$ TRUE, x=0
+\item $\exists x,\exists y, xy=0$ TRUE
+\enume
+
+%\item Do the following two statements mean the same thing?
+%\[
+%\forall x, \forall y, \textrm{assertions about $x$ and $y$}
+%\]
+%\[
+%\forall y, \forall x, \textrm{assertions about $x$ and $y$}
+%\]
+%Explain. 
+%
+%\vspace{0.2cm}
+%\textit{These are the same as this is really just one $\forall (x,y)$ statement}
+%\vspace{0.2cm}
+%
+%Likewise, do the following two statements mean the same thing?
+%\[
+%\exists x, \exists y, \textrm{assertions about $x$ and $y$}
+%\]
+%\[
+%\exists y, \exists x, \textrm{assertions about $x$ and $y$}
+%\]
+%
+%
+%\vspace{0.2cm}
+%\textit{These are not the same thing though}
+%\vspace{0.2cm}
+
+\item Let $A=\{1,2,3,4,5\}$ and let $B=\{4,5,6,7\}$. Compute
+\enumb
+\item $A\cup B=\{1,2,3,4,5,6,7\}$
+\item $A\cap B=\{4,5\}$
+\item $A-B=\{1,2,3\}$
+\item $B-A=\{6,7\}$
+\item $A\Delta B=\{1,2,3,6,7\}$
+\item $A\times B=\{(1,4),(1,5),(1,6),(1,7),(2,4),(2,5),(2,6),(2,7),(3,4),\\
+(3,5),(3,6),(3,7),(4,4),(4,5),(4,6),(4,7),(5,4),(5,5),(5,6),(5,7)\}$
+\item $B\times A=\{(4,1),(4,2),(4,3),(4,4),(4,5),(5,1),(5,2),(5,3),\\(5,4),(5,5),(6,1),(6,2),(6,3),(6,4),(6,5),(7,1),(7,2),(7,3),(7,4),(7,5)\}$
+\enume
+
+\item Prove the following theorems and illustrate them with a Venn-diagram (you can look at p57 for what this means).(First DeMorgan's Law)
+\begin{theorem}
+Let $A$, $B$, and $C$ sets. Then
+\[
+A-(B\cup C)=(A-B)\cap(A-C)
+\]
+\end{theorem}
+
+\begin{proof}
+\begin{align*}
+A-(B\cup C)&=\{x\in A: x\notin B\cup C\}=\{x\in A: \neg((x\in B)\vee (x\in C))\}=\\
+&=\{x\in A: \neg(x\in B)\wedge\neg(x\in A)\}=\\
+&=\{x\in A:\neg(x\in B)\}\cap\{x\in A:\neg(x\in C)\}=(A-B)\cap(A-C)
+\end{align*}
+where the DeMorgan law for the Boolean operators was used to obtain the second equality.
+\end{proof}
+
+
+%\item Prove or disprove the following statements.
+%\enumb
+%\item $A\cup B=A\cap B$ if and only if $A=B$.
+%\item $A-\emptyset=A$ and $\emptyset-A=\emptyset$.
+%\item $A\Delta A=\emptyset$ and $A\Delta \emptyset= A$.
+%\item $A\subseteq B$ if and only if $A-B=\emptyset$.
+%\item $A-(B-C)=(A-B)-C$.
+%\item $(A\cup B)-C=(A-C)\cap(B-C)$.
+%\item If $B=A\cup C$ then $A=B-C$.
+%\item $|A-B|=|A|-|B|$.
+%\enume
+
+
+
+\item Let $A$ and $B$ be sets with $|A|=10$ and $|B|=7$.
+\enumb
+\item Calculate $|A\cap B|+|A\cup B|$.
+
+
+\vspace{0.2cm}
+\textit{Since $|A\cup B|=|A|+|B|-|A\cup B|$, the answer is $10+7=17$.}
+\vspace{0.2cm}
+
+\item Find an upper bound $y$ and a lower bound $x$ for $|A\cup B|$, that are sharp. That is 
+\[
+x\leq|A\cup B|\leq y.
+\]
+To show that your answer is sharp, find sets such that $|A\cup B|=x$ and $|A\cup B|=y$ exactly.
+\[
+10=|A|\leq |A\cup B|\leq |A|+|B|=17
+\]
+
+\vspace{0.2cm}
+\textit{The lower bound is sharp as shown by the example $B\subseteq A$, while the upper bound is sharp as shown by the example $A\cap B=\emptyset$.}
+\vspace{0.2cm}
+
+\begin{remark}
+In general, one has the bounds
+\[
+\max(|A|,|B|)\leq|A\cup B|\leq|A|+|B|
+\]
+\end{remark}
+
+\enume
+\item Prove the following proposition:
+\begin{proposition}
+Let $n$ be an integer. Then
+\[
+2^0+2^1+...+2^{n-1}=2^n-1
+\]
+\end{proposition}
+
+\vspace{0.2cm}
+\textit{Solution is on the last slide.}
+\vspace{0.2cm}
+
+
+\enume 
+\end{document}

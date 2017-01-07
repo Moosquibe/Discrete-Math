@@ -1,0 +1,65 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{graphics}
+\usepackage{tikz}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\integers{\mathbb{Z}}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\title{Discrete Mathematics, 2016 Fall - Worksheet 18}
+\author{Instructor: Zsolt Pajor-Gyulai, CIMS}
+\date{November 30, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+In all of the above problems explain your answer in full English sentences.
+
+\enumb
+\item Solve the single congruence
+\[
+7k+1\equiv 3~({\rm mod}~11)
+\]
+
+\item Solve the following system of equation
+\[
+x\equiv 4~({\rm mod}~5),\qquad x\equiv 7~({\rm mod}~11)
+\]
+
+\item Factor the following positive integers into primes.
+\enumb
+\item $25$
+\item $4200$
+\item $10^{10}$
+\item $19$
+\item $1$
+\enume
+\item Let $a$ and $b$ be positive integers. Prove that $a$ and $b$ are relatively prime if and only if there is no prime $p$ such that $p|a$ and $p|b$.
+\item Let $a$ and $b$ be positive integers. Prove that $2^a$ and $2^b-1$ are relatively prime by considering their prime factorizations.
+
+\item Prove that if $a,p\in\mathbb{Z}$ with $p$ prime and $p|a^2$, then $p|a$.
+\enume
+
+\noindent\underline{\textbf{Optional programming exercise:}}
+
+\noindent Write a function that factorizes integers into primes, i.e. one that for a given integer input $n$ returns a list containing the prime factors of $n$ (a prime factor can appear in the list multiple times). 
+
+\noindent Look up the sieve of Erastothenes on Wikipedia and implement that algorithm. Compare the speed of this algorithm with your approach for large $n$.
+\end{document}

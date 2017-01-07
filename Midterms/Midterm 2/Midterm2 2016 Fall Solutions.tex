@@ -1,0 +1,382 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, graphicx, hyperref}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{multirow, multicol}
+\usepackage{pdfpages}
+\usepackage{stfloats}
+\usepackage{tikz}
+\pagestyle{fancy}
+
+\fancypagestyle{firststyle}
+{
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[LO]{\includegraphics{nyu_short_black}}
+  \fancyhead[RO]{}
+	\fancyfoot{}
+}
+
+\fancyhead[LO]{\scalebox{0.25}{\includegraphics{nyu_short_black}}}
+\fancyhead[RO]{\tiny MATH-UA.120.002}
+
+
+%\fancyfoot[RO]{\begin{tikzpicture}
+%[scale=1, line/.style={black}]
+%\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+%%\node at (-0.5, 1) [anchor=east]{\large Score};
+%\end{tikzpicture}}
+
+\newcommand*\mycirc[1]{%
+  \begin{tikzpicture}[baseline=(C.base)]
+    \node[draw,circle,inner sep=1pt](C) {#1};
+  \end{tikzpicture}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\proj}{\textbf{proj}}
+\newcommand{\curl}{\textrm{curl }}
+\newcommand{\divergence}{\textrm{div }}
+% For boldface vectors:
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\renewcommand\arraystretch{2}
+
+\newtheorem*{proposition}{Proposition}
+
+
+\begin{document}
+\thispagestyle{firststyle}
+~
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{\Large MATH-UA.120.001 - Discrete Mathematics \\ \vspace{0.5cm} Midterm 2}\\~\\
+Monday, November 14, 2016
+\end{center}
+
+\vspace{1cm}
+
+%\noindent
+%\textbf{Name:} \underline{\hspace{15cm}}
+
+\vspace{1cm}
+
+\noindent
+This exam is scheduled for 110 minutes, to be done individually, without calculators, notes, textbooks, and other outside materials.
+\vspace{0.5cm}
+
+\noindent
+\textbf{Show all work to receive full credit, except where specified.}
+
+\vspace{1cm}
+
+\begin{multicols}{2}
+\noindent
+
+\noindent
+\fbox{\parbox{10cm}{
+\vspace{1cm}
+\noindent
+\textbf{Name: }
+
+\vspace{1cm}
+
+\noindent
+\textbf{NYU NetID (email): }
+
+
+\vspace{2cm}
+
+\noindent
+\emph{I pledge that I have observed the NYU honor code, and that I have neither given nor received unauthorized assistance during this examination.}
+\noindent
+
+
+
+\noindent
+
+\vspace{1cm}
+
+\noindent
+\textbf{Signature:}
+
+\vspace{2cm}
+}}
+%
+%\vspace{0.5cm}
+%
+
+\begin{flushright}
+\begin{tabular}{| c | c |}
+\hline
+Problem & Points \\
+\hline
+% & \\
+TF & ~~~~~~~~~/20\\[0.5cm]
+%& \\
+\hline
+% & \\
+1 & ~~~~~~~~~/20\\[0.5cm]
+%& \\
+\hline
+% & \\
+2 & ~~~~~~~~~/10\\[0.5cm]
+%& \\
+\hline
+% & \\
+3 & ~~~~~~~~~/20\\[0.5cm]
+%& \\
+\hline
+% & \\
+4 & ~~~~~~~~~/30\\[0.5cm]
+%& \\
+\hline
+\hline %& \\
+Total & ~~~~~~~~~/100\\[0.5cm]
+%& \\
+\hline
+\end{tabular}
+\end{flushright}
+
+\end{multicols}
+
+\newpage
+
+\section*{Answer Sheet (for Problem 1 True/False)} \label{answersheet}
+
+%(3 points each) Select the correct option.  You need not explain your answer.  No partial credit will be given.
+%
+%\vspace{0.5cm}
+
+\noindent
+\textbf{You must record your final answers on the following answer sheet.  Only this page will be graded.}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tabular}{| c | c c c c c |}
+\hline
+
+1 & \mycirc{T} & \mycirc{F} & & &  \\
+% & & & & & \\
+2 & \mycirc{T} & \mycirc{F} & & &   \\
+% & & & & & \\
+3 & \mycirc{T} & \mycirc{F} & & &   \\
+% & & & & & \\
+4 & \mycirc{T} & \mycirc{F} & & &  \\
+% & & & & & \\
+5 & \mycirc{T} & \mycirc{F} & & &  \\
+6 & \mycirc{T} & \mycirc{F} & & & \\
+7 & \mycirc{T} & \mycirc{F} & & & \\
+8 & \mycirc{T} & \mycirc{F} & & & \\
+9 & \mycirc{T} & \mycirc{F} & & & \\
+10 & \mycirc{T} & \mycirc{F} & & & \\
+\hline
+\end{tabular}
+\end{center}
+\begin{flushright}
+\begin{tikzpicture}
+[scale=1, line/.style={black}]
+\draw[line] (0, 0)--(2,0)--(2, 2)--(0, 2)--(0, 0);
+\node at (-0.5, 1) [anchor=east]{\Large TOTAL};
+\end{tikzpicture}
+\end{flushright}
+\renewcommand\arraystretch{1}
+
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+
+\newpage
+\section*{True or False}
+
+(2 points each) Determine if each of the following statement is TRUE or FALSE.\\Choose TRUE if the statement is always true, and choose FALSE if it is not always true. Each question is worth 3 points.
+
+\vspace{0.2cm}
+
+\noindent
+\textbf{Indicate your solution in the answer sheet on page \pageref{answersheet}.  You need not provide any justification.}
+
+
+\begin{enumerate}
+\item The set $[1,2]\cup\mathbb{Z}$ satisfies the well ordering principle. FALSE, this is not a subset of the naturals.
+\vspace{0.6cm}
+\item Let $A=\{1,2,3,4\}$ and $B=\{2,3,4,5,6\}$. Then the relation $\{(1,5), (2,2), (3,1),(4,2)\}$ is a one to one function $f:A\to B$. FALSE, $f(2)=f(4)=2$.
+\vspace{0.6cm}
+\item Let $A$ and $B$ be finite sets. Assume $f:A\to B$ is onto and that there is a function $g:B\to A$ that is onto. Then $f$ is a bijection. TRUE, If $f$ is onto then $|A|\leq|B|$. Similarly, since $g$ is onto, we have $|B|\leq |A|$ and putting the two together gives $|A|=|B|$. Now if $f$ was not one to one, then it would take at least one value at least twice and therefore it could not be onto (draw an example to make this clear). This means that $f$ is both one to one and onto, hence a bijection.
+\vspace{0.6cm}
+\item $(h\circ g\circ f)^{-1}=f^{-1}\circ g^{-1}\circ h^{-1}$ TRUE (see HW 9)
+\vspace{0.6cm}
+\item For any five points in the unit square $[0,1]\times[0,1]$, the distance between the two closes points must be less than or equal to $\frac{1}{\sqrt{2}}$. TRUE, by the Pigeonhole principle, at least two of the points belong to the same quadrant of the unit square (e.g. $[0,\frac{1}{2}]\times [0,\frac{1}{2}]$). Since all the points in this quadrant are less than $\frac{1}{\sqrt{2}}$, the statement holds true.
+\vspace{0.6cm}
+\item There is no onto function from $\mathbb{N}$ to the set of all (finite or infinite) sequences of the natural numbers where no number appears more than once. TRUE, note that such a sequence is uniquely defines a subset of $\mathbb{N}$. By Cantor's theorem, there cannot be an onto function.
+\vspace{0.6cm}
+\item Let $f:\mathbb{R}\to\mathbb{R}$ and $g:\mathbb{R}\to\mathbb{R}$ such that $g$ is one-to-one and $f$ is onto. Then $f\circ g$ is necessarily onto. FALSE, e.g. take
+$f(x)=x$ and $g$ be any not onto one-to-one function, e.g. $g(x)=e^{x}$.
+\vspace{0.6cm}
+\item Suppose $S$ is a set of $8$ integers. There exist distinct $a, b \in S$ such that $a - b$ is a multiple of $7$. TRUE, see practice midterm.
+\vspace{0.6cm}
+\item A triangle that is isosceles but not equilateral (two sides are the same length, but the third one is different has $2$ symmetries. TRUE, Identity + reflection through the axis perpendicular to the base of the triangle.
+\vspace{0.6cm}
+\item Suppose $f,g:\mathbb{R}\to\mathbb{R}$ are defined by
+\[
+f(x)=x^2+4x-2,\qquad g(x)=x+2
+\]
+Then $(f\circ g)(x)-(g\circ f)(x)=2x^2-4x+4$. FALSE, compute.
+\end{enumerate}
+\begin{center}
+\textbf{Make sure that you have marked your final answers on the answer sheet on page \pageref{answersheet}. Only answers on that page will be graded.}
+\end{center}
+\newpage
+\section*{Free Response}
+
+\textbf{Show all work and justification.} 
+
+\begin{enumerate}
+\item (20 points) Solve the following recurrence relations.
+\begin{enumerate}
+\item $a_n=4a_{n-1}-3$; $a_0=-1$.
+We know from class to look for the solution in the form $a_n=c_14^n+c_2$. Matching with the values $a_0=-1$ and $a_1=4(\cdot -1)-3=-7$, yields the equations $c_1+c_2=-1$ and $4c_2+c_2=-7$ which yields $c_1=-2$ and $c_2=1$. Thus
+\[
+a_n=(-2)4^n+1
+\]
+
+\item $a_n=6a_{n-1}-9a_{n-2}$; $a_0=-1$, $a_1=2$.
+The characteristic equation is $r^2-6r+9=0$, which has a single root $r=3$. Therefore we look for the solution in the form
+\[
+a_n=3^n(c_1+c_2n)
+\]
+Matching with the initial values give the equations $a_0=-1=c_1$ and $a_1=2=3(c_1+c_2)$ and thus $c_1=-1$ and $c_2=5/3$. Thus
+\[
+a_n=\left(\frac{5}{3}n-1\right)3^n
+\]
+\end{enumerate}
+\newpage
+\item (10 points) Suppose $a_n$ is a polynomial sequence with the following entries.
+\[
+a_0=10,\qquad a_1=14,\qquad a_2=14,\qquad
+a_3=10,
+\]
+\[
+a_4=2,\qquad
+a_5=-10,\qquad
+a_6=-26.
+\]
+Find $a_{100}$.
+
+\[
+\begin{array}{rcccccccccccccc}
+a:&&10&&14&&14&&10&&2&&-10&&-26\\
+\Delta a:&&&4&&0&&-4&&-8&&-12&&-16&\\
+\Delta^2 a:&&&&-4&&-4&&-4&&-4&&-4&&\\
+\Delta^3 a:&&&&&0&&0&&0&&0&&&
+\end{array}
+\]
+Thus
+\[
+a_n=10\binom{n}{0}+4\binom{n}{1}-4\binom{n}{2}=10+4n-4\frac{n(n-1)}{2}=-2n^2+6n+10.
+\]
+Thus $a_{100}=-2\cdot 10000+600+10=-19390$
+\newpage 
+\item (20 points)
+\begin{enumerate}
+\item (10 points) Show that for all $n\geq 2$,
+\[
+\prod_{i=2}^{n}\left(1-\frac{1}{i^2}\right)=\left(1-\frac{1}{4}\right)\left(1-\frac{1}{9}\right)\dots\left(1-\frac{1}{n^2}\right)=\frac{n+1}{2n}.
+\]
+\begin{proof}
+We prove this by induction. The base case $n=2$ checks out as
+\[
+\left(1-\frac{1}{2^2}\right)=\frac{3}{4}=\frac{2+1}{2\cdot 2}.
+\]
+Assuming that the result holds for $n=k-1$, we have
+\[
+\prod_{i=2}^{k-1}\left(1-\frac{1}{i^2}\right)=\frac{k}{2k-2}.
+\]
+Multiplying both sides by $\left(1-\frac{1}{k^2}\right)$, we get
+\[
+\prod_{i=2}^{k-1}\left(1-\frac{1}{i^2}\right)=\frac{k}{2k-2}\left(1-\frac{1}{k^2}\right)=\frac{k^2-1}{2(k-1)k}=\frac{k+1}{2k}.
+\]
+and the result holds for $n=k$ as well. This finishes the proof by induction.
+\end{proof}
+\item (10 points) Prove that if $f:\{1,2,\dots\}\to \{1,2,\dots\}$ is a function and
+\[
+f(n+1)>f(n),\qquad\forall n\geq 1
+\]
+then $f(n)\geq n$ for every $n\geq 1$.
+\begin{proof}
+I prove this again by induction, but you could have used smallest counterexample as well. The base case $f(1)\geq 1$ is true as the image of $f$ must be contained in $\{1,2,\dots\}$. As the induction hypothesis, assume that the result holds for $n=k-1$, i.e.
+\[
+f(k-1)\geq k-1.
+\]
+Then 
+\[
+f(k)>f(k-1)\geq k-1.
+\]
+By the strict inequality and the fact that $f(k)$ takes integer values, this implies that $f(k)$ has to be at least $k$ and the result holds for $n=k$. The proof is finished by induction.
+\end{proof}
+\end{enumerate}
+\newpage
+\item 
+\begin{enumerate}
+\item (10 points) Write the cycle decomposition of $(2,4,5,3)(1,6)\circ (1,5,2,6)(3,4)$. Also write this permutation as a product of transpositions. Is this permutation even or odd?
+
+The cycle decomposition is $(1,3,5,4,2)(6)$. We can write this as a composition of transpositions as $(1,2)\circ (1 4) \circ (1,5) \circ (1,3)$. We can read off from this that we are dealing with an even permutation.
+
+\item (10 points) Recall that $S_{11}$ is the set of all permutations on the set $\{1,2,3,\dots,11\}$. Define the function $f:S_{11}\to S_{11}$ by the formula
+\[
+f(\pi)=(1,2,3)\circ\pi.
+\]
+Prove that $f$ is an injective (one-to-one) function.
+
+\begin{proof}
+To show that $f$ is one-to-one, we use the direct method. Thus assume there are two $\pi_1,\pi_2\in S_{11}$ such that $f(\pi_1)=f(\pi_2)$, i.e.
+\[
+(1,2,3)\circ\pi_1=(1,2,3)\circ \pi_2.
+\]
+Multiplying both side of this by the inverse $(1,2,3)^{-1}=(1,3,2)$, we get using associativity
+\[
+\pi_1=((1,3,2)\circ(1,2,3))\circ\pi_1=(1,3,2)\circ((1,2,3)\circ\pi_1)=(1,3,2)\circ((1,2,3)\circ\pi_2)
+\]
+\[
+=((1,3,2)\circ(1,2,3))\circ\pi_2=\pi_2.
+\]
+Thus $f$ is one-to-one.
+\end{proof}
+
+HINT: What is the inverse of $(1,2,3)$?
+
+\item (10 points) Let now $g:S_{11}\to S_{11}$ by the formula
+\[
+g(\pi)=\pi\circ\pi
+\]
+Show that $g$ is not one to one. 
+
+HINT: Transpositions.
+
+\begin{proof}
+Note that e.g. 
+\[
+g((1,2))=(1,2)\circ(1,2)=\iota
+\]
+\[
+g((1,3))=(1,3)\circ (1,3)=\iota
+\]
+and therefore $g$ is not one-to-one. (Any transposition would yield the identity).
+\end{proof}
+\end{enumerate}
+
+\end{enumerate}
+
+\newpage
+\noindent
+\textbf{Extra paper}
+%
+%\newpage
+%\noindent
+%\textbf{Extra paper}
+
+%\includepdf[pages=1-2]{FormulaSheets.pdf}
+
+\end{document}

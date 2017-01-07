@@ -1,0 +1,455 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  \usecolortheme{orchid}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{footline}[frame number]
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{cancel}
+
+
+\usetikzlibrary{shapes,backgrounds}
+
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+\def\blue{\color{blue}~}
+\def\black{\color{black}~}
+\def\bl[#1]#2{\begin{block}{#1}#2\end{block}}
+\def\integers{\mathbb{Z}}
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\itemb{\begin{itemize}}
+\def\iteme{\end{itemize}}
+\def\div{~\textrm{div}~}
+\def\mod{~\textrm{mod}~}
+
+
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+\title{Discrete Mathematics, Section 001, Fall 2016}
+\subtitle{Lecture 18: First steps in number theory.}
+\date{November 16, 2016}
+
+\author[Zsolt]{Zsolt Pajor-Gyulai \\ \texttt{zsolt@cims.nyu.edu}}
+
+\pgfdeclareimage[height=1cm]{NYUlogo}{NYUlogo.jpg}
+
+\institute[NYU] 
+{
+\normalsize Courant Institute of Mathematical Sciences
+}
+\titlegraphic{\pgfuseimage{NYUlogo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}}
+
+\section{Dividing}
+
+\begin{frame}{Division with remainder}
+\bl[Theorem]{Let $a,b\in\mathbb{Z}$ with $b\neq 0$. There exist integers $q$ and $r$ such that
+\[
+a=\color{red} q\color{black}b+\color{red}r\color{black}\qquad 0\leq r< |b|
+\]
+Moreover, there is only one such pair of integers $(q,r)$.}
+\[
+q:\textrm{quotient}\qquad r: \textrm{remainder}
+\]
+
+\bl[Example]{Let $a=-37$ and $b=5$. Then $q=-8$ and $r=3$ because
+\[
+-37=\color{red}-8\color{black}\times 5+\color{red}3\color{black}\qquad\textrm{and }\qquad 0\leq 3<5.
+\]\vspace{-0.5cm}}
+\end{frame}
+
+\begin{frame}{Division with remainder}
+\bl[Theorem]{Let $a,b\in\mathbb{Z}$ with $b\neq 0$. There exist integers \color{red}$q$\color{black}~ and \color{red}$r$\color{black}~ such that
+\[
+a=\color{red} q\color{black}b+\color{red}r\color{black}\qquad 0\leq r<|b|
+\]
+Moreover, there is only one such pair of integers $(q,r)$.}
+Things to prove:
+\itemb
+\item There is such a pair $(\color{red}q\color{black},\color{red}r\color{black})$:
+\itemb
+\item $a=\color{red}q\color{black}b+\color{red}r\color{black}$
+\item $0\leq\color{red} r\color{black}<|b|$
+\iteme 
+\item There is at most one such pair.
+\iteme
+\vspace{0.3cm}
+\underline{Idea of the proof for $b>0$:} Keep substracting multiples of $b$ from $a$, then the smallest natural number we can get like this will be \color{red}$r$\color{black}:
+\[
+a-\color{red}q\color{black}b=\color{red}r\color{black}
+\]
+
+\end{frame}
+
+\begin{frame}{Existence proof when $b>0$}
+\bl[]{
+ There is a pair $(\color{red}q\color{black},\color{red}r\color{black})$:
+\itemb
+\item $a=\color{red}q\color{black}b+\color{red}r\color{black}$
+\item $0\leq \color{red}r\color{black}<b$
+\iteme }
+Let
+\[
+B=\{a-bk: k\in\mathbb{Z}, a-bk\geq 0\}\subseteq \mathbb{N}
+\]
+and note that $B\neq\emptyset$ as
+\enumb
+\item if $a\geq 0$, then $a\in B$ (choose $k=0$),
+\item if $a<0$, then choose $k<\frac{a}{b}$.
+\enume
+Thus, the Well-Ordering Principle states that there is a least element $\color{red}r\color{black}\in B$. Since $\color{red}r\color{black}\in B$, there is a $\color{red}q\color{black}\in\mathbb{Z}$ such that
+\[
+\color{red}r\color{black}=a-b\color{red}q\color{black}
+\]
+Thus $a=\color{red}q\color{black}b+\color{red}r\color{black}$ and $\color{red}r\color{black}\geq 0$. It remains to show that $\color{red}r\color{black}<b$. 
+
+  [...]
+\end{frame}
+
+\begin{frame}
+{Existence proof when $b>0$}
+\bl[]{
+ There is a pair $(\color{red}q\color{black},\color{red}r\color{black})$:
+\itemb
+\item $a=\color{red}q\color{black}b+\color{red}r\color{black}$
+\item $0\leq \color{red}r\color{black}<b$
+\iteme }
+[...]
+
+For the sake of contradiction, suppose that $\color{red}r\color{black}\geq b$. Then
+\[
+a-\color{red}q\color{black}b=\color{red}r\color{black}\geq b
+\]
+and therefore 
+\[
+r'=\color{red}r\color{black}-b=(a-\color{red}q\color{black}b)-b=a-(\color{red}q\color{black}+1)b\geq 0.
+\]
+This implies $r'\in B$, but $r'<\color{red}r\color{black}$ and $\color{red}r\color{black}$ was the least element of $B$.$~~\Rightarrow\Leftarrow~$. This finishes the existence proof.
+\end{frame}
+
+\begin{frame}{Uniqueness proof}
+\bl[]{There is at most one pair $(\color{red}q\color{black},\color{red}r\color{black})$ such that
+\itemb
+\item $a=\color{red}q\color{black}b+\color{red}r\color{black}$
+\item $0\leq \color{red}r\color{black}<|b|$
+\iteme}
+
+Suppose, for the sake of contradiction, that there are two different pairs of numbers $(q,r)$ and $(q',r')$ that satisfies the conditions; that is
+\[
+\begin{array}{cc}
+a=qb+r&0\leq r< |b|\\
+a=q'b+r'&0\leq r'<|b|
+\end{array}
+\]
+Combining these
+\[
+qb+r=q'b+r'\qquad\Rightarrow\qquad  r-r'=(q'-q)b.
+\]
+and therefore $b|r-r'$. But $0\leq r,r'<|b|$ and therefore
+\[
+r=r'.
+\]\vspace{-0.6cm}
+
+[...]
+\end{frame}
+\begin{frame}{Uniqueness proof}
+\bl[]{There is at most one pair $(q,r)$ such that
+\itemb
+\item $a=qb+r$
+\item $0\leq r<|b|$
+\iteme}
+[...]
+
+Thus
+\[
+qb+r=a=q'b+r'=q'b+r\qquad\Rightarrow\qquad qb=q'b
+\]
+and since $b>0$, this implies $q=q'$. This means that 
+\[
+(q,r)=(q',r')
+\]
+and therefore the two pairs weren't different. $~\Rightarrow\Leftarrow~$. Therefore, the quotient and remainder are unique. This finishes the proof of the theorem. \qed
+\end{frame}
+
+\begin{frame}{A simple corollary}
+\bl[Corollary]{Every integer is either even or odd, but not both}
+\begin{proof}
+Let $n\in\mathbb{Z}$. We can find $q,r\in\mathbb{Z}$ such that $n=2q+r$ where $r=0,1$. If $r=0$ then $n$ is even and if $r=1$ then $n$ is odd.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Div and Mod}
+\bl[Definition]{
+Let $a,b\in\mathbb{Z}$ with $b>0$ and let $q,r\in\mathbb{Z}$ be the unique integers such that $a=qb+r$ and $0\leq r<b$. Then we say
+\[
+a~\textrm{div}~b=q,\qquad a~\textrm{mod}~ b=r.
+\]}
+For example,
+\[
+\begin{array}{cc}
+11\div 3 =3&11\mod 3=2\\
+23\div 10=2&23\mod 10=3\\
+-37\div 5=-8&-37\mod 5=3
+\end{array}
+\]
+\textbf{Q:} What is the connection to the earlier definition of $\mod$?
+\bl[Proposition]{
+Let $a,b,n\in\mathbb{Z}$ with $n>0$. Then
+\[
+a\equiv b~~ (\textrm{mod } n)\qquad\Leftrightarrow\qquad a\mod n=b\mod n.
+\]
+}
+\end{frame}
+
+\section{Greatest Common Divisor}
+
+\begin{frame}{Definitions}
+\bl[Definition]{Let $a,b\in\mathbb{Z}$. We call $d\in\mathbb{Z}$ a \textbf{common divisor} of $a$ and $b$ provided $d|a$ and $d|b$.}
+For example, if $a=30$ and $b=24$, then the common divisors are
+\[
+-6,-3,-2,-1,1,2,3,6
+\]\vspace{-0.4cm}
+
+\bl[Definition]{Let $a,b\in\mathbb{Z}$. We call $d\in\mathbb{Z}$ the \textbf{greatest common divisor} of $a$ and $b$, provided 
+\enumb
+\item[(1)] $d$ is a common divisor of $a$ and $b$,
+\item[(2)] if $e$ is a common divisor of $a$ and $b$, then $e\leq d$.
+\enume
+Notation: $gcd(a,b)$}
+For example, $gcd(30,24)=6$.
+\end{frame}
+
+\begin{frame}{Computing $gcd(a,b)$}
+We assume for simplicity that $a$  and $b$ are positive integers.
+\underline{Alternative 1:} Brute force
+\itemb
+\item For every positive integer $k$ from $1$ to $min(a,b)$, check whether $k|a$ and $k|b$. If so, save that number $k$ on a list.
+\item Choose the largest number on the list, that is $gcd(a,b)$.
+\iteme
+This is terribly slow. 
+\end{frame}
+
+\begin{frame}{Computing $gcd(a,b)$}
+\underline{Alternative 2}: Euclidean algorithm.
+\itemb
+\item If $b|a$ then $gcd(a,b)=|b|$.
+\item If $b\not|~a$, then write
+\[
+\begin{array}{cc}
+a=bq_1+r_1,& 0<r_1<|b|\\
+b=r_1q_2+r_2,& 0<r_2<r_1\\
+r_1=r_2q_3+r_3&0<r_3<r_2\\
+\vdots&\vdots\\
+r_{n-2}=r_{n-1}q_n+r_n& 0<r_n<r_{n-1}\\
+r_{n-1}=r_nq_{n+1}
+\end{array}
+\]
+\iteme
+This finishes in finite steps as the sequence of remainders decreases:
+\[
+|b|>r_1>r_2>\dots>r_{n-1}>r_n>0
+\]
+Then $gcd(a,b)=r_n$.
+\end{frame}
+
+\begin{frame}{Computing $gcd(a,b)$}
+\itemb
+\item For example, find $gcd(689,234)$.
+\[
+\begin{array}{c}
+\textcolor{blue}{689}=2\cdot\textcolor{blue}{234}+\color{blue}221\color{black}\\
+\textcolor{blue}{234}=1\cdot \color{blue}221\color{black}+\color{blue}13\color{black}\\
+\color{blue}221\color{black}=17\cdot \color{blue}13\color{black}
+\end{array}
+\]
+and therefore $gcd(689,234)=13$.
+\item Another example, find $gcd(431,29)$.
+\[
+\begin{array}{c}
+\textcolor{blue}{431}=14\cdot \textcolor{blue}{29}+\textcolor{blue}{25}\\
+\textcolor{blue}{29}=1\cdot \textcolor{blue}{25}+\textcolor{blue}{4}\\
+\textcolor{blue}{25}=6\cdot \textcolor{blue}{4}+\textcolor{blue}{1}\\
+\textcolor{blue}{4}=4\cdot \textcolor{blue}{1}
+\end{array}
+\]
+and therefore $gcd(431,29)=1$.
+\iteme
+\end{frame}
+
+\begin{frame}{Computing $gcd(a,b)$}
+\[
+\begin{array}{cc}
+a=bq_1+r_1,& 0<r_1<|b|\\
+b=r_1q_2+r_2,& 0<r_2<r_1\\
+r_1=r_2q_3+r_3&0<r_3<r_2\\
+\vdots&\vdots\\
+r_{n-2}=r_{n-1}q_n+r_n& 0<r_n<r_{n-1}\\
+r_{n-1}=r_nq_{n+1}
+\end{array}
+\]
+\itemb
+\item $r_n$ is a common divisor:
+\[
+r_n|r_{n-1}\rightarrow r_n|r_{n-2}\rightarrow\dots\rightarrow r_n|b\rightarrow r_n|a
+\]
+\item $r_n$ is a $gcd$: Let $c|a$, $c|b$. Then
+\[
+c|(a-bq_1)=r_1\to c|(b-r_1q_2)=r_2\to\dots\to c|(r_{n-2}-r_{n-1}q_n)=r_n
+\]
+\iteme
+Both argument can be made precise by induction.
+\end{frame}
+
+\begin{frame}
+\[
+\begin{array}{cc}
+a=bq_1+r_1,& 0<r_1<|b|\\
+b=r_1q_2+r_2,& 0<r_2<r_1\\
+r_1=r_2q_3+r_3&0<r_3<r_2\\
+\vdots&\vdots\\
+r_{n-2}=r_{n-1}q_n+r_n& 0<r_n<r_{n-1}\\
+r_{n-1}=r_nq_{n+1}
+\end{array}
+\]
+By starting the algorithm from the second line, we also proved
+
+\bl[Proposition]{Let $a$ and $b$ be positive integers and let $c=a\mod b$. Then
+\[
+gcd(a,b)=gcd(a,a\mod b)
+\]}
+The Euclidean algorithm can be written as
+\[
+gcd(a,b)=gcd(b,r_1)=gcd(r_1,r_2)=\dots=gcd(r_n,0)=r_n
+\]
+\end{frame}
+
+\begin{frame}{Recursive version of the Euclidean algorithm}
+\bl[]{
+Input: Positive integers $a$ and $b$.\\
+Output: $gcd(a,b)$
+\enumb
+\item[(1)] Let $c= a\mod b$.
+\item[(2)] If $c=0$, then we return $b$ and stop.
+\item[(3)] Otherwise, return $gcd(b,c)$.
+\enume}
+
+\textbf{Q:} What about when $a$ or $b$ is not a positive integer?
+\itemb
+\item Note that the list of divisors for $a$ and $-a$ are the same.
+\item Same for $b$ and $-b$. 
+\iteme
+\bl[]{$gcd(a,b)=gcd(|a|,|b|)$}
+There is only one exception when this does not help: $a=b=0$.
+\end{frame}
+
+\begin{frame}
+\bl[Theorem]{Let $a$ and $b$ be positive integers. There are $u,v\in\mathbb{Z}$ such that 
+\[
+gcd(a,b)=ua+vb
+\]}
+First:
+\[
+\begin{array}{cccc}
+a=bq_1+r_1&\to&r_1=a-bq_1\\
+\end{array}
+\]
+Second:
+\[
+\begin{array}{c}
+b=r_1q_2+r_2\\
+\downarrow\\
+r_2=b-r_1q_2=b-q_2(a-bq_1)=a(-q_2)+b(1+q_1q_2)
+\end{array}
+\]
+and one can proceed similarly until reaching $r_n=ua+vb$.
+\end{frame}
+
+\begin{frame}
+For example, find $x$ and $y$ integers such that
+\[
+\textcolor{blue}{431}x+\textcolor{blue}{29}y=gcd(\textcolor{blue}{431},\textcolor{blue}{29})(=1)
+\]
+Write
+\[
+\begin{array}{c}
+\textcolor{blue}{431}=14\cdot \textcolor{blue}{29}+\textcolor{blue}{25}\\
+\textcolor{blue}{29}=1\cdot \textcolor{blue}{25}+\textcolor{blue}{4}\\
+\textcolor{blue}{25}=6\cdot \textcolor{blue}{4}+\textcolor{blue}{1}\\
+\textcolor{blue}{4}=4\cdot \textcolor{blue} {1}
+\end{array}
+\]
+Therefore 
+\[
+25=\textcolor{blue}{431}-14\cdot \textcolor{blue}{29}
+\]
+\[
+4=\textcolor{blue}{29}-1\cdot 25=\textcolor{blue}{29}-\textcolor{blue}{431}+14\cdot \textcolor{blue}{29}=15\cdot\textcolor{blue}{29}-\textcolor{blue}{431}
+\]
+\[
+1=25-6\cdot 4=(\textcolor{blue}{431}-14\cdot \textcolor{blue}{29})-6(15\cdot \textcolor{blue}{29}-\textcolor{blue}{431})=7\cdot \textcolor{blue}{431}-(6\cdot 15+14)\cdot \textcolor{blue}{29}
+\]
+and so $x=7$ and $y=-104$.
+\end{frame}
+
+\begin{frame}{Relative primes}
+\bl[Proposition]{For $a,b\in\mathbb{Z}$ positive, $gcd(a,b)$ is the smallest integer of the form $ax+by$.}
+\begin{proof}
+Note $gcd(a,b)|(ax+by)$ and therefore $gcd(a,b)\leq ax+by$.
+\end{proof}
+\bl[Definition]{Let $a$ and $b$ be integers. We call $a$ and $b$ \textbf{relatively prime} provided $gcd(a,b)=1$.}
+
+\bl[Corollary]{Let $a$ and $b$ be integers. There exist integers $x$ and $y$ such that $ax+by=1$ if and only if $a$ and $b$ are relatively prime.}
+\end{frame}
+
+\begin{frame}[t]{Diophantine equations}
+Algebraic equations involving only integers are usually called Diophantine equations.
+\bl[Theorem]{
+Let $a,b,c$ be integers. The equation $ax+by=c$ has integer solution if and only if $gcd(a,b)|c$.
+}
+\bl[Proof]{
+\enumb
+\only<1>{\item[$\Rightarrow$] Assume that the pair of integers $x_0,y_0$ is a solution. Then
+\[
+gcd(a,b)|ax_0+by_0=c.
+\]}
+\only<2>{\item[$\Leftarrow$]  Assume $gcd(a,b)|c$, i.e. there is a $t\in\mathbb{Z}$, such that $gcd(a,b)t=c$. Take $u,v\in\mathbb{Z}$ such that\vspace{-0.2cm}
+\[
+gcd(a,b)=au+bv
+\]\vspace{-0.6cm}\\
+and multiply by $t$ to get\vspace{-0.2cm}
+\[
+c=t\cdot gcd(a,b)=a(ut)+b(vt).
+\]\vspace{-0.7cm}\\
+Thus $x=ut$ and $y=vt$ is a solution.\qed}
+\enume}
+
+\end{frame}
+
+
+\end{document}

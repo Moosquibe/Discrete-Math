@@ -1,0 +1,234 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, graphicx, hyperref}
+\usepackage{fancyhdr}
+\usepackage{pdfpages}
+
+% Watermark - Sample Syllabus
+%\usepackage{draftwatermark}
+%\SetWatermarkText{Sample Syllabus}
+
+
+\pagestyle{fancy}
+\fancyhead[RO]{Fall 2016}
+\fancyhead[LO]{Discrete Math (MATH-UA.120.001)}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{aside}{Aside}
+\newtheorem*{remark}{Remark}
+\newtheorem*{claim}{Claim}
+\newtheorem*{note}{Note}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+
+\begin{document}
+%~
+%
+%\vspace{0.1cm}
+\thispagestyle{empty}
+\begin{center}
+\textbf{\Large
+MATH-UA.120.001: Discrete Math, Fall 2016 \\
+Syllabus}
+\end{center}
+
+\vspace{0.25cm}
+
+\noindent
+\begin{tabular}{l l p{2.4cm} l l}
+\textbf{Instructor} & Zsolt Pajor-Gyulai 	& & \textbf{Lecture} & MW 8:55pm-10:45pm\\
+\textbf{Email} & zsolt@cims.nyu.edu 	& & \textbf{Classroom} & Silv 410\\
+\textbf{Office} & WWH 1105A		& & \textbf{Course Page} & via NYU Classess\\
+\textbf{Office hours} & Mon 7:50-8:50am, 4:00-5:00pm. & & & \\ 
+							 ~ \\
+
+\end{tabular}
+
+
+
+%\vspace{0.5cm}
+
+\noindent
+%\hrulefill
+
+\section*{Welcome to Discrete Mathematics!}
+This course is a one-semester introduction to discrete mathematics with an
+emphasis on the understanding, composition and critiquing of mathematical proofs.
+\vspace{0.2cm}
+
+%\noindent
+%The importance of calculus can not be overstated! In physical and biological sciences, economics, and even social sciences, the transition from qualitative or descriptive understanding to a more quantitative understanding is invariably achieved through mathematics and calculus in particular. This is because \textbf{in all of these natural systems, one studies quantities that change with time or parameter values and the relations between such variables.} This is the reason why a strong foundation in calculus is necessary in order to understand your chosen field of study at a deeper level. 
+
+\section*{Goals of the course}
+By the end of the course, students will be able to:
+\begin{itemize}
+\item Write clear mathematical statements using standard notation and terminology.
+\item Understand and execute a variety of proof techniques (contradiction, induction, etc.).
+\item Show fluency in the language of basic set theory and Boolean logic.
+\item Understand the basic theorems and their implications in a variety of (discrete) fields including:
+\begin{itemize}
+\item Function theory
+\item Number theory
+\item Graph theory
+\end{itemize}
+\end{itemize}
+
+\section*{Textbook}
+
+Scheinerman, E., \emph{Mathematics: A Discrete Introduction. 3rd Edition.}
+
+\section*{Additional literature}
+
+Rosen, K. H., \emph{Discrete Mathematics and Its Applications. 7th Edition.}\\
+
+\noindent Epp, S.S., \emph{Discrete Mathematics with Applications. 4th Edition.}
+
+\section*{Assessments}
+%\begin{center}
+%\begin{tabular}{l c r}
+%Written Homework & ~ & 10\% \\
+%WebAssign Homework & ~ & 5\% \\
+%Quizzes \& In-Class Work & ~ & 15\% \\
+%Midterm 1 & ~ & 20\% \\
+%Midterm 2 & ~ & 20\% \\
+%Final Exam & ~ & 30\%
+%\end{tabular}
+%\end{center}
+
+\subsubsection*{Written Homework (25\%)}
+Written homework assignments will be due most weeks. These are distributed via the Classes site and collected in class or in case the homework is typeset, it may be uploaded to NYU classes. That means you must produce an electronic copy, in PDF
+format. You may compose your assignment using a mathematics typesetting language like LaTeX, mathematical
+software like Mathematica, or a standard word processor like Word with an equation editor.
+
+Further things to note:
+\begin{itemize}
+\item Homeworks are \textbf{due at the beginning of the lecture at the due date}.
+\item The lowest two homework score will be dropped. N.B. It is advised that students reserve this 'pass' for unexpected
+absences.
+\item In fairness to all students and graders, \textbf{no late homework} will be accepted. \textbf{No emailed homework} will be accepted.
+\item Rough grading rubriks for proof based problems:\\
+4 - Fully correct and supported (allowing for small typographical and, perhaps, arithmetical errors). 
+
+3 - Mostly correct, but one missed connection or misconception. 
+
+2 - Relevant work, perhaps correct setup and looking for the right type of solution, but not able to execute the core idea of the problem. 
+
+1 - For extremely unnecessarily long solutions containing good elements. (Like 2 pages instead of 2 lines.)
+
+0 - Missing or irrelevant work. 
+
+\item On top of this, there will be a progressively growing penalty (from simple warning to -1 point) for not giving your proofs in full English sentences.
+
+\item As a courtesy to the grader, he/she is allowed to send back homeworks for rewriting because of awful handwriting.  You are not allowed to put any extra work on it just rewrite it legible.
+\end{itemize}
+
+\subsubsection*{Quizzes (10\%) }
+
+\begin{itemize}
+\item Quizzes will take place in class.  
+\item The lowest three of these will be dropped.
+\item No make ups for any other reason than the ones detailed under \bf{Course Policies} below.
+\end{itemize}
+
+ 
+
+\subsection*{Midterm Exams}
+Location: In class.
+\begin{itemize}
+\item Midterm 1 (20\%) : October 12
+\item Midterm 2 (20\%) : November 14
+\end{itemize}
+\subsection*{Final Exam (35\%)}
+Date: December 19 \& Location: TBA
+
+
+
+\subsection*{Summary}
+The final score will be calculated according to the formula:
+\[
+FS=0.25\cdot HW\%+0.1\cdot Q\%+0.2\cdot M1\%+0.2\cdot M2\%+0.25\cdot F\%
+\]
+where, for example, HW\% is the percentage of the sum of the homework scores out of the maximum possible.
+
+\subsubsection*{Grades}
+
+Based on this final score, the following grade will be assigned:
+\begin{center}
+\begin{tabular}{c c c}
+\textbf{Cutoff}&~&\textbf{Letter Grade}\\
+93 & ~ &	A\\
+90 &~&	A-\\
+87 &~&	B+\\
+83 &~&	B\\
+80 &~&	B-\\
+77 &~&	C+\\
+70 &~&	C\\
+65 &~&	D\\
+\end{tabular}
+\end{center}
+Curving at the end of the semester is possible, but only downwards (i.e., towards better grades). However, no information about curving will be given out before the end of the semester (and therefore there is no point about asking the instructor about it). In the same vein, no letter grades are assigned to any individual midterms.
+
+\section*{How to succeed in this course!}
+\begin{itemize}
+\item \textbf{Get your hands dirty in class!}  Participate when we solve problems in class.
+
+\item \textbf{Spend time} on written assignments.  Expect each written assignment to take 4-8 hours.  This is your opportunity to wrestle with and to internalize new ideas introduced in class.
+
+\item \textbf{Prepare for quizzes}, for example, by practicing on textbook problems at the end of the section.
+
+\item \textbf{Get help} early:
+\begin{itemize}
+\item \textbf{Form study groups.} Collaboration is encouraged, but make sure that you write up your own homework.  In other words, you can work out the ideas and get the answers together but then your homework should demonstrate your own individual understanding. In further other words, do not blindly copy, it is very easy to spot.
+\item \textbf{Attend instructor and TAs' office hours}.  Office hours schedule, course information, homework assignments, and grades will be posted in \textbf{NYU Classes}.
+\item \textbf{Use the internet, but cautiously.} There is a plethora of information related on the course material. However, not all of them are 100 percent correct and you should be able to verify their validity. Think critically!
+
+%\item \textbf{Piazza}: Use the course Piazza page to post questions and to respond to classmates' questions.
+%
+%When you do, make sure to be courteous and respectful.  You should be enrolled in the course Piazza page automatically (if not, let me know).
+
+%\item \textbf{Mathematics Tutoring Center}: This is a free service offered by the math department to students in the calculus sequence.  It is located on the 5th floor of Warren Weaver Hall, Rooms 505 and 524.  For more information: {\footnotesize \url{http://math.nyu.edu/degree/undergrad/tutor_schedule.html}}.
+\end{itemize}
+\end{itemize}
+
+\section*{Course policies}
+There will be no accomodation for missed homework other then dropping the lowest Homework score in the end. There will be no make ups for quizzes or exams, except in the cases of illness, observance of religious holidays, and university sponsored events.  In the case of observance of religious holidays, you must make arrangements to make up missed work \textbf{at least one week in advance}.  In the case of illness, you must present a detailed letter from a physician/health care provider. A University sponsored event is for example and athletic tournament, a play, or a musical performance. Athletic practices and rehearsals do not fall into this category. Please have your coach, conductor, or other faculty adviser contact your instructor. In the case of extreme hardship other than medical, such as a family emergency, please contact the instructor to work out arrangement, appropriate documentation will be needed.
+
+We will not be able to make accommodation for
+purposes of more convenient travel, including already purchased tickets. Please note
+again the date of the final and plan your winter break travel accordingly.
+
+\subsection*{Technology and Calculators}
+
+Technology can play an important role in the learning of mathematics, and as such,
+graphing and scientific calculators are permitted for class and homework, though they will not be
+required. Calculators will not be permitted on tests and quizzes, and thus it is emphasized that
+students learn not to rely on them.
+
+\subsection*{Students who need special accommodation}
+
+Students who are in need of special arrangements must present a letter from the Moses Center(or arrange a letter to be sent) at the start of the course. Students who take their exam at Moses Center, needs to schedule this approximately one week before the exam takes place. Students will be given due warning a week ahead, but ultimately it is their responsibility to make the arrangement.
+
+\subsection*{Note on the grades $W$ and $I$}
+You may drop the course in the first three weeks without it appearing on your transcript. After
+that, and through the ninth week, you may withdraw and receive a grade of `W' on your transcript.
+No withdrawals are granted after the ninth week.
+A grade of `Incomplete' (I) is granted only in the rare circumstances that an emergency prevents
+a student in good standing from finishing the course in its last few weeks. As per the CAS Bulletin:
+Students who are ill or have a serious personal problem should see, call, or write to an
+adviser in the College Advising Center, College of Arts and Science, New York University,
+1 Silver Center, 100 Washington Square East, Room 905, New York, NY 10003-6688; 212-
+998-8130.
+
+\subsection*{Honor Code}
+
+We do not tolerate academic dishonesty.  You are expected to uphold academic integrity as specified by the university and the College of Arts and Sciences.  See \url{http://cas.nyu.edu/page/academicintegrity}. Guidelines regarding cheating and plagiarism are laid out in the College of Arts and Sciences guidelines and will be adhered to strictly. Collaboration is permitted, in fact encouraged, for home and class assignments; however, all submitted assignments must be written up independently and represent the student’s own work and understanding.
+\end{document}

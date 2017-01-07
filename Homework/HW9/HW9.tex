@@ -1,0 +1,98 @@
+\documentclass[11pt]{preprint}
+
+\setlength{\topmargin}{0mm} \setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{160mm} \setlength{\textheight}{215mm}
+
+\usepackage{amssymb,amsmath,amscd,amsthm}
+\usepackage{tikz}
+
+\newtheorem{proposition}{Proposition}
+
+\def\enumb{\begin{enumerate}}
+\def\enume{\end{enumerate}}
+\def\integers{\mathbb{Z}}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+\title{Discrete Mathematics, 2016 Spring - HW 9}
+\author{Instructor: Zsolt Pajor-Gyulai}
+\institute{Courant Institute of Mathematical Sciences, NYU}
+
+
+
+\begin{document}
+
+\maketitle
+
+To get full credit  in all of the problems, use rigorous justification and unless otherwise indicated, make sure that your solution reads as a perfect English sentence. You should only assume integers, operations and order relations as given. If you use a statement or a definition from the textbook, make sure to indicate it.
+\vspace{0.2cm}
+
+\textbf{Section 26}
+\enumb
+\item[6-7)] 
+\enumb
+\item Let $A$ and $B$ be sets and suppose $f:A\to B$ is one-to-one and onto. Prove that then
+\[
+f\circ f^{-1}=\textrm{id}_B,\qquad\textrm{and}\qquad f^{-1}\circ f=\textrm{id}_A
+\]
+\item Suppose $A$ and $B$ are sets, and $f$ and $g$ are functions with $f:A\to B$ and $g:B\to A$. Prove that if $g\circ f=\textrm{id}_A$ and $f\circ g=\textrm{id}_B$ then $f$ is one to one and $g=f^{-1}$.
+\enume
+\item[13-14)] Let $A$ be a set and $f:A\to A$. Then $f\circ f$ is also a function from $A$ to itself. Let us write $f^{(n)}$ for the $n$-fold composition
+\[
+f^{(n)}=f\circ f\circ\dots\circ f.
+\]
+Of course $f^{(1)}=f$.
+\enumb
+\item What is a sensible meaning for $f^{(0)}$?
+\item If $f$ is invertible, prove that $(f^{-1})^{(n)}=(f^{(n)})^{-1}$.
+\item Find a formula for the $n$-th iteration of the function $f::\mathbb{R}\to\mathbb{R}$ defined by $f(x)=2x+1$ given the starting value $x_0=1$. That is, find the $n$th term of
+\[
+f(1), f^{(1)}(1),f^{(2)}(1),\dots
+\]
+\enume
+\enume
+
+\textbf{Section 27}
+
+\enumb
+\item[1)] Consider the permutation $\pi=\left[\begin{array}{ccccccccc}
+1&2&3&4&5&6&7&8&9\\
+2&4&1&6&5&3&8&9&7
+\end{array}\right]$. Express $\pi$ as
+\enumb
+\item As a set of ordered pairs.
+\item In cycle notation.
+\enume
+\item[4)] How many permutations in $S_n$ do not have a cycle of length one in their disjoint cycle notation.
+\item[13)] Let $\pi=(1,2)(3,4,5,6,7)(8,9,10,11)(12)\in S_{12}$. 
+ \enumb
+\item Find the smallest positive integer $k$ for which
+\[
+\pi^{(k)}=\pi\circ\pi\circ\dots\circ\pi=\iota.
+\]
+\item Generalize the previous argument. If $\pi$'s are disjoint cycles have lenghts $n_1,n_2,\dots,n_t$, what is the smallest integer $k$ so that $\pi^{(k)}=\iota$?
+\enume
+
+\item[11)] Let $\tau_1,\tau_2,\dots,\tau_a$ be transpositions and suppose
+\[
+\pi=\tau_1\circ\tau_2\circ\dots\circ\tau_a.
+\]
+Prove that
+\[
+\pi^{-1}=\tau_a\circ\tau_{a-1}\circ\dots\circ\tau_1
+\]
+\item[Reading)] Read Definition 27.14, the following discussion, and the proof of Lemma 27.13 on pages 193-195.
+\enume
+
+\textbf{Section 40}
+\enumb
+\item[2)] Let $*$ be a binary operation defined on the real numbers $\mathbb{R}$ by $x*y=x+y-xy$. 
+\enumb
+\item Is $*$ closed on the real numbers?
+\item Is $*$ commutative?
+\item Is $*$ associative?
+\item Does $*$ have an identity element? If so, does every real number have an inverse?
+\enume
+\item[13)] Let $A$ be a set. Prove that $(2^A,\Delta)$ is a group.
+\enume
+
+\end{document}
